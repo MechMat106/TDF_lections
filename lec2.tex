@@ -1,0 +1,43 @@
+\section{Лекция 2 (Замыкания и прочее).}
+
+\subsection{Определения.}
+
+Возьмем множество $F \subseteq P_2$.
+
+\begin{definition}
+	Замыкание $[F]$ множества $F$ --- это множество всех булевых функций, получаемых из булевых функций множества $F$ с помощью операций суперпозиции, удаления и добавления фиктивных переменных.
+\end{definition}
+
+\begin{definition}
+	$F$ --- замкнуто, если $[F] = F$.
+\end{definition}
+
+\begin{enumerate}
+	\item
+	$[\{x \oplus y\}] = \{0, x, x_1 \oplus \ldots \oplus x_t (t \ge 2)\}$
+	\item
+	$P_2$ --- замкнуто.	
+\end{enumerate}
+
+\begin{definition}
+	$P_2(n)$ --- все булевы функции, существенно зависящие от не более, чем $n$ переменных.
+\end{definition}
+
+\begin{enumerate}
+	\item
+	$P_2(1)$ --- замкнуто.
+	\item
+	$P_2(2)$ --- не замкнуто. $\left( xy \in P_2(2), xyz \not\in P_2(2) \right)$
+\end{enumerate}
+\subsection{Свойства замыкания.}
+\begin{enumerate}
+	\item $F \subseteq [F].$
+	\item $F_1 \subseteq F_2 \Longrightarrow [F_1] \subseteq [F_2]$
+	\item $[[F]] = [F]$
+	\begin{proof}
+		1) $[F] \subseteq [[F]]$ (по 1, 2)
+		2)$[[F]] \subseteq [F]$.
+
+		$f(\XXX) \in [[F]] \Longrightarrow \exists$ формула $\Phi$, реализующая $f$. Пусть $f_1, \ldots, f_s$
+	\end{proof}
+\end{enumerate}

@@ -1,0 +1,184 @@
+\section{Лекция 1.}
+\subsection{Определение булевой функции.}
+$E=\lbrace0,1\rbrace$ \\
+\begin{definition}
+$f(\XXX)\in{E}$ --- функция алгебры логики {\bf (булева функция)} 
+
+$x_{i}\in{E} ~ \forall i=1,\ldots,n$\\
+\end{definition}
+
+\begin{definition}
+$P_{2}$ --- множество всех булевых функций.\\
+\end{definition}
+\begin{definition}
+$E^{n}=\{(\SIG)|~ \sigma_{i}\in E; ~ i=1,\ldots,n\}$ \\
+\end{definition}
+Булева функция задает отображение $f:E^{n}\longrightarrow{E}\\$
+$
+\begin{array}{|ccccc|c|}
+\hline
+x_1 & x_2 & \ldots & x_{n-1} & x_n & f(\XXX)  \\
+0 & 0 &\ldots & 0 & 1 & 0 ~ \textbf{или} ~ 1 \\
+0 & 0 &\ldots & 1 & 1 & 0 ~ \textbf{или} ~ 1 \\
+\ldots & \ldots & \ldots & \ldots & \ldots & \ldots\\
+1 & 1 &\ldots & 1 & 1 & 0 ~ \textbf{или} ~ 1 \\
+\hline
+\end{array}
+$
+\\
+\\
+\begin{statement}
+ $|P_2(\XXX)|=2^{2^{n}}$. \\
+\end{statement}
+\begin{proof}
+Очевидно.
+\end{proof}
+\subsection{Существенные и фиктивные переменные.} 
+\begin{definition}
+	Пусть $f(\XXX)$ -- булева функция. 
+	Тогда $x_i$ называется \textbf{существенной} переменной для $f$, если:  $\exists{\sigma_1,\sigma_2, \ldots \sigma_{i-1}, \sigma_{i+1}, \ldots, \sigma_{n}}\in\{0,1\}$, такие, что: 
+
+$ f(\sigma_1,\sigma_2, \ldots ,\sigma_{i-1}, 0, \sigma_{i+1}, \ldots, \sigma_{n})\neq f(\sigma_1,\sigma_2, \ldots, \sigma_{i-1}, 1, \sigma_{i+1}, \ldots, \sigma_{n}).$
+	В противном случае переменная называется \textbf{фиктивной} (пример придумать не очень сложно).
+\end{definition}
+\begin{enumerate}
+	\item 
+	Пусть $x_i$ --- фиктивная переменная для $f$. 
+
+    Рассмотрим функцию $g$:
+    $g(x_1,x_2,\ldots,x_{i-1},x_{i+1}, \ldots, x_{n}): \\
+    g(\sigma_1,\sigma_2 \ldots \sigma_{i-1}, \sigma_{i+1}, \ldots, \sigma_{n})=f(\sigma_1,\sigma_2 \ldots \sigma_{i-1},0, \sigma_{i+1}, \ldots, \sigma_{n}) =f(\sigma_1,\sigma_2 \ldots \sigma_{i-1},1, \sigma_{i+1}, \ldots, \sigma_{n}) $
+    Тогда говорят, что  \textbf{$g$ получена из $f$ удалением фиктивной переменной $x_i$}. \\
+
+    \item 
+     Пусть $f(\XXX)$ -- булева функция. Также, пусть имеется $y \neq \XXX $. Рассмотрим функцию $h(\XXX,y)$: \\
+$h(\SIG,\sigma)=f(\SIG)$ \\
+Тогда говорим, что \textbf{$h$ получена из $f$ добавлением фиктивной переменной  $y$.}
+
+\end{enumerate}
+\begin{definition}
+	Две булевы функции называются \textbf{равными}, если они могут быть получены друг из друга с помощью некоторого числа операций добавления или удаления фиктивных переменных. \\
+\end{definition}
+\subsection{Элементарные функции:} 
+\begin{enumerate}
+	\item От одной переменной.
+	$$
+    \begin{array}{|c|c|c|c|c|}
+    \hline
+    x & 0 & x & \bar{x} & 1 \\
+    \hline
+    0 & 0 & 0 & 1 & 1 \\
+    \hline
+    1 & 0 & 1 & 0 & 1 \\
+    \hline
+    \end{array}
+    $$
+    \item От двух переменных:
+    $$
+    \begin{array}{|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	 x & y & xy & x\vee y & x\oplus y & x\sim y & x\longrightarrow y & x|y & x\downarrow y\\
+	\hline
+	 0 & 0 & 0 & 0 & 0 & 1 &  1 & 1 & 1 \\
+	\hline
+	 0 & 1 & 0 & 1 & 1 & 0 &  1 & 1 & 0 \\
+	\hline
+	 1 & 0 & 0 & 1 & 1 & 0 &  0 & 1 & 0  \\
+	\hline
+	 1 & 1 & 1 & 1 & 0 & 1 &  1 & 0 & 0 \\
+	\hline
+	\end{array}
+	$$
+	\item
+	От трех переменных(функция "медиана"):
+	$$
+	\begin{array}{rrr|c}
+	x~~ & y~~ & z~~ & f(x,y,z)\\
+	\hline
+	\begin{array}{r} % Вложенная таблица для каждого столбца
+	0\\ 0\\ 0\\ 0\\ 1\\ 1\\ 1\\ 1\\
+	\end{array}
+	&
+	\begin{array}{r}
+	0\\ 0\\ 1\\ 1\\ 0\\ 0\\ 1\\ 1\\
+	\end{array}
+	&
+	\begin{array}{r}
+	0\\ 1\\ 0\\ 1\\ 0\\ 1\\ 0\\ 1\\
+	\end{array}
+	&
+	\begin{array}{r}
+	0\\ 0\\ 0\\ 1\\ 0\\ 1\\ 1\\ 1\\
+	\end{array}
+	\end{array}
+	$$
+\end{enumerate}	
+
+
+\subsection{Формула над системой булевых функций.}
+$F=\{f_{1}(x_{1},x_{2},...,x_{n_1});f_{2}(x_{1},x_{2},...,x_{n_2});...;f_{n}(x_{1},x_{2},...,x_{n_n})\}\subseteq P_2$ -- некоторое множество булевых функций, таких что каждой булевой функции $f_{i}(x_{1},x_{2},...,x_{n_i})$ сопоставляем функциональный символ $f_{i}$.
+\begin{definition}
+
+	\textit{Формулой над F} называется строка символов, состоящая из любых символов-переменных, обозначающих $f_1,...,f_n$ и вспомогательных символов $"("$,$")"$ ,$","$, определяемое индуктивным образом: 
+
+\textbf{База индукции:} символ любой переменной -- правильная формула над F.
+
+\textbf{Индуктивное предположение: } пусть $F_1,F_2,...,F_{n_i}$ -- некоторые формулы над F, тогда $f_i(F_1,F_2,...,F_{n_i})$ -- тоже формула над F.
+
+\end{definition}
+\begin{example}
+	$((\overline{x\vee y}) \& (z\longrightarrow y ))$ --- формула над $\{x \vee y; x \& y, x \longrightarrow y, \overline{x} \}$\\
+\end{example}
+Конъюнкция имеет приоритет над дизъюнкцией.\\
+\newpage
+Значения формулы на наборе значений переменных, входящих в формулу, определяется индуктивным образом.
+
+\textbf{База индукции:} если $f$ --- тривиальная, то все очевидно.
+
+\textbf{Индуктивное предположение:} пусть $F_1,F_2, \ldots, F_n$ -- формулы, для которых данное понятие уже определено. \\
+$F=f_i(F_1,F_2, \ldots, {F_{n_i}});$ \\
+$\XXX$ -- все переменные, содержащиеся в F. \\
+$\Omega=(\SIG)$ -- набор значений $\XXX$. \\
+$\Omega_j$ -- поднабор значений из $\Omega$ для переменных, содержащихся в формуле $F_j$. \\
+$b_j$ -- значение функции $F_j$ на наборе $\Omega_j$. \\
+Тогда значение $F$ на наборе $\Omega$ равно $f_i(b_1, \ldots, {b_n}_i)$ \\
+Пусть $F$ -- формула над $\Phi$, содержащая символы переменных $x_1, \ldots, x_n$. Тогда $F$ реализует функцию $f(\XXX)$, т.ч для любого набора $(\sigma_1, \ldots, \sigma_n)$ значений $x_1,...,x_n$ значение $f(\sigma_1, \ldots, \sigma_n)$ равно значению формулы $F$ на $\sigma_1, \ldots, \sigma_n$. \\
+$f$ получается из $\Phi$ с помощью операции суперпозиции, если F реализуется некоторой нетривиальной формулой над $\Phi$.
+
+\begin{definition}
+Две формулы $F_1$ и $F_2$ называются {\bf эквивалентными}, если они реализуют одинаковые формулы.
+\end{definition}
+
+
+$\ast \in \{\vee, \&, \oplus, \sim \}$
+
+\begin{enumerate}
+	\item 
+		$x \ast y = y \ast x$ (коммутативность)
+	\item 
+		$x \ast (y \ast z) = (x \ast y) \ast z$ (ассоциативность)
+	\item 
+		$x (y \vee z) = xy \vee xz$
+
+		$x (y \oplus z) = xy \oplus xz$
+
+		$x \vee (y  \&  z) = (x \vee y) \& (x \vee z)$
+
+		$x \vee (y  \sim  z) = (x \vee y) \sim (x \vee z)$ (дистрибутивность)
+	\item
+		$x \vee xy = x$ (поглощение)
+	\item 
+		$\overline{\overline{x}} = x$ (двойное отрицание)
+	\item 
+		$\overline{x \vee y} = \overline{x} \& \overline{y}$
+
+		$\overline{x \& y} = \overline{x} \vee \overline{y}$ (закон де Моргана)
+	\item 
+		$x\overline{x} = 0$, \smallskip $x \vee \overline{x} = 1$, \smallskip $x \oplus \overline{x} = 1$, \smallskip $x \sim \overline{x} = 0$
+
+		$xx = x$, \smallskip $x \vee x = x$, \smallskip $x \oplus x = 0$, \smallskip $x \sim x = 1$
+
+		$x \& 1 = x$, \smallskip $x \vee 1 = 1$, \smallskip $x \oplus 1 = \overline{x}$, \smallskip $x \sim 1 = x$
+
+		$x \& 0 = 0$, \smallskip $x \vee 0 = x$, \smallskip $x \oplus 0 = x$, \smallskip $x \sim 0 = \overline{x}$
+\end{enumerate}
