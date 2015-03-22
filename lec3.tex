@@ -1,0 +1,135 @@
+\begin{document}
+
+\begin{statement}
+$	\{x\&y, \bar{x} \} - \text{полное множество.} $
+\end{statement}
+\begin{proof}
+			$\{x\vee y, x \& y, \bar{x} \}  - \text{полное множество. Учитывая, что: } 
+			x \vee y = \overline{\bar{x}\&\bar{y} } $ , то по лемме о сходимости получаем нужное. 
+
+\end{proof}	
+\begin{statement}
+	$\{x \vee y, \bar{x} \}$ -- полное множество.  
+\end{statement}
+\begin{proof}
+	$	\{x\&y, \bar{x} \} - \text{полное множество.} $ Учитывая, что: $x \& y =  \overline{\bar{x}\vee\bar{y} }$, то по лемме о сходимости получаем нужное.
+\end{proof}
+\begin{statement} 
+$\{x \oplus y; x \& y, 1\}$ -- полное множество.
+\end{statement}
+\begin{proof}
+	$\bar{x}=x \oplus 1. $ Получаем нужное по лемме о сходимости и утверждению 2.
+\end{proof}	
+\begin{statement}
+	$\{x | y\}$ -- полное множество. 
+\end{statement}
+\begin{proof}
+	$x|y=\bar{x} \vee \bar{y}=\overline{x \& y}$ \\
+	$\bar{x}=x | x. \\
+	x \& y=\overline{x|y}=(x|y)|(x|y) \\
+	{x \& y, \bar{x}} \text{ -- полное по лемме о сходимости.} \Rightarrow {x|y}$ - полное.   
+\end{proof}
+\begin{corollary}
+	Из любого полного множетсва можно выделить конечное полное подмножество.
+\end{corollary}
+\begin{proof}
+	$F\subseteq P_2$ -- полное множество. $\Rightarrow$ существует формула Ф над $F$, реализующая ${x|y}$. Пусть $\{f_1, \ldots, f_s\}$ - множество всех символов функций, содержащихся в Ф.Ф -- формула над $\{f_1, \ldots, f_s\}$ $\Rightarrow  ~ x|y$ содержится в замыкании. $\{x|y\}$ -- полное. $\Rightarrow$ по лемме о сводимости $\{f_1, \ldots, f_s\} \subseteq F$ -полное.
+\end{proof}  
+\subsection{Полином Жегалкина.} 
+$f(x_1, \ldots, x_n)$ -- булева функция. $f\neq 0$. \\
+$f(x_1, \ldots, x_n)=\bigvee \limits_{f(\sigma_1, \ldots, \sigma_n)=1} x^{\sigma_1}, \ldots, x^{\sigma_n}=\bigoplus \limits_{f(\sigma_1, \ldots, \sigma_n)=1} x^{\sigma_1}, \ldots, x^{\sigma_n}=$ 
+\begin{flushright}
+$
+=\bigoplus \limits_{f(\sigma_1, \ldots, \sigma_n)=1} (x_1\oplus \bar{\sigma_1}),\ldots,(x_n\oplus \bar{\sigma_n})=\bigoplus \limits_{i_1<i_2< \ldots,<i_k} c_{i_1, \ldots, i_k}x_{i_1}, \ldots ,x_{i_k} \bigoplus C $, где  $c_{i_1, \ldots, i_k}=\{0,1\}$.
+\end{flushright} 
+$0$ - полином Жегалкина для $f=0$.(по определению) 
+
+\begin{statement}
+	Любая булева функция может быть реализована единственным полиномом Жегалкина.(с точностью до перестановки слагаемых и сомножителей). 
+\end{statement}
+\begin{proof}
+	Полином Жегалкина единственен, так как $c_{i_1}, \ldots, c_{i_n}$ -- однозначно определены $2^n$ -  коэффицентов $2^{2^n}$ - набор значений коэффицентов $2^{2^n}$ - количество функций от $n$ - переменных $\Rightarrow$ для каждой функции $\exists !$ полином Жегалкина. 
+\end{proof}
+\subsection{Функции, сохраняющие ноль и единицу. \\}
+\begin{definition}
+	$f$ - сохраняет 0, если $f(0,\ldots, 0)=0$.
+	$T_0$ - множество всех функций, сохраняющих ноль.(например, $0,x,x \& y, x \vee y, x \oplus y)$.
+\end{definition}
+\begin{definition}
+	Селекторная функция - функция, тождественна равная переменной. \\
+\end{definition}
+\begin{lemma}
+	$T_0 $ - замкнуто. 
+\end{lemma}
+\begin{proof}
+	Тождественная функция содержится в $T_0$.Значит, надо проверить, что если  \\
+	 $g(x_1,\ldots, x_n),g_1, \ldots, g_n \in T_0, \text{,то~} f(g_1, \ldots, g_n) \in T_0. \\$
+	Можем полагать, что $g_1, \ldots, g_n$ зависят от одних и тех же переменных: $x_1, \ldots, x_n$(иначе можно добавить переменные в качестве фиктивных).Тогда:\\
+	$f(g_1(x_1, \ldots, x_n),\ldots, g_n(x_1, \ldots, x_n))=h(x_1, \ldots, x_n) \\
+	h(0, \ldots, 0)=f(g_1(0,\ldots,0),\ldots,g_n(0, \ldots, 0))=f(0,\ldots,0)=0. \Rightarrow h \in T_0. 
+$
+\end{proof}
+\begin{definition}
+	$f$ - сохраняет 1, если $f(1,\ldots, 1)=1$.
+	$T_1$ - множество всех функций, сохраняющих ноль.(например, $(1,x,xy,x\rightarrow y, x \vee y)$
+\end{definition}
+\begin{lemma}
+	$T_1 $ является замкнутым классом. 
+\end{lemma}
+\begin{proof}
+	Аналогично предыдущей лемме. 
+\end{proof}
+\subsection{Монотонные функции.}	
+Определим правило сравнения на наборах из нулей и единиц.\\
+$\sigma'=\{\sigma_1',\ldots,\sigma_n'\}, \sigma''= \{\sigma_1'',\ldots,\sigma_n''\} \in \{0,1\}^n.$ \\
+Будем говорить, что $\sigma'<\sigma'', \text{если} ~ \sigma_i ' < \sigma_i '' ~ \forall i.$ \\
+Заметим, что существуют несравнимые наборы, например: (101) и (010). 
+\begin{definition}
+$f$ --монотонная, если для любых $\sigma' \text{ и } \sigma'' ~ \text{таких, что:} ~ \sigma'\leq \sigma'' $выполняется, что:$ f(\sigma')\leq f(\sigma''). $
+\end{definition}
+\begin{lemma}
+	M является замкнутым классом. 
+\end{lemma}
+\begin{proof}
+	%Воткнуть в обозначения лекций я так и не смог, потому частично взял с Лупанова. 
+Тождественная функция содержится в M. Значит, осталось проверить, что если
+$f(x_1, \ldots,x_k), g_1, \ldots, g_k \in M$, то $h=f(g_1,\ldots,g_n) \in M $. Можно считать, что  $g_1,\ldots g_n$  -- функции от одного и того же количества переменных, в противном случае недостающие переменные можно добавить в качестве несущественных.  Выберем произвольные различные наборы $ 
+\sigma'=\{\sigma_1',\ldots,\sigma_n'\}, \sigma''= \{\sigma_1'',\ldots,\sigma_n''\}$, такие что: $ \sigma' \leq \sigma''.\\
+$Рассмотим $ h(\sigma')=f(g_1(\sigma'),g_2(\sigma'), \ldots, g_k(\sigma')) ~\text{и}~ h(\sigma'')=f(g_1(\sigma''),\ldots,g_k(\sigma'')). \\
+g_i(\sigma')<g_i(\sigma''), $ так как $ g_i$ - монотонная. $ f(g_1(\sigma'),g_2(\sigma'), \ldots, g_k(\sigma')) \leq f(g_1(\sigma''),g_2(\sigma''), \ldots, g_k(\sigma''))$, так как f- монотонная.$\Rightarrow h $ - тоже монотонная. 
+\end{proof}
+\begin{lemma}[О немонотонных функциях]
+	$f(x_1,\ldots, x_n)\notin M. $ Тогда $\bar{x} \in [\{f;0;1\}].$
+\end{lemma}	
+\begin{proof}
+	$f \notin M \Rightarrow \exists \sigma' \text{и} ~ \sigma''$,такие что $ \sigma \leq \sigma''~ \text{и}~ f(\sigma')=1, f(\sigma'')=0, \text{где }  \sigma',  \sigma'' \text{-разные}. \\
+$Без ограничения общности будем считать, что $\sigma' ~\text{и} ~ \sigma''$ устроены следующим образом: \\$ 
+	\sigma'=(0,\ldots,0,\ldots,0,1,\ldots,1) \\
+	\sigma''=(\underbrace{1,\ldots,1}_k,\underbrace{0,\ldots,0}_s,\underbrace{1,\ldots,1}_{n-k-s}) \\
+	g(x)=f(\underbrace{x, \ldots, x}_k, \underbrace{0, \ldots, 0}_s,\underbrace{1,\ldots,1}_{n-k-s}) =\bar{x}.$ Так как, ($g(0)=1,g(1)=0$).
+\end{proof}
+\subsection{Самодвойственные функции.}
+	$f^*(x_1,\ldots,x_n)=\overline{f(\bar{x_1},\ldots,\bar{x_n})}.$ $f^*$ называется двойственной функцией к $f$.($(x\&y)^*=x \vee y$)	
+	Легко заметить, что $(f^*)^*=f.$
+	\begin{definition}
+		Самодвойственная функция -- функция, двойственная сама себе, множество всех таких функций обозначается $S$.
+	\end{definition}
+\begin{statement}
+	$\bar{x},x\oplus y \oplus z, m(x,y,z) \in S; ~
+	0,1,x\oplus y, x\textrightarrow y, x \& y, x \vee y \notin S $ 
+\end{statement}
+\begin{proof}
+	Явной проверкой в этом несложно убедиться. 
+\end{proof}	
+\begin{lemma}
+	$S$ является замкнутым классом.
+\end{lemma}
+\begin{proof}
+	Тождественная функция содержится в S. Значит, осталось проверить, что если $f(x_1, \ldots,x_k), g_1, \ldots, g_k \in M$, то $h=f(g_1,\ldots,g_k) \in M $. \\
+	$h^*(x_1,\ldots,x_n)=\overline{f(g_1(\bar{x_1},\ldots,\bar{x_n})),\ldots,g_k(\bar{x_1},\ldots,\bar{x_n})}=\overline{f(\overline{\overline{g_1(\bar{x_1},\ldots,\bar{x_n})}},\ldots,\overline{\overline{g_k(\bar{x_1},\ldots,\bar{x_n})}}}; \\\overline{f(\overline{g^*_{1}({x_1},\ldots,{x_n})},\ldots,\overline{g^*_k({x_1},\ldots,{x_n})}} $ \\
+	Так как $g_1,\ldots,g_k \in S \Rightarrow g_1=g^*_1;\ldots;g_k=g^*_k$, то: \\
+	$h=\overline{f(\overline{g_{1}({x_1},\ldots,{x_n})},\ldots,\overline{g_k({x_1},\ldots,{x_n})}}=f^*(g_1(x_1,\ldots, x_n),\ldots,g_k(x_1,\ldots,x_n)).\\ $
+	$f \in S \Rightarrow f^*=f$, значит \\
+	$h^*(x_1,\ldots,x_n)=f^*(x_1,\ldots,x_n)=f(x_1,\ldots,x_n)=h(x_1,\ldots,x_n). \Rightarrow h \in S.$
+\end{proof}
+\end{document}
