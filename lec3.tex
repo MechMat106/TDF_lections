@@ -1,40 +1,6 @@
 %\begin{document}
 
-\begin{statement}
-$	\{x\&y, \bar{x} \} - \text{полное множество.} $
-\end{statement}
-\begin{proof}
-			$\{x\vee y, x \& y, \bar{x} \}  - \text{полное множество. Учитывая, что: } 
-			x \vee y = \overline{\bar{x}\&\bar{y} } $ , то по лемме о сходимости получаем нужное. 
-
-\end{proof}	
-\begin{statement}
-	$\{x \vee y, \bar{x} \}$ -- полное множество.  
-\end{statement}
-\begin{proof}
-	$	\{x\&y, \bar{x} \} - \text{полное множество.} $ Учитывая, что: $x \& y =  \overline{\bar{x}\vee\bar{y} }$, то по лемме о сходимости получаем нужное.
-\end{proof}
-\begin{statement} 
-$\{x \oplus y; x \& y, 1\}$ -- полное множество.
-\end{statement}
-\begin{proof}
-	$\bar{x}=x \oplus 1. $ Получаем нужное по лемме о сходимости и утверждению 2.
-\end{proof}	
-\begin{statement}
-	$\{x | y\}$ -- полное множество. 
-\end{statement}
-\begin{proof}
-	$x|y=\bar{x} \vee \bar{y}=\overline{x \& y}$ \\
-	$\bar{x}=x | x. \\
-	x \& y=\overline{x|y}=(x|y)|(x|y) \\
-	{x \& y, \bar{x}} \text{ -- полное по лемме о сходимости.} \Rightarrow {x|y}$ - полное.   
-\end{proof}
-\begin{corollary}
-	Из любого полного множетсва можно выделить конечное полное подмножество.
-\end{corollary}
-\begin{proof}
-	$F\subseteq P_2$ -- полное множество. $\Rightarrow$ существует формула Ф над $F$, реализующая ${x|y}$. Пусть $\{f_1, \ldots, f_s\}$ - множество всех символов функций, содержащихся в Ф.Ф -- формула над $\{f_1, \ldots, f_s\}$ $\Rightarrow  ~ x|y$ содержится в замыкании. $\{x|y\}$ -- полное. $\Rightarrow$ по лемме о сводимости $\{f_1, \ldots, f_s\} \subseteq F$ -полное.
-\end{proof}  
+\section{Лекция 3.}
 \subsection{Полином Жегалкина.} 
 $f(x_1, \ldots, x_n)$ -- булева функция. $f\neq 0$. \\
 $f(x_1, \ldots, x_n)=\bigvee \limits_{f(\sigma_1, \ldots, \sigma_n)=1} x^{\sigma_1}, \ldots, x^{\sigma_n}=\bigoplus \limits_{f(\sigma_1, \ldots, \sigma_n)=1} x^{\sigma_1}, \ldots, x^{\sigma_n}=$ 
