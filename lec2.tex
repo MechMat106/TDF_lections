@@ -56,7 +56,7 @@
 	\item  $[F_1] \cup [F_2]$ не обязательно замкнуто.
 \end{enumerate}
 
-\subsection{}
+\subsection{СДНФ и СКНФ.}
 Пусть $F$ --- замкнутое множество, и $F_1 \subseteq F$.
 
 \begin{definition}
@@ -72,18 +72,18 @@
 \end{example}
 
 \begin{statement}
-	$f(\XXX)$ -- булева функция. Тогда: $f(\XXX) = (\overline{x_1} \: \& \: f(0, x_2, \ldots, x_n)) \vee (x_1 \: \& \: f(1, x_2, \ldots , x_n))$
+	$f(\XXX)$ -- булева функция. \\Тогда: $f(\XXX) = (\overline{x_1} \: \& \: f(0, x_2, \ldots, x_n)) \vee (x_1 \: \& \: f(1, x_2, \ldots , x_n))$
 \end{statement}
 \begin{proof}
-	Пусть $\sigma = (\SIG) $ --- набор значений $\XXX$.
+	Пусть $\sigma = (\SIG) $ --- набор значений переменных $\XXX$.
 \begin{enumerate}
 \item $\sigma_1 = 0$. 
 
-$\overline{\sigma_1} \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee \sigma_1 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) = 1 \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee 0 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) = f(0, \sigma_2, \ldots, \sigma_n) = f(\SIG) $
+$\overline{\sigma_1} \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee \sigma_1 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) =\\ = 1 \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee 0 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) =\\ = f(0, \sigma_2, \ldots, \sigma_n) = f(\SIG) $
 
 \item $\sigma_1 = 1$.
 
-$0 \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee 1 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) = f(1, \sigma_2, \ldots, \sigma_n) = f(\SIG) $
+$0 \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee 1 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) =\\ = f(1, \sigma_2, \ldots, \sigma_n) = f(\SIG) $
 \end{enumerate}
 \end{proof}
 
@@ -109,15 +109,14 @@ $
 
 $f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_k) \in E^k} f(\sigma_1, \ldots, \sigma_k, \ldots, x_n)$
 
-При $k = n$ получаем:  $f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_n) \in E^n} x_1^{\sigma_1}\ldots x_n^{\sigma_n}f(\SIG) =$
+При $k = n$ получаем:  $f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_n) \in E^n} x_1^{\sigma_1}\ldots x_n^{\sigma_n}f(\SIG) =\\ = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $
 
-$ = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $ -- {\large Совершенная дизъюнктивная нормальная форма ({\bf СДНФ}).}
-
-
-Пусть $f(\XXX) \ne 1$ -- булева функция.
-$\overline{x} \ne 0 \Rightarrow \overline{f(\XXX)} = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ \overline{f}(\SIG) = 1}} \overline{x_1^{\sigma_1}\ldots x_n^{\sigma_n}} = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} \overline{x_1^{\sigma_1}} \vee \ldots \vee  \overline{x_n^{\sigma_n}} = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} x_1^{\overline{\sigma_1}} \vee \ldots \vee  x_n^{\overline{\sigma_n}}$ -- {\large Совершенная конъюктивная нормальная форма ({\bf СКНФ}).}
-
-
+\begin{definition} Форма представления функции в виде\\ $f(\XXX)= \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $ называется \textit{ Совершенной дизъюнктивной нормальной формой (СДНФ).}
+\end{definition}
+\begin{definition}
+Пусть $f(\XXX) \ne 1$ -- булева функция.\\
+$\overline{x} \ne 0 \Rightarrow \overline{f(\XXX)} = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ \overline{f}(\SIG) = 1}} \overline{x_1^{\sigma_1}\ldots x_n^{\sigma_n}} =\\ = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} \overline{x_1^{\sigma_1}} \vee \ldots \vee  \overline{x_n^{\sigma_n}} = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} x_1^{\overline{\sigma_1}} \vee \ldots \vee  x_n^{\overline{\sigma_n}}$ --- это так называемая \\ \textit{ Совершенная конъюктивная нормальная форма (СКНФ).}
+\end{definition}
 
 
 
@@ -139,7 +138,10 @@ $	\{x\&y, x \vee y, \bar{x} \} - \text{полное множество.} $
 	$F$ -- полное $\Rightarrow [F] = P_2, [F] \subseteq [F'] \Rightarrow P_2 \subseteq [F'] \Rightarrow F'$ -- полное.
 \end{proof}
 
-\newpage
+%\newpage
+%зачем??? Может, тут предполагается доделать что-то? Артём, пиши, в общем.
+%убрал пока что и вставил заголовок по смыслу. Юра.
+\subsection{Ещё примеры полных множеств функций.}
 
 \begin{statement}
 $	\{x\&y, \bar{x} \} - \text{полное множество.} $
