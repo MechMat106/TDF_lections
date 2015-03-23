@@ -90,10 +90,12 @@ $0 \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee 1 \: \& \: f(1, \sigma_2, \ldo
 $
 f(\XXX) = (\overline{x_1} \: \& \: f(0, x_2, \ldots, x_n)) \vee (x_1 \: \& \: f(1, x_2, \ldots , x_n)) = $
 
-$= \overline{x_1} \: \& \: (\overline{x_2} \: \& \: f(0, 0, \ldots, x_n)) \vee (x_2 \: \& \: f(0, 1, \ldots , x_n)) \vee (x_1 \: \& \: (\overline{x_2} \: \& \: f(1, 0, \ldots, x_n)) \vee (x_1 \: \& \: f(1, 1, \ldots , x_n))) =$
+$= \overline{x_1} \: \& \: (\overline{x_2} \: \& \: f(0, 0, \ldots, x_n)) \vee (x_2 \: \& \: f(0, 1, \ldots , x_n)) \vee $
+
+$ \vee (x_1 \: \& \: (\overline{x_2} \: \& \: f(1, 0, \ldots, x_n)) \vee (x_1 \: \& \: f(1, 1, \ldots , x_n))) =$
 
 $
-\overline{x_1}\overline{x_2}f(0, 0, \ldots, x_n) \vee \overline{x_1} x_2 f(0, 1, \ldots, x_n) \vee x_1 \overline{x_2}f(1, 0, \ldots, x_n) \vee x_1 x_2 f(1, 1, \ldots, x_n)
+= \overline{x_1}\overline{x_2}f(0, 0, \ldots, x_n) \vee \overline{x_1} x_2 f(0, 1, \ldots, x_n) \vee x_1 \overline{x_2}f(1, 0, \ldots, x_n) \vee x_1 x_2 f(1, 1, \ldots, x_n)
 $
 
 \begin{definition}
@@ -103,7 +105,7 @@ $
 
 Итак, $f(\XXX)$ можно переписать в виде $\bigvee \limits_{\sigma_1, \sigma_2 \in E} f(\sigma_1, \sigma_2, x_3, \ldots, x_n)$.
 
-Мы также можем разложить $f$ по $k$ переменным:
+Мы также можем аналогично разложить $f$ по $k$ переменным:
 
 $f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_k) \in E^k} f(\sigma_1, \ldots, \sigma_k, \ldots, x_n)$
 
@@ -144,7 +146,6 @@ $	\{x\&y, \bar{x} \} - \text{полное множество.} $
 \begin{proof}
 	$	\{x\&y, \bar{x} \} - \text{полное множество.} $ Учитывая, что: $x \& y =  \overline{\bar{x}\vee\bar{y} }$, то по лемме о сходимости получаем нужное.
 \end{proof}
-\newpage
 \begin{statement} 
 $\{x \oplus y; x \& y, 1\}$ -- полное множество.
 \end{statement}
