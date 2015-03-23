@@ -5,6 +5,7 @@
 \usepackage{pscyr}
 \usepackage[T1]{fontenc}
 \usepackage{amssymb, amsmath, textcomp, amsthm, multicol}
+\usepackage{scalerel}
 \textwidth=500pt
 \textheight=750pt
 \oddsidemargin=20pt
@@ -29,6 +30,9 @@
 \renewcommand{\proofname}{Доказательство}
 \newcommand{\XXX}{x_1, \ldots, x_n}
 \newcommand{\SIG}{\sigma_1, \ldots, \sigma_n}
+
+%команда длооя амперсанда, ага.
+\DeclareMathOperator*{\amper}{\scalerel*{\&}{\sum}}
 
 
 \begin{document}
