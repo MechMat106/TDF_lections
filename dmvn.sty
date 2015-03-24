@@ -1,0 +1,211 @@
+% ===============================================================
+% DMVN Style Package
+% ===============================================================
+\ProvidesPackage{dmvn}[2006/06/01 v1.36 DMVN LaTeX Package]
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{amssymb,amsmath,mathrsfs}
+\RequirePackage{epsf}
+
+% \RequirePackage{russlh}
+% \RequirePackage{mathlh}
+% \RequirePackage{russcorr}
+% \RequirePackage{russadd}
+
+\RequirePackage{dmvnbase}
+
+\newif\if@simple
+\DeclareOption{simple}{\@simpletrue}
+\DeclareOption{nosimple}{\@simplefalse}
+
+\newif\if@dots
+\DeclareOption{dots}{\@dotstrue}
+\DeclareOption{nodots}{\@dotsfalse}
+
+\newif\if@thmnormal
+\DeclareOption{thmnormal}{\@thmnormaltrue}
+\DeclareOption{thmitshape}{\@thmnormalfalse}
+
+\newif\if@diagram
+\DeclareOption{diagram}{\@diagramtrue}
+\DeclareOption{nodiagram}{\@diagramfalse}
+
+
+\ExecuteOptions{nosimple,dots,thmitshape,diagram}
+\ProcessOptions
+
+\newdimen\theoremskip
+\theoremskip=2pt
+
+% ===============================================================
+% Document Title
+% ===============================================================
+\newcommand{\dmvntitle}[5]
+{
+\thispagestyle{empty}\vbox to \textheight{%
+\vskip40pt
+\centerline{\Large МОСКОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ}
+\medskip
+\centerline{\Large имени М.\,В.\,ЛОМОНОСОВА}
+\medskip
+\centerline{\Large Механико математический факультет}
+\par\vskip30pt
+\centerline{\epsfbox{mmlogo.2}}
+\vskip30pt
+\centerline{\Huge\textbf{\textsf{#1}}}
+\medskip
+\centerline{\Huge\textbf{\textsf{#2}}}
+\bigskip
+\centerline{\large\textsf{#3}}
+\vskip50pt
+\centerline{\Large#4}
+\vfill
+\centerline{\large#5}}
+}
+
+\newcommand{\dmvntrail}{%
+\par{\footnotesize\rightline{Последняя компиляция: \texttt{\сегодня~г}.}%
+\rightline{Обновления документа\т на сайтах \dmvnwebsite,}%
+\rightline{\dmvnwebsitemirror.\texttt{~}}%
+\rightline{Об опечатках и неточностях пишите на \dmvnmail.}\par}}
+
+% This is to prevent overfulls in the table of contents:
+% Original settings:
+% subsection: 2.3em
+% subsection: 3.2em
+\renewcommand\l@section[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{1.0em \@plus\p@}%
+    \setlength\@tempdima{2.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+    \endgroup
+  \fi}
+\newcommand{\tocsectionparam}[1]
+{\renewcommand\l@section{\@dottedtocline{2}{1.5em}{#1}}}
+\newcommand{\tocsubsectionparam}[1]
+{\renewcommand\l@subsection{\@dottedtocline{2}{1.5em}{#1}}}
+\newcommand{\tocsubsubsectionparam}[1]
+{\renewcommand\l@subsubsection{\@dottedtocline{3}{3.8em}{#1}}}
+
+
+% ===============================================================
+% Here we define all needed <<theorems>>
+% ===============================================================
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{stm}[theorem]{Утверждение}
+\newtheorem{prop}[theorem]{Предложение}
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{problem}{Задача}[section]
+\newtheorem{tproblem}{Задача}
+\newtheorem{imp}{Следствие}[section]
+
+\newcounter{defcounter}
+\@addtoreset{defcounter}{section}
+\newenvironment{df*}{\stepcounter{defcounter}\par\vskip\theoremskip\textbf{Определение \arabic{defcounter}.}}{\par\vskip\theoremskip}
+
+\newcounter{ex}[subsection]
+\newenvironment{ex}{\stepcounter{ex}\par\vskip\theoremskip\textbf{Пример \theex.}}{\par\vskip\theoremskip}
+\newenvironment{df}{\par\vskip\theoremskip\textbf{Определение.}}{\par\vskip\theoremskip}
+\newenvironment{dfn}[1]{\par\vskip\theoremskip\textbf{Определение~({#1}).}}{\par\vskip\theoremskip}
+\newenvironment{note}{\par\vskip\theoremskip\textbf{Замечание.}}{\par\vskip\theoremskip}
+\newenvironment{denote}{\par\vskip\theoremskip\textbf{Обозначение.}}{\par\vskip\theoremskip}
+\newenvironment{denotes}{\par\vskip\theoremskip\textbf{Обозначения.}}{\par\vskip\theoremskip}
+\newenvironment{hint}{\par\vskip\theoremskip\textbf{Указание.}}{\par\vskip\theoremskip}
+\newenvironment{solution}{\par\vskip\theoremskip\textbf{Решение.}}{$\blacksquare$ \par\vskip\theoremskip}
+\newenvironment{proof}{\par $\square\quad$}{\hfill $\blacksquare$ \par\vskip\theoremskip}
+\newenvironment{answer}{\textbf{Ответ:}}{\par\vskip\theoremskip}
+
+% ===============================================================
+% Because we needn't to reference far theorems, unlike S.A.T.
+% we shall give them simple two-ranked numeration.
+% ===============================================================
+\renewcommand{\theequation}{\arabic{equation}}
+\@addtoreset{equation}{section}
+\@addtoreset{ex}{section}
+
+\if@simple
+% ================================================== simple variant
+\renewcommand{\section}{\@startsection{section}{1}{0pt}%
+{3ex plus .5ex minus .2ex}{2ex plus .2ex}%
+{\center\normalfont\Large\bfseries}}
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}%
+{2.75ex plus .5ex minus .2ex}{1.5ex plus .2ex}%
+{\center\normalfont\large\bfseries}}
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0pt}%
+{2.5ex plus .5ex minus .2ex}{1ex plus .2ex}%
+{\center\normalfont\bfseries}}
+
+\renewcommand{\theproblem}{\arabic{problem}}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\renewcommand{\thestm}{\arabic{stm}}
+\renewcommand{\theimp}{\arabic{imp}}
+\renewcommand{\theex}{\arabic{ex}}
+\else
+% ================================================== article variant
+\renewcommand{\section}{\@startsection{section}{1}{0pt}%
+{3ex plus .5ex minus .2ex}{2ex plus .2ex}%
+{\center\normalfont\LARGE\bfseries\sffamily}}
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}%
+{2.75ex plus .5ex minus .2ex}{1.5ex plus .2ex}%
+{\center\normalfont\large\bfseries\sffamily}}
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0pt}%
+{2.5ex plus .5ex minus .2ex}{1ex plus .2ex}%
+{\center\normalfont\bfseries\scshape}}
+
+\renewcommand{\thetheorem}{\arabic{section}.\arabic{theorem}}
+\renewcommand{\theproblem}{\arabic{section}.\arabic{problem}}
+\renewcommand{\thestm}{\arabic{section}.\arabic{stm}}
+\renewcommand{\theimp}{\arabic{section}.\arabic{imp}}
+\renewcommand{\theex}{\arabic{subsection}.\arabic{ex}}
+\fi
+
+\if@dots
+  \def\postsection{.\@postskip@}
+  \def\postsubsection{.\@postskip@}
+  \def\postsubsubsection{.\@postskip@}
+  \def\postparagraph{.\@postskip@}
+  \def\postsubparagraph{.\@postskip@}
+\else
+  \def\postsection{\@postskip@}
+  \def\postsubsection{\@postskip@}
+  \def\postsubsubsection{\@postskip@}
+  \def\postparagraph{\@postskip@}
+  \def\postsubparagraph{\@postskip@}
+\fi
+
+% ===============================================================
+% Here we redefine standard theorem environment
+% ===============================================================
+\if@thmnormal
+  \renewcommand{\@begintheorem}[2]{\par\vskip\theoremskip\bfseries#1\;#2. \normalfont}
+  \renewcommand{\@endtheorem}[2]{\par\vskip\theoremskip}
+  \renewcommand{\@opargbegintheorem}[3]{\par\vskip\theoremskip\bfseries#1\;#2\ (#3). \normalfont}
+\else
+  \renewcommand{\@begintheorem}[2]{\par\vskip\theoremskip\bfseries#1\;#2. \normalfont\itshape}
+  \renewcommand{\@endtheorem}[2]{\par\vskip\theoremskip}
+  \renewcommand{\@opargbegintheorem}[3]{\par\vskip\theoremskip\bfseries#1\;#2\ (#3). \normalfont\itshape}
+\fi
+
+% Standard page layout
+\textheight=250mm
+\textwidth=180mm
+\oddsidemargin=-10.4mm
+\topmargin=-20.4mm
+
+\if@diagram
+  \input diagram
+\else
+  % Diagram package destroys pictures made with put() statements 
+\fi
+
+\endinput
