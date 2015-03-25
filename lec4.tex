@@ -1,0 +1,11 @@
+\begin{lemma} [О не самодвойственной функции] Пусть $f(\XXX)\not\in S$, тогда $0,\,1 \in [\{f, \bar{x}\}]$
+\end{lemma}
+\begin{proof} 
+    Пусть $f(\XXX)\not\in S$, тогда  $f^*(\XXX) = \overline{f(\bar{x}_1,\ldots,\bar{x}_n)} \neq f(\XXX) \Rightarrow \exists \sigma = (\sigma_1,\ldots,\sigma_n),$ т.ч. $\overline{f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n)} \neq f(\sigma_1,\ldots,\sigma_n) \Rightarrow f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n) = f(\sigma_1,\ldots,\sigma_n) = C.$\\
+    Будем считать, что $(\SIG) = (\underbrace{0,\ldots,0}_k,\underbrace{1,\ldots,1}_{n-k})$.\\
+    Пусть $g(x) = f(\underbrace{x,\ldots,x}_k,\underbrace{ \bar{x},\ldots,\bar{x}}_{n-k}).$\\
+    $g(0) = f(\underbrace{0,\ldots,0}_k,\underbrace{ 1,\ldots,1}_{n-k}) = f(\SIG),\\
+    g(1)= f(\underbrace{1,\ldots,1}_k,\underbrace{ 0,\ldots,0}_{n-k}) = f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n)$,\\ значит, 
+    $g(0) = g(1) = C, $ причём $g$ задаётся формулой над $\{f,\,\bar{x}\} \Rightarrow g \in S$.\\
+    Получаем $C \in  [\{f, \bar{x}\}] \Rightarrow \bar{C} \in [\{f, \bar{x}\}] \Rightarrow 0,\,1 \in [\{f, \bar{x}\}].$
+\end{proof}
