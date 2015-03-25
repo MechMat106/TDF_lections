@@ -1,0 +1,43 @@
+\ProvidesPackage{russlh}[2000/00/00 v0.0]
+
+\language\l@russian
+\lefthyphenmin=2
+\righthyphenmin=2
+
+\input {t2aenc.def}
+\renewcommand{\encodingdefault}{T2A}
+\fontencoding{T2A}\normalsize
+
+% From ltfinal.dtx
+\def\reserved@a#1#2{%
+   \@tempcnta#1\relax
+   \@tempcntb#2\relax
+   \reserved@b
+}
+\def\reserved@b{%
+   \ifnum\@tempcnta>\@tempcntb\else
+      \reserved@c\@tempcnta
+      \advance\@tempcnta\@ne
+      \expandafter\reserved@b
+   \fi
+}
+\def\reserved@c#1{\catcode#1=11\relax}
+% End from ltfinal.dtx
+\reserved@a{192}{223} % А-Я
+\reserved@a{224}{255} % а-я
+\catcode156=11 % Ё
+\catcode188=11 % ё
+
+\providecommand{\glqq}{\quotedblbase}
+\providecommand{\grqq}{\textquotedblleft}
+\providecommand{\flqq}{\guillemotleft}
+\providecommand{\frqq}{\guillemotright}
+\providecommand{\No}{\textnumero}
+% \лк      \  л   к
+\providecommand\^^eb^^ea{\guillemotleft}
+% \пк      \  п   к
+\providecommand\^^ef^^ea{\guillemotright}
+% \номер   \  н   о   м   е   р
+\providecommand\^^ed^^ee^^ec^^e5^^f0{\textnumero}
+
+\endinput
