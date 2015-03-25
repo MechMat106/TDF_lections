@@ -39,21 +39,14 @@ $E^{n}=\{(\SIG)|~ \sigma_{i}\in E; ~ i=1,\ldots,n\}$ \\
 $ f(\sigma_1,\sigma_2, \ldots ,\sigma_{i-1}, 0, \sigma_{i+1}, \ldots, \sigma_{n})\neq f(\sigma_1,\sigma_2, \ldots, \sigma_{i-1}, 1, \sigma_{i+1}, \ldots, \sigma_{n}).$
 	В противном случае переменная называется \textbf{фиктивной} (пример придумать не очень сложно).
 \end{definition}
-\begin{enumerate}
-	\item 
-	Пусть $x_i$ --- фиктивная переменная для $f$. 
+%\begin{enumerate}
 
-    Рассмотрим функцию $g$:
-    $g(x_1,x_2,\ldots,x_{i-1},x_{i+1}, \ldots, x_{n}): \\
-    g(\sigma_1,\sigma_2 \ldots \sigma_{i-1}, \sigma_{i+1}, \ldots, \sigma_{n})=f(\sigma_1,\sigma_2 \ldots \sigma_{i-1},0, \sigma_{i+1}, \ldots, \sigma_{n}) =f(\sigma_1,\sigma_2 \ldots \sigma_{i-1},1, \sigma_{i+1}, \ldots, \sigma_{n}) $
-    Тогда говорят, что  \textbf{$g$ получена из $f$ удалением фиктивной переменной $x_i$}. \\
+Пусть $x_i$ --- фиктивная переменная для $f$. Рассмотрим функцию $g(x_1,x_2,\ldots,x_{i-1},x_{i+1}, \ldots, x_{n}),\\
+    g(\sigma_1,\sigma_2 \ldots \sigma_{i-1}, \sigma_{i+1}, \ldots, \sigma_{n})=f(\sigma_1,\sigma_2 \ldots \sigma_{i-1},0, \sigma_{i+1}, \ldots, \sigma_{n}) =f(\sigma_1,\sigma_2 \ldots \sigma_{i-1},1, \sigma_{i+1}, \ldots, \sigma_{n}). $ Тогда говорят, что  \textbf{$g$ получена из $f$ удалением фиктивной переменной $x_i$}.
 
-    \item 
-     Пусть $f(\XXX)$ --- булева функция. Также, пусть имеется $y \neq \XXX $. Рассмотрим функцию $h(\XXX,y)$: \\
-$h(\SIG,\sigma)=f(\SIG)$ \\
-Тогда говорим, что \textbf{$h$ получена из $f$ добавлением фиктивной переменной  $y$.}
+Пусть $f(\XXX)$ --- булева функция. Также, пусть имеется $y \neq \XXX $. Рассмотрим функцию $h(\XXX,y)$, $h(\SIG,\sigma)=f(\SIG)$. Тогда говорим, что \textbf{$h$ получена из $f$ добавлением фиктивной переменной  $y$.}
 
-\end{enumerate}
+%\end{enumerate}
 \begin{definition}
 	Две булевы функции называются \textbf{равными}, если они могут быть получены друг из друга с помощью некоторого числа операций добавления или удаления фиктивных переменных. \\
 \end{definition}
