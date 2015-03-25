@@ -49,9 +49,9 @@
 
 		$\Phi'$ --- формулу над $F$, реализующую функцию $F \Rightarrow f \in [F] \Rightarrow [[F]] \subseteq [F]$.
 	\end{proof}
-	\item  $[F_1] \cap [F_2]$ -- замкнуто.
+	\item  $[F_1] \cap [F_2]$ --- замкнуто.
 	\begin{proof}
-		Возьмем $f \in [[F_1] \cap [F_2]]$: $f$ реализуется формулой $\Phi$ над $[F_1] \cap [F_2]$. Пусть $f_1, \ldots f_s$ -- все функциональные символы из $\Phi$. $\forall \: i \: f_i$ реализуется и формулой $\Phi_1$ над $F_1$ и формулой $\Phi_2$ над $F_2 \Rightarrow f \in  [F_1] \cap [F_2]$.
+		Возьмем $f \in [[F_1] \cap [F_2]]$: $f$ реализуется формулой $\Phi$ над $[F_1] \cap [F_2]$. Пусть $f_1, \ldots f_s$ --- все функциональные символы из $\Phi$. $\forall \: i \: f_i$ реализуется и формулой $\Phi_1$ над $F_1$ и формулой $\Phi_2$ над $F_2 \Rightarrow f \in  [F_1] \cap [F_2]$.
 	\end{proof}
 	\item  $[F_1] \cup [F_2]$ не обязательно замкнуто.
 \end{enumerate}
@@ -68,11 +68,11 @@
 \end{definition}
 
 \begin{example}
-	$P_2$ -- полное множество.
+	$P_2$ --- полное множество.
 \end{example}
 
 \begin{statement}
-	$f(\XXX)$ -- булева функция. \\Тогда: $f(\XXX) = (\overline{x_1} \: \& \: f(0, x_2, \ldots, x_n)) \vee (x_1 \: \& \: f(1, x_2, \ldots , x_n))$
+	$f(\XXX)$ --- булева функция. \\Тогда: $f(\XXX) = (\overline{x_1} \: \& \: f(0, x_2, \ldots, x_n)) \vee (x_1 \: \& \: f(1, x_2, \ldots , x_n))$
 \end{statement}
 \begin{proof}
 	Пусть $\sigma = (\SIG) $ --- набор значений переменных $\XXX$.
@@ -114,7 +114,7 @@ $f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_k) \in E^k} f(\sigma_1, \ld
 \begin{definition} Форма представления функции в виде\\ $f(\XXX)= \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $ называется\\ \textit{ Совершенной дизъюнктивной нормальной формой (СДНФ).}
 \end{definition}
 \begin{definition}
-Пусть $f(\XXX) \ne 1$ -- булева функция.\\
+Пусть $f(\XXX) \ne 1$ --- булева функция.\\
 $\overline{x} \ne 0 \Rightarrow \overline{f(\XXX)} = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ \overline{f}(\SIG) = 1}} \overline{x_1^{\sigma_1}\ldots x_n^{\sigma_n}} =\\ = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} \overline{x_1^{\sigma_1}} \vee \ldots \vee  \overline{x_n^{\sigma_n}} = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} x_1^{\overline{\sigma_1}} \vee \ldots \vee  x_n^{\overline{\sigma_n}}$ --- это так называемая \\ \textit{ Совершенная конъюктивная нормальная форма (СКНФ).}
 \end{definition}
 
@@ -122,20 +122,20 @@ $\overline{x} \ne 0 \Rightarrow \overline{f(\XXX)} = \bigvee \limits_{\substack{
 
 
 \begin{statement}
-$	\{x\&y, x \vee y, \bar{x} \} - \text{полное множество.} $
+$	\{x\&y, x \vee y, \bar{x} \}$ --- полное множество.
 \end{statement}
 \begin{proof}
-    Если $f \ne 0$, то СДНФ - формула над $\{x\&y, x \vee y, \bar{x} \}$
+    Если $f \ne 0$, то СДНФ --- формула над $\{x\&y, x \vee y, \bar{x} \}$
     Если $f = 0$, то $f = \overline{x} \& x \Rightarrow $ любая функция реализуется формулой над $\{x\&y, x \vee y, \bar{x} \}$.
 \end{proof}
 
-\begin{lemma}[О сводимости полных множеств.]
-	$F, F' \subseteq P_2$, $F$ -- полное множество и любая функция из $F$ может быть реализована формулой над $F' \Rightarrow F'$ -- полное множество.
+\begin{lemma}[О сводимости полных множеств]
+	$F, F' \subseteq P_2$, $F$ --- полное множество, и любая функция из $F$ может быть реализована формулой над $F' \Rightarrow F'$ --- полное множество.
 \end{lemma}
 \begin{proof}
 	$\forall$ функция из $F$ может быть реализована формулой над $F' \Rightarrow F \subseteq [F'] \Rightarrow [F] \subseteq [[F']] = [F'].$
 
-	$F$ -- полное $\Rightarrow [F] = P_2, [F] \subseteq [F'] \Rightarrow P_2 \subseteq [F'] \Rightarrow F'$ -- полное.
+	$F$ --- полное $\Rightarrow [F] = P_2, [F] \subseteq [F'] \Rightarrow P_2 \subseteq [F'] \Rightarrow F'$ --- полное.
 \end{proof}
 
 %\newpage
@@ -144,37 +144,34 @@ $	\{x\&y, x \vee y, \bar{x} \} - \text{полное множество.} $
 \subsection{Ещё примеры полных множеств функций.}
 
 \begin{statement}
-$	\{x\&y, \bar{x} \} - \text{полное множество.} $
+$	\{x\&y, \bar{x} \}$ --- полное множество. 
 \end{statement}
 \begin{proof}
-			$\{x\vee y, x \& y, \bar{x} \}  - \text{полное множество. Учитывая, что: } 
-			x \vee y = \overline{\bar{x}\&\bar{y} } $ , то по лемме о сходимости получаем нужное. 
-
-\end{proof}	
+			$\{x\vee y, x \& y, \bar{x} \}$ --- полное множество. Учитывая, что $x \vee y = \overline{\bar{x}\&\bar{y} } $ , то по лемме о сводимости получаем нужное. \end{proof}	
 \begin{statement}
-	$\{x \vee y, \bar{x} \}$ -- полное множество.  
+	$\{x \vee y, \bar{x} \}$ --- полное множество.  
 \end{statement}
 \begin{proof}
-	$	\{x\&y, \bar{x} \} - \text{полное множество.} $ Учитывая, что: $x \& y =  \overline{\bar{x}\vee\bar{y} }$, то по лемме о сходимости получаем нужное.
+	$	\{x\&y, \bar{x} \}$ --- \text{полное множество.}  Учитывая, что: $x \& y =  \overline{\bar{x}\vee\bar{y} }$, то по лемме о сводимости получаем нужное.
 \end{proof}
 \begin{statement} 
-$\{x \oplus y; x \& y, 1\}$ -- полное множество.
+$\{x \oplus y; x \& y, 1\}$ --- полное множество.
 \end{statement}
 \begin{proof}
-	$\bar{x}=x \oplus 1. $ Получаем нужное по лемме о сходимости и утверждению 2.
+	$\bar{x}=x \oplus 1. $ Получаем нужное по лемме о сводимости и утверждению 2.
 \end{proof}	
 \begin{statement}
-	$\{x | y\}$ -- полное множество. 
+	$\{x | y\}$ --- полное множество. 
 \end{statement}
 \begin{proof}
-	$x|y=\bar{x} \vee \bar{y}=\overline{x \& y}$ \\
-	$\bar{x}=x | x. \\
-	x \& y=\overline{x|y}=(x|y)|(x|y) \\
-	{x \& y, \bar{x}} \text{ -- полное по лемме о сходимости.} \Rightarrow {x|y}$ - полное.   
+	$x|y=\bar{x} \vee \bar{y}=\overline{x \& y};$ \\
+	$\bar{x}=x | x; \\
+	x \& y=\overline{x|y}=(x|y)|(x|y); \\
+	\{x \& y,\, \bar{x}\}$ --- полное по лемме о сводимости, значит $\{x|y\}$ --- полное.   
 \end{proof}
 \begin{corollary}
 	Из любого полного множества можно выделить конечное полное подмножество.
 \end{corollary}
 \begin{proof}
-	$F\subseteq P_2$ -- полное множество. $\Rightarrow$ существует формула Ф над $F$, реализующая ${x|y}$. Пусть $\{f_1, \ldots, f_s\}$ - множество всех символов функций, содержащихся в Ф.Ф -- формула над $\{f_1, \ldots, f_s\}$ $\Rightarrow  ~ x|y$ содержится в замыкании. $\{x|y\}$ -- полное. $\Rightarrow$ по лемме о сводимости $\{f_1, \ldots, f_s\} \subseteq F$ -полное.
+	$F\subseteq P_2$ --- полное множество. $\Rightarrow$ существует формула Ф над $F$, реализующая ${x|y}$. Пусть $\{f_1, \ldots, f_s\}$ --- множество всех символов функций, содержащихся в Ф.Ф --- формула над $\{f_1, \ldots, f_s\}$ $\Rightarrow  ~ x|y$ содержится в замыкании. $\{x|y\}$ --- полное. $\Rightarrow$ по лемме о сводимости $\{f_1, \ldots, f_s\} \subseteq F$ --- полное.
 \end{proof}  
