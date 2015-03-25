@@ -5,7 +5,7 @@
 \usepackage{pscyr}
 \usepackage[T1]{fontenc}
 \usepackage{amssymb, amsmath, textcomp, amsthm, multicol}
-\usepackage{scalerel}
+%\usepackage{scalerel}
 \textwidth=500pt
 \textheight=750pt
 \oddsidemargin=20pt
@@ -32,7 +32,8 @@
 \newcommand{\SIG}{\sigma_1, \ldots, \sigma_n}
 
 %команда для амперсанда, ага.
-\DeclareMathOperator*{\amper}{\scalerel*{\&}{\sum}}
+%\DeclareMathOperator*{\amper}{\scalerel*{\&}{\sum}}
+\DeclareMathOperator*{\amper}{\&} % должно работать для старых дистрибутивов теха.
 
 %правильные больше-или-равно и меньше-или-равно
 \renewcommand{\geq}{\geqslant}
