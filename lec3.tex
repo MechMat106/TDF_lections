@@ -34,11 +34,10 @@ $
 	Селекторная функция -- функция, тождественна равная переменной. 
 \end{definition}
 \begin{lemma}
-	$T_0 $ -- замкнуто. 
+	$T_0 $ --- замкнуто. 
 \end{lemma}
 \begin{proof}
-	Тождественная функция содержится в $T_0$. Значит, надо проверить, что если  \\
-	 $f(x_1,\ldots, x_n),g_1, \ldots, g_n \in T_0, \text{, то~} f(g_1, \ldots, g_n) \in T_0.$ \\
+	Тождественная функция содержится в $T_0$. Значит, надо проверить, что если $f(x_1,\ldots, x_n),g_1, \ldots, g_n \in T_0, \text{, то~} f(g_1, \ldots, g_n) \in T_0.$ \\
 	Можем полагать, что $g_1, \ldots, g_n$ зависят от одних и тех же переменных: $x_1, \ldots, x_n$ (иначе можно добавить переменные в качестве фиктивных). Тогда:\\
 	$f(g_1(x_1, \ldots, x_n),\ldots, g_n(x_1, \ldots, x_n))=h(x_1, \ldots, x_n) \\
 	h(0, \ldots, 0)=f(g_1(0,\ldots,0),\ldots,g_n(0, \ldots, 0))=f(0,\ldots,0)=0. \Rightarrow h \in T_0. 
@@ -49,7 +48,7 @@ $
 	$T_1$ -- множество всех функций, сохраняющих единицу. Например, $1,\,x,\,xy\rightarrow y, \,x \vee y$.
 \end{definition}
 \begin{lemma}
-	$T_1 $ является замкнутым классом. 
+	$T_1 $ --- замкнуто. 
 \end{lemma}
 \begin{proof}
 	Аналогично предыдущей лемме. 
@@ -77,11 +76,12 @@ g_i(\sigma')<g_i(\sigma''), $ так как $ g_i$ -- монотонная. $ f(
 	$f(x_1,\ldots, x_n)\notin M. $ Тогда $\bar{x} \in [\{f;0;1\}].$
 \end{lemma}	
 \begin{proof}
-	$f \notin M \Rightarrow \exists \,\sigma' \text{и} ~ \sigma'': \sigma' \leq \sigma''~ \text{и}~ f(\sigma')=1, f(\sigma'')=0, \text{где }  \sigma',  \sigma'' \text{ -- разные}. \\
-$Без ограничения общности будем считать, что $\sigma' ~\text{и} ~ \sigma''$ устроены следующим образом: \\$ 
+	$f \notin M \Rightarrow \exists \,\sigma',\sigma'': \sigma' \leq \sigma'',\,$ $f(\sigma')=1,\, f(\sigma'')=0.$
+%,\, \text{где }  \sigma',  \sigma'' \text{ ---разные}. $\\ кажется, это лишнее?
+Без ограничения общности будем считать, что $\sigma' ~\text{и} ~ \sigma''$ устроены следующим образом: \\$ 
 	\sigma'=(0,\ldots,0,\ldots,0,1,\ldots,1) \\
 	\sigma''=(\underbrace{1,\ldots,1}_k,\underbrace{0,\ldots,0}_s,\underbrace{1,\ldots,1}_{n-k-s}) \\
-	g(x)=f(\underbrace{x, \ldots, x}_k, \underbrace{0, \ldots, 0}_s,\underbrace{1,\ldots,1}_{n-k-s}) =\bar{x}.$ (Так как $g(0)=1,\,g(1)=0$).
+	g(x)=f(\underbrace{x, \ldots, x}_k, \underbrace{0, \ldots, 0}_s,\underbrace{1,\ldots,1}_{n-k-s}) =\bar{x},$ так как $g(0)=1 ~ \text{и} ~ g(1)=0$.
 \end{proof}
 \subsection{Самодвойственные функции.}
 \begin{definition} Двойственной функцией к $f(\XXX)$ называется функция $f^*(x_1,\ldots,x_n)=\overline{f(\bar{x}_1,\ldots,\bar{x}_n)}.$ \end{definition}
