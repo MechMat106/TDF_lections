@@ -35,6 +35,10 @@
 %команда для амперсанда, ага.
 \DeclareMathOperator*{\amper}{\scalerel*{\&}{\sum}}
 
+%правильные переносы
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
 %правильные больше-или-равно и меньше-или-равно
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\leq}{\leqslant}
@@ -45,6 +49,9 @@
 \include{lec1}
 \include{lec2}
 \include{lec3}
+\include{lec4}
+
+% это 7ая лекция, кажется.
 \include{lecn}
 
 \end{document}
