@@ -14,7 +14,7 @@
 \begin{definition}
 Булева функция называется линейной, если степень её полинома Жегалкина не превосходит $1$.
 \end{definition}
-Здесь под степень полинома Жегалкина понимается максимальная длина слагаемого в нём или, говоря алгебраическим языком, его степень как многочлена над $\mathbb{Z}_2$. Например, степень полинома $xyz \oplus x \oplus 1$ равна $3$. 
+Здесь под степенью полинома Жегалкина понимается максимальная длина слагаемого в нём или, говоря алгебраическим языком, его степень как многочлена над $\mathbb{Z}_2$. Например, степень полинома $xyz \oplus x \oplus 1$ равна $3$. 
 \begin{definition}
 $L$ --- класс всех линейных булевых функций.
 \end{definition}
@@ -28,3 +28,17 @@ x \to y = \bar{x} \vee xy = xy \oplus x \oplus 1 ~ (\deg = 2),\\
 x \vee y = xy \oplus x \oplus y ~ (\deg = 2)$.
 %дописать про последнюю функцию x\& y !!!
 \end{proof}
+\begin{lemma}
+$L$ является замкнутым классом.
+\end{lemma}
+\begin{proof}
+$x \in L$. Достаточно доказать, что $f(x_1, \ldots, x_k),\, g_1(\XXX),\, \ldots,\,\\ g_k(\XXX) \in L \Rightarrow h(\XXX) = f(g_1(\XXX),\ldots,g_k(\XXX)) \in L $.\\
+Проверим это напрямую:\\
+$f\in L \Rightarrow f(x_1,\ldots,x_k) = c_1x_1 \oplus \ldots \oplus c_kx_k \oplus c; ~ c_i,c 
+\in\{0,1\}.$\\
+$g_1, \ldots, g_k \in L \Rightarrow g_i(\XXX) = d_{i1}x_1 \oplus \ldots \oplus d_{in}x_n \oplus d_i; ~ d_{ij},d_i \in \{0,1\}. $\\
+$h(\XXX) = c_1\big(d_{11}x_1 \oplus \ldots \oplus d_{1n}x_n \oplus d_1 \big) \oplus \ldots \oplus c_k\big(d_{k1}x_1 \oplus \ldots \oplus d_{kn}x_n \oplus d_k \big) \oplus c = \\ = (c_1d_{11} \oplus c_kd_{k1})x_1 \oplus \ldots \oplus (c_1d_{1n} \oplus \ldots \oplus c_kd_{kn})x_n \oplus (c_1d_1 \oplus \ldots c_kd_k \oplus c).$ Видно, что это линейная функция.
+\end{proof}
+
+
+
