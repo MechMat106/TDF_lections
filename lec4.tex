@@ -1,0 +1,44 @@
+\begin{lemma} [О несамодвойственной функции] Пусть $f(\XXX)\not\in S$, тогда $0,\,1 \in [\{f, \bar{x}\}]$
+\end{lemma}
+\begin{proof} 
+    Пусть $f(\XXX)\not\in S$, тогда  $f^*(\XXX) = \overline{f(\bar{x}_1,\ldots,\bar{x}_n)} \neq f(\XXX) \Rightarrow \exists \sigma = (\sigma_1,\ldots,\sigma_n),$ т.ч. $\overline{f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n)} \neq f(\sigma_1,\ldots,\sigma_n) \Rightarrow f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n) = f(\sigma_1,\ldots,\sigma_n) = C.$\\
+    Будем считать, что $(\SIG) = (\underbrace{0,\ldots,0}_k,\underbrace{1,\ldots,1}_{n-k})$.\\
+    Пусть $g(x) = f(\underbrace{x,\ldots,x}_k,\underbrace{ \bar{x},\ldots,\bar{x}}_{n-k}).$\\
+    $g(0) = f(\underbrace{0,\ldots,0}_k,\underbrace{ 1,\ldots,1}_{n-k}) = f(\SIG),\\
+    g(1)= f(\underbrace{1,\ldots,1}_k,\underbrace{ 0,\ldots,0}_{n-k}) = f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n)$,\\ значит, 
+    $g(0) = g(1) = C, $ причём $g$ задаётся формулой над $\{f,\,\bar{x}\} \Rightarrow g \in S$.\\
+    Получаем $C \in  [\{f, \bar{x}\}] \Rightarrow \bar{C} \in [\{f, \bar{x}\}] \Rightarrow 0,\,1 \in [\{f, \bar{x}\}].$
+\end{proof}
+
+\subsection{Линейные функции.}
+\begin{definition}
+Булева функция называется линейной, если степень её полинома Жегалкина не превосходит $1$.
+\end{definition}
+Здесь под степенью полинома Жегалкина понимается максимальная длина слагаемого в нём или, говоря алгебраическим языком, его степень как многочлена над $\mathbb{Z}_2$. Например, степень полинома $xyz \oplus x \oplus 1$ равна $3$. 
+\begin{definition}
+$L$ --- класс всех линейных булевых функций.
+\end{definition}
+\begin{proposition}
+1) $0,\, 1,\, x,\, \bar{x},\, x\oplus y,\, x \sim y \in L$, 2) $x \to y,\, x \vee y,\, x\& y \not\in L.$
+\end{proposition}
+\begin{proof}
+Первая часть утверждения очевидна, кроме утверждения про функцию $x \sim y$. Чтобы доказать оставшееся, представим следующие функции в виде полиномов:\\
+$x \sim y = x \oplus y \oplus 1 ~ (\deg = 1),\\
+x \to y = \bar{x} \vee xy = xy \oplus x \oplus 1 ~ (\deg = 2),\\
+x \vee y = xy \oplus x \oplus y ~ (\deg = 2)$.
+%дописать про последнюю функцию x\& y !!!
+\end{proof}
+\begin{lemma}
+$L$ является замкнутым классом.
+\end{lemma}
+\begin{proof}
+$x \in L$. Достаточно доказать, что $f(x_1, \ldots, x_k),\, g_1(\XXX),\, \ldots,\,\\ g_k(\XXX) \in L \Rightarrow h(\XXX) = f(g_1(\XXX),\ldots,g_k(\XXX)) \in L $.\\
+Проверим это напрямую:\\
+$f\in L \Rightarrow f(x_1,\ldots,x_k) = c_1x_1 \oplus \ldots \oplus c_kx_k \oplus c; ~ c_i,c 
+\in\{0,1\}.$\\
+$g_1, \ldots, g_k \in L \Rightarrow g_i(\XXX) = d_{i1}x_1 \oplus \ldots \oplus d_{in}x_n \oplus d_i; ~ d_{ij},d_i \in \{0,1\}. $\\
+$h(\XXX) = c_1\big(d_{11}x_1 \oplus \ldots \oplus d_{1n}x_n \oplus d_1 \big) \oplus \ldots \oplus c_k\big(d_{k1}x_1 \oplus \ldots \oplus d_{kn}x_n \oplus d_k \big) \oplus c = \\ = (c_1d_{11} \oplus c_kd_{k1})x_1 \oplus \ldots \oplus (c_1d_{1n} \oplus \ldots \oplus c_kd_{kn})x_n \oplus (c_1d_1 \oplus \ldots c_kd_k \oplus c).$ Видно, что это линейная функция.
+\end{proof}
+
+
+
