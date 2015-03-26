@@ -39,6 +39,14 @@ $f\in L \Rightarrow f(x_1,\ldots,x_k) = c_1x_1 \oplus \ldots \oplus c_kx_k \oplu
 $g_1, \ldots, g_k \in L \Rightarrow g_i(\XXX) = d_{i1}x_1 \oplus \ldots \oplus d_{in}x_n \oplus d_i; ~ d_{ij},d_i \in \{0,1\}. $\\
 $h(\XXX) = c_1\big(d_{11}x_1 \oplus \ldots \oplus d_{1n}x_n \oplus d_1 \big) \oplus \ldots \oplus c_k\big(d_{k1}x_1 \oplus \ldots \oplus d_{kn}x_n \oplus d_k \big) \oplus c = \\ = (c_1d_{11} \oplus c_kd_{k1})x_1 \oplus \ldots \oplus (c_1d_{1n} \oplus \ldots \oplus c_kd_{kn})x_n \oplus (c_1d_1 \oplus \ldots c_kd_k \oplus c).$ Видно, что это линейная функция.
 \end{proof}
+\begin{lemma}[О нелинейной функции] Пусть $f(\XXX)\not\in L$. Тогда $x\& y \in [\{f, \bar{x}, 0, 1\}].$
+\end{lemma}
+\begin{proof} Пусть $f\not\in L$, тогда степень её полинома Жегалкина равна $k \geq 2$. Выберем нелинейное слагаемое степени $l \geq 2$ в этом полиноме. Без ограничения общности можно считать, что это слагаемое $x_1...x_l$. 
 
+Рассмотрим функцию $g(x,y) = f(x, \overbrace{y,...,y}^{l-1}, 0,...,0)$. Ясно, что при подстановке аргументов $(x, y,...,y, 0,...,0)$ в полином Жегалкина для $f$ занулятся все слагаемые, степень которых больше $l$, поскольку в них будет перемножаться хотя бы один ноль. %написать это нормально!
+Далее, $g(x,y) = x\underbrace{y...y}_{l-1} \oplus \ldots = xy \oplus c_1x \oplus c_2y \oplus c$, так как %во всех остальных слагаемых, кроме самого первого, не может быть произведения $xy$ (их степень не превосходит ). 
+%написать это нормально!
+
+\end{proof}
 
 
