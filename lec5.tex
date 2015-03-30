@@ -1,0 +1,58 @@
+\subsection{Предполные классы}
+
+\begin{definition}
+	Пусть $F \subseteq P_2$. Тогда $F$ -- предполный, если: 
+	\begin{enumerate}
+		\item $F \ne P_2$
+		\item $[F] = F$
+		\item $\forall f \in F: [F \cup {f}] = P_2$
+	\end{enumerate}
+\end{definition}
+
+В клетке таблице снизу стоит функция $\in$ строке и $\not \in $ столбцу $\Rightarrow$ ни один из классов не содержится в другом.
+
+$$\begin{array}{|c|c|c|c|c|c|}
+\hline
+ & T_0 & T_1 & L & S & M  \\
+\hline
+T_0 &  & 0 & xy & xy & x \oplus y \\
+\hline
+T_1 & 1 & &  xy & xy &  x ~ y \\
+\hline
+L & \overline{x} & \overline{x} &  & x \oplus y & \overline{x}\\
+\hline
+S & \overline{x} & \overline{x} & m(x, y, z) &  & \overline{x} \\
+\hline
+M & 1 & 0 & xy & xy &  \\
+\hline
+\end{array}$$
+\\
+\\\\
+
+\begin{theorem}
+	$T_0, T_1, S, M, L$ -- множеcтво всех предполных классов.
+\end{theorem}
+
+\begin{proof}
+	Пусть есть $A = [A]$ -- предполный. Возьмем класс $M$.
+
+	Пусть $A \subset M \Rightarrow \exists f \in M \setminus A : [A \cup {f}] \subseteq [M] = M$.
+
+	Аналогичные рассуждения можно провести и для остальных классов.
+\end{proof}
+
+\subsection{Принцип двойственности}
+{\bf Формулировка.}
+
+Пусть формула $\Phi$ над $F$ задает функцию $f$. Формула $\Phi'$, получающаяся из $\Phi$ путем замены $f_i \rightarrow f_i^{*}$ будет реализовывать $f^{*}$.
+
+$\left( \text{Напомним, что функция } f^{*}(\XXX) = \overline{f(\overline{x_1}, \ldots, \overline{x_n})} \right)$
+
+{\bf Идея: }
+
+
+$ \overline{f_0(  \overline{\overline{f_{i_1}(\ldots)}}, \ldots, \overline{\overline{ f_{i_k}(\ldots)}} )} $ -- возникаю двойные отрицания, которые изчезают, кроме {\em верхних} и {\em нижних}, что как раз дает функцию $f^{*}$.
+
+
+
+\section{Сложность.}
