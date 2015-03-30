@@ -5,7 +5,7 @@
 \usepackage{pscyr}
 \usepackage[T1]{fontenc}
 \usepackage{amssymb, amsmath, textcomp, amsthm, multicol}
-\usepackage{scalerel}
+%\usepackage{scalerel}
 \textwidth=500pt
 \textheight=750pt
 \oddsidemargin=20pt
@@ -33,8 +33,8 @@
 
 
 %команда для амперсанда, ага.
-\DeclareMathOperator*{\amper}{\scalerel*{\&}{\sum}}
-%\DeclareMathOperator*{\amper}{\&} % должно работать для старых дистрибутивов теха.
+%\DeclareMathOperator*{\amper}{\scalerel*{\&}{\sum}}
+\DeclareMathOperator*{\amper}{\&} % должно работать для старых дистрибутивов теха.
 
 %правильные переносы
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
