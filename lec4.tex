@@ -52,4 +52,13 @@ $h(\XXX) = c_1\big(d_{11}x_1 \oplus \ldots \oplus d_{1n}x_n \oplus d_1 \big) \op
 $x\oplus d = x$ при $d=0$ и $x\oplus d = \bar{x}$ при $d=1$, то $xy \in [\{f, \bar{x}, 0, 1\}].$
 \end{proof}
 
-
+\subsection{Критерий Поста.}
+\begin{theorem}[Критерий полноты] Пусть $\mathcal{F} \subseteq P_2$, тогда \\ $\mathcal{F}$ является полной в $P_2$ $\Longleftrightarrow$ $\mathcal{F}$ не содержится ни в одном из классов $ T_0,\, T_1,\,M,\,L,\,S.$
+\end{theorem}
+\begin{proof}
+~\\
+1 $(\Rightarrow)$. Пусть $X$ --- один из классов $ T_0,\, T_1,\,M,\,L,\,S$. Они замкнуты, то есть $[X] = X$.
+Предположим, $\mathcal{F} \subseteq X $, тогда $[\mathcal{F}] \subseteq [X] = X \neq P_2 $. Противоречие. Значит, $\mathcal{F}$ не содержится ни в одном из классов $ T_0,\, T_1,\,M,\,L,\,S.$
+~\\
+2 $(\Leftarrow)$. Пусть $\mathcal{F}$ не содержится ни в одном из классов $ T_0,\, T_1,\,M,\,L,\,S$.
+\end{proof}
