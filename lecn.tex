@@ -1,7 +1,7 @@
 \section{Лекция 7 (продолжение оценки функции Шеннона).} 
 \subsection{В предыдущих сериях}
 Мы уже имеем для функции Шеннона следующую оценку скорости роста:
-%Надо заменить значки меньше или равно на меньше илит эквивалентноы
+%Надо заменить значки меньше или равно на меньше или эквивалентно
 $$n\leq L(n)\leq 6\cdot \frac{2^n}{n}$$
 Попробуем теперь ее улучшить.\\
 Напомним, что:
@@ -84,4 +84,14 @@ $$ \log_2{\frac{N_{\leq(n,l_\varepsilon)}}{2^{2^n}} } \leq l_\varepsilon \cdot \
 
 Это значит, что при достаточно больших $n$ число функций, которые можно реализовать при помощи схем, сложности меньше $\frac{2^n}{n}\,$, много меньше числа всех функций от $n$ переменных. А это значит, что существуют функции, сложность которых больше или равна $\frac{2^n}{n}\,$. А это и значит, что 
 $$L(n) \geq \frac{2^n}{n}$$
+\end{proof}
+\begin{theorem}
+Пусть $n \rightarrow + \infty \; $, тогда 
+$$L(n) - \frac{2^n}{n} \geq \frac{2^n \log_2 n}{n^2} $$
+\end{theorem}
+\begin{proof}
+$\varepsilon > 0 \;$ -- фиксировано. Положим $l_\varepsilon = \frac{2^n}{n} + (1-\varepsilon) \cdot \frac{2^n \log_2 n}{n^2}\,$.\\
+
+$C\cdot l_\varepsilon \leq 2C\cdot \frac{2^n}{n}$ 
+$$ \log_2{\frac{N_{\leq(n,l_\varepsilon)}}{2^{2^n}}} \leq l_\varepsilon \cdot \log_2{C\cdot l_\varepsilon} - 2^n \leq l_\varepsilon \cdot \log_2{2C\cdot \frac{2^n}{n}} - 2^n \leq (\frac{2^n}{n} + (1-\varepsilon)\frac{2^n \cdot \log_2 n}{n^2})\cdot (\log_2 2C + n - \log_2 n) - 2^n = $$
 \end{proof}
