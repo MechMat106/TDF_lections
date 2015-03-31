@@ -5,7 +5,7 @@
 \usepackage{pscyr}
 \usepackage[T1]{fontenc}
 \usepackage{amssymb, amsmath, textcomp, amsthm, multicol}
-\usepackage{scalerel}
+%\usepackage{scalerel}
 \textwidth=500pt
 \textheight=750pt
 \oddsidemargin=20pt
@@ -33,7 +33,8 @@
 
 
 %команда для амперсанда, ага.
-\DeclareMathOperator*{\amper}{\scalerel*{\&}{\sum}}
+%\DeclareMathOperator*{\amper}{\scalerel*{\&}{\sum}}
+\DeclareMathOperator*{\amper}{\&} % должно работать для старых дистрибутивов теха.
 
 %правильные переносы
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
@@ -46,12 +47,14 @@
 %\usepackage{dmvn}
 
 \begin{document}
-\include{lec1}
-\include{lec2}
-\include{lec3}
-\include{lec4}
-
+\input{lec1}
+\input{lec2}
+\input{lec3}
+\input{lec4} % надо дописать!
+\input{lec5} % пока с середины
+%\include{lec6} %ещё не написана
 % это 7ая лекция, кажется.
-\include{lecn}
+\input{lecn}
+
 
 \end{document}
