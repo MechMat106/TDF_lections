@@ -96,5 +96,12 @@ $$L(n) - \frac{2^n}{n} \geq \frac{2^n \log_2 n}{n^2} $$
 
 $$ \log_2{\frac{N_{\leq(n,l_\varepsilon)}}{2^{2^n}}} \leq \log_2 {\frac{(Cl_\varepsilon)^{l_\varepsilon}}{2^{2^n}}} = l_\varepsilon \log_2 Cl_\varepsilon - 2^n = (*).$$
 Подставляем выражение для $l_\varepsilon$ перед логарифмом в $(*)$, получаем:
-$$ $$
+$$(*) = \Big(\frac{2^n}{n} + (1-\varepsilon)\frac{2^n\log_2 n}{n^2}\Big)\cdot \log_2(Cl_\varepsilon) - 2^n 
+\leq \Big(\frac{2^n}{n} + (1-\varepsilon)\frac{2^n\log_2 n}{n^2}\Big)\cdot\log_2(2C\cdot \frac{2^n}{n}) - 2^n =$$ 
+$$ = \Big( \frac{2^n}{n} + \frac{2^n\log_2 n}{n^2} - \varepsilon\frac{2^n\log_2 n}{n^2} \Big)\cdot (\log_2 2c + n - \log_2 n ) - 2^n = $$ $$= 2^n - \frac{2^n\log_2n}{n} + \frac{2^n\log_2n}{n} - \varepsilon\frac{2^n\log_2n}{n} - 2^n + \bar{o}\big( \frac{2^n\log_2n}{n} \big) = - \varepsilon\frac{2^n\log_2n}{n} + \bar{o}\big( \frac{2^n\log_2n}{n}\big).$$
+
+Получили оценку 
+$\log_2{\frac{N_{\leq(n,l_\varepsilon)}}{2^{2^n}}} \leq - \varepsilon\frac{2^n\log_2n}{n} + \bar{o}\big( \frac{2^n\log_2n}{n}\big)$; правая часть стремится к $-\infty$ при $n \rightarrow +\infty$, значит, $\frac{N_{\leq(n,l_\varepsilon)}}{2^{2^n}} \rightarrow 0$, значит, $L(n) \geq l_\varepsilon$. 
+
+Рассуждение верно для любого сколь угодно малого $\varepsilon > 0$. Переходя к пределу при $\varepsilon \rightarrow 0$, получаем утверждение теоремы.
 \end{proof}
