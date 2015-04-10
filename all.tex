@@ -12,21 +12,27 @@
 \hoffset=-1.5cm
 \topmargin=-25mm
 
-\usepackage{xcolor}
-\usepackage{hyperref}
-\definecolor{linkcolor}{HTML}{000000}
-\definecolor{urlcolor}{HTML}{000000}
-\hypersetup{pdfstartview=FitH, linkcolor=linkcolor, urlcolor=urlcolor, colorlinks=true}
+\usepackage{dmvn}
+%\usepackage{xcolor}
+%\usepackage{hyperref}
+%\definecolor{linkcolor}{HTML}{000000}
+%\definecolor{urlcolor}{HTML}{000000}
+%\hypersetup{pdfstartview=FitH, linkcolor=linkcolor, urlcolor=urlcolor, colorlinks=true}
 
-\newtheoremstyle{neosn}{0.5\topsep}{0.5\topsep}{\rm}{}{\sc}{.}{ }{{\bf \thmname{#1}}\thmnote{ {\mdseries#3}}}
-\newtheorem{theorem}{Теорема}
-\newtheorem{lemma}{Лемма}
-\theoremstyle{neosn}
-\newtheorem{proposition}{Предложение}
-\newtheorem{statement}{Утверждение}
-\newtheorem{corollary}{Следствие}
-\newtheorem{definition}{Определение}
-\newtheorem{example}{Пример}
+%\newtheoremstyle{neosn}{0.5\topsep}{0.5\topsep}{\rm}{}{\sc}{.}{ }{{\bf \thmname{#1}}\thmnote{ {\mdseries#3}}}
+%\newtheorem{theorem}{Теорема}
+%\newtheorem{lemma}{Лемма}
+%\theoremstyle{neosn}
+%\newtheorem{proposition}{Предложение}
+\newenvironment{proposition}{\begin{prop}}{\end{prop}}
+%\newtheorem{statement}{Утверждение}
+\newenvironment{statement}{\begin{stm}}{\end{stm}}
+%\newtheorem{corollary}{Следствие}
+\newenvironment{corollary}{\begin{imp}}{\end{imp}}
+%\newtheorem{definition}{Определение}
+\newenvironment{definition}{\begin{df}}{\end{df}}
+%\newtheorem{example}{Пример}
+\newenvironment{example}{\begin{ex}}{\end{ex}}
 \renewcommand{\proofname}{Доказательство}
 \newcommand{\XXX}{x_1, \ldots, x_n}
 \newcommand{\SIG}{\sigma_1, \ldots, \sigma_n}
@@ -48,13 +54,13 @@
 
 \begin{document}
 \input{lec1}
-\input{lec2}
-\input{lec3}
-\input{lec4} 
-\input{lec5} 
+%\input{lec2}
+%\input{lec3}
+%\input{lec4} 
+%\input{lec5} 
 %\include{lec6} %ещё не написана
 % это 7ая лекция, кажется.
-\input{lecn}
+%\input{lecn}
 
 
 \end{document}

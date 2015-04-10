@@ -1,0 +1,694 @@
+%%
+%% This is file `newliterat.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% newliterat.dtx  (with options: `newliterat')
+%% 
+%% For generate newliterat.sty and fd files run command:
+%% latex newliterat.ins
+%% For generate documentation run:
+%% latex newliterat.dtx
+%% 
+%% The file newliterat.sty must located in a directory searched by TeX
+%% 
+%% Package `newliterat' to use with LaTeX 2e
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{newliterat}[2004/10/13 v4.d
+  ParaGraph Literaturnaya as default upright]
+
+\DeclareOption{punctit}{
+    \def\rmdefault{tlipit}
+    }
+\DeclareOption{punctup}{
+    \def\rmdefault{tlipup}
+    }
+\DeclareOption{original}{
+    \def\rmdefault{tli}
+    }
+\def\@punctmath{loperators}
+\newif\if@glif\@gliftrue
+\DeclareOption{noglif}{\@gliffalse}
+\newif\if@math@lit
+\DeclareOption{mathlit}{\@math@littrue}
+\newif\if@math@rus
+\DeclareOption{mathrus}{\@math@rustrue}
+
+\ExecuteOptions{punctup}    % <== Default option
+\ProcessOptions
+
+\if@math@lit
+    \DeclareSymbolFont{loperators}      {T2A}{\rmdefault} {m}{n}
+    \SetSymbolFont    {loperators}{bold}{T2A}{\rmdefault} {b}{n}
+
+    \DeclareSymbolFont{lletters}        {T2A}{m\rmdefault}{m}{it}
+    \SetSymbolFont    {lletters}{bold}  {T2A}{\rmdefault} {b}{it}
+
+    \DeclareMathSymbol{a}{\mathalpha}{lletters}{`a}
+    \DeclareMathSymbol{b}{\mathalpha}{lletters}{`b}
+    \DeclareMathSymbol{c}{\mathalpha}{lletters}{`c}
+    \DeclareMathSymbol{d}{\mathalpha}{lletters}{`d}
+    \DeclareMathSymbol{e}{\mathalpha}{lletters}{`e}
+    \DeclareMathSymbol{f}{\mathalpha}{lletters}{`f}
+    \DeclareMathSymbol{g}{\mathalpha}{lletters}{`g}
+    \DeclareMathSymbol{h}{\mathalpha}{lletters}{`h}
+    \DeclareMathSymbol{i}{\mathalpha}{lletters}{`i}
+    \DeclareMathSymbol{j}{\mathalpha}{lletters}{`j}
+    \DeclareMathSymbol{k}{\mathalpha}{lletters}{`k}
+    \DeclareMathSymbol{l}{\mathalpha}{lletters}{`l}
+    \DeclareMathSymbol{m}{\mathalpha}{lletters}{`m}
+    \DeclareMathSymbol{n}{\mathalpha}{lletters}{`n}
+    \DeclareMathSymbol{o}{\mathalpha}{lletters}{`o}
+    \DeclareMathSymbol{p}{\mathalpha}{lletters}{`p}
+    \DeclareMathSymbol{q}{\mathalpha}{lletters}{`q}
+    \DeclareMathSymbol{r}{\mathalpha}{lletters}{`r}
+    \DeclareMathSymbol{s}{\mathalpha}{lletters}{`s}
+    \DeclareMathSymbol{t}{\mathalpha}{lletters}{`t}
+    \DeclareMathSymbol{u}{\mathalpha}{lletters}{`u}
+    \DeclareMathSymbol{v}{\mathalpha}{lletters}{`v}
+    \DeclareMathSymbol{w}{\mathalpha}{lletters}{`w}
+    \DeclareMathSymbol{x}{\mathalpha}{lletters}{`x}
+    \DeclareMathSymbol{y}{\mathalpha}{lletters}{`y}
+    \DeclareMathSymbol{z}{\mathalpha}{lletters}{`z}
+
+    \DeclareMathSymbol{A}{\mathalpha}{lletters}{`A}
+    \DeclareMathSymbol{B}{\mathalpha}{lletters}{`B}
+    \DeclareMathSymbol{C}{\mathalpha}{lletters}{`C}
+    \DeclareMathSymbol{D}{\mathalpha}{lletters}{`D}
+    \DeclareMathSymbol{E}{\mathalpha}{lletters}{`E}
+    \DeclareMathSymbol{F}{\mathalpha}{lletters}{`F}
+    \DeclareMathSymbol{G}{\mathalpha}{lletters}{`G}
+    \DeclareMathSymbol{H}{\mathalpha}{lletters}{`H}
+    \DeclareMathSymbol{I}{\mathalpha}{lletters}{`I}
+    \DeclareMathSymbol{J}{\mathalpha}{lletters}{`J}
+    \DeclareMathSymbol{K}{\mathalpha}{lletters}{`K}
+    \DeclareMathSymbol{L}{\mathalpha}{lletters}{`L}
+    \DeclareMathSymbol{M}{\mathalpha}{lletters}{`M}
+    \DeclareMathSymbol{N}{\mathalpha}{lletters}{`N}
+    \DeclareMathSymbol{O}{\mathalpha}{lletters}{`O}
+    \DeclareMathSymbol{P}{\mathalpha}{lletters}{`P}
+    \DeclareMathSymbol{Q}{\mathalpha}{lletters}{`Q}
+    \DeclareMathSymbol{R}{\mathalpha}{lletters}{`R}
+    \DeclareMathSymbol{S}{\mathalpha}{lletters}{`S}
+    \DeclareMathSymbol{T}{\mathalpha}{lletters}{`T}
+    \DeclareMathSymbol{U}{\mathalpha}{lletters}{`U}
+    \DeclareMathSymbol{V}{\mathalpha}{lletters}{`V}
+    \DeclareMathSymbol{W}{\mathalpha}{lletters}{`W}
+    \DeclareMathSymbol{X}{\mathalpha}{lletters}{`X}
+    \DeclareMathSymbol{Y}{\mathalpha}{lletters}{`Y}
+    \DeclareMathSymbol{Z}{\mathalpha}{lletters}{`Z}
+
+    \DeclareMathSymbol{0}{\mathalpha}{\@punctmath}{`0}
+    \DeclareMathSymbol{1}{\mathalpha}{\@punctmath}{`1}
+    \DeclareMathSymbol{2}{\mathalpha}{\@punctmath}{`2}
+    \DeclareMathSymbol{3}{\mathalpha}{\@punctmath}{`3}
+    \DeclareMathSymbol{4}{\mathalpha}{\@punctmath}{`4}
+    \DeclareMathSymbol{5}{\mathalpha}{\@punctmath}{`5}
+    \DeclareMathSymbol{6}{\mathalpha}{\@punctmath}{`6}
+    \DeclareMathSymbol{7}{\mathalpha}{\@punctmath}{`7}
+    \DeclareMathSymbol{8}{\mathalpha}{\@punctmath}{`8}
+    \DeclareMathSymbol{9}{\mathalpha}{\@punctmath}{`9}
+
+    \DeclareMathSymbol{!}{\mathclose}{loperators}{"21}
+    \DeclareMathSymbol{?}{\mathclose}{loperators}{"3F}
+    \DeclareMathSymbol{,}{\mathpunct}{\@punctmath}{"2C}
+    \DeclareMathSymbol{.}{\mathord}  {\@punctmath}{"2E}
+    \DeclareMathSymbol{:}{\mathrel}  {loperators}{"3A}
+    \DeclareMathSymbol{;}{\mathpunct}{loperators}{"3B}
+    \ifx\@amsmath@err\@undefined % amsmath contain \renewcommand\colon{...}
+                                 % we reDeclare \colon only
+                                 % if amsmath don't load
+        \DeclareMathSymbol{\colon}{\mathpunct}{loperators}{"3A}
+    \fi
+    \DeclareMathSymbol{\mathsection}{\mathord}{\@punctmath}{"9F}
+    \DeclareMathSymbol{\mathdollar} {\mathord}{\@punctmath}{"24}
+
+    \DeclareMathDelimiter{/}{\mathord}{\@punctmath}{"2F}{largesymbols}{"0E}
+    \DeclareMathSymbol   {/}{\mathord}{\@punctmath}{"2F}
+
+    \DeclareMathDelimiter{(}{\mathopen} {\@punctmath}{"28}{largesymbols}{"00}
+    \DeclareMathDelimiter{)}{\mathclose}{\@punctmath}{"29}{largesymbols}{"01}
+    \DeclareMathDelimiter{[}{\mathopen} {\@punctmath}{"5B}{largesymbols}{"02}
+    \DeclareMathDelimiter{]}{\mathclose}{\@punctmath}{"5D}{largesymbols}{"03}
+    \DeclareMathDelimiter{\lbrace}{\mathopen} {\@punctmath}{"7B}{largesymbols}{"08}
+    \DeclareMathDelimiter{\rbrace}{\mathclose}{\@punctmath}{"7D}{largesymbols}{"09}
+
+    \def\%{\ifmmode\mathpercent  \else\textpercent  \fi}
+    \def\#{\ifmmode\mathhash     \else\texthash     \fi}
+    \def\&{\ifmmode\mathampersand\else\textampersand\fi}
+    \DeclareMathSymbol{\mathpercent}  {\mathord}{\@punctmath}{"25}
+    \DeclareMathSymbol{\mathhash}     {\mathord}{\@punctmath}{"23}
+    \DeclareMathSymbol{\mathampersand}{\mathord}{loperators} {"26}
+    \DeclareTextSymbol{\textpercent}  {T2A}{"25}
+    \DeclareTextSymbol{\texthash}     {T2A}{"23}
+    \DeclareTextSymbol{\textampersand}{T2A}{"26}
+
+    \def\mathsterling {\mathord{\hbox{\textsterling}}}
+    \def\mathparagraph{\mathord{\hbox{\textparagraph}}}
+
+    \if@math@rus
+
+        \DeclareMathSymbol{^^c0}{\mathalpha}{lletters}{"C0} %% ^^c0
+        \DeclareMathSymbol{^^c1}{\mathalpha}{lletters}{"C1} %% ^^c1
+        \DeclareMathSymbol{^^c2}{\mathalpha}{lletters}{"C2} %% ^^c2
+        \DeclareMathSymbol{^^c3}{\mathalpha}{lletters}{"C3} %% ^^c3
+        \DeclareMathSymbol{^^c4}{\mathalpha}{lletters}{"C4} %% ^^c4
+        \DeclareMathSymbol{^^c5}{\mathalpha}{lletters}{"C5} %% ^^c5
+        \DeclareMathSymbol{^^c6}{\mathalpha}{lletters}{"C6} %% ^^c6
+        \DeclareMathSymbol{^^c7}{\mathalpha}{lletters}{"C7} %% ^^c7
+        \DeclareMathSymbol{^^c8}{\mathalpha}{lletters}{"C8} %% ^^c8
+        \DeclareMathSymbol{^^c9}{\mathalpha}{lletters}{"C9} %% ^^c9
+        \DeclareMathSymbol{^^ca}{\mathalpha}{lletters}{"CA} %% ^^ca
+        \DeclareMathSymbol{^^cb}{\mathalpha}{lletters}{"CB} %% ^^cb
+        \DeclareMathSymbol{^^cc}{\mathalpha}{lletters}{"CC} %% ^^cc
+        \DeclareMathSymbol{^^cd}{\mathalpha}{lletters}{"CD} %% ^^cd
+        \DeclareMathSymbol{^^ce}{\mathalpha}{lletters}{"CE} %% ^^ce
+        \DeclareMathSymbol{^^cf}{\mathalpha}{lletters}{"CF} %% ^^cf
+        \DeclareMathSymbol{^^d0}{\mathalpha}{lletters}{"D0} %% ^^d0
+        \DeclareMathSymbol{^^d1}{\mathalpha}{lletters}{"D1} %% ^^d1
+        \DeclareMathSymbol{^^d2}{\mathalpha}{lletters}{"D2} %% ^^d2
+        \DeclareMathSymbol{^^d3}{\mathalpha}{lletters}{"D3} %% ^^d3
+        \DeclareMathSymbol{^^d4}{\mathalpha}{lletters}{"D4} %% ^^d4
+        \DeclareMathSymbol{^^d5}{\mathalpha}{lletters}{"D5} %% ^^d5
+        \DeclareMathSymbol{^^d6}{\mathalpha}{lletters}{"D6} %% ^^d6
+        \DeclareMathSymbol{^^d7}{\mathalpha}{lletters}{"D7} %% ^^d7
+        \DeclareMathSymbol{^^d8}{\mathalpha}{lletters}{"D8} %% ^^d8
+        \DeclareMathSymbol{^^d9}{\mathalpha}{lletters}{"D9} %% ^^d9
+        \DeclareMathSymbol{^^da}{\mathalpha}{lletters}{"DA} %% ^^da
+        \DeclareMathSymbol{^^db}{\mathalpha}{lletters}{"DB} %% ^^db
+        \DeclareMathSymbol{^^dc}{\mathalpha}{lletters}{"DC} %% ^^dc
+        \DeclareMathSymbol{^^dd}{\mathalpha}{lletters}{"DD} %% ^^dd
+        \DeclareMathSymbol{^^de}{\mathalpha}{lletters}{"DE} %% ^^de
+        \DeclareMathSymbol{^^df}{\mathalpha}{lletters}{"DF} %% ^^df
+
+        \DeclareMathSymbol{^^e0}{\mathalpha}{lletters}{"E0} %% ^^e0
+        \DeclareMathSymbol{^^e1}{\mathalpha}{lletters}{"E1} %% ^^e1
+        \DeclareMathSymbol{^^e2}{\mathalpha}{lletters}{"E2} %% ^^e2
+        \DeclareMathSymbol{^^e3}{\mathalpha}{lletters}{"E3} %% ^^e3
+        \DeclareMathSymbol{^^e4}{\mathalpha}{lletters}{"E4} %% ^^e4
+        \DeclareMathSymbol{^^e5}{\mathalpha}{lletters}{"E5} %% ^^e5
+        \DeclareMathSymbol{^^e6}{\mathalpha}{lletters}{"E6} %% ^^e6
+        \DeclareMathSymbol{^^e7}{\mathalpha}{lletters}{"E7} %% ^^e7
+        \DeclareMathSymbol{^^e8}{\mathalpha}{lletters}{"E8} %% ^^e8
+        \DeclareMathSymbol{^^e9}{\mathalpha}{lletters}{"E9} %% ^^e9
+        \DeclareMathSymbol{^^ea}{\mathalpha}{lletters}{"EA} %% ^^ea
+        \DeclareMathSymbol{^^eb}{\mathalpha}{lletters}{"EB} %% ^^eb
+        \DeclareMathSymbol{^^ec}{\mathalpha}{lletters}{"EC} %% ^^ec
+        \DeclareMathSymbol{^^ed}{\mathalpha}{lletters}{"ED} %% ^^ed
+        \DeclareMathSymbol{^^ee}{\mathalpha}{lletters}{"EE} %% ^^ee
+        \DeclareMathSymbol{^^ef}{\mathalpha}{lletters}{"EF} %% ^^ef
+        \DeclareMathSymbol{^^f0}{\mathalpha}{lletters}{"F0} %% ^^f0
+        \DeclareMathSymbol{^^f1}{\mathalpha}{lletters}{"F1} %% ^^f1
+        \DeclareMathSymbol{^^f2}{\mathalpha}{lletters}{"F2} %% ^^f2
+        \DeclareMathSymbol{^^f3}{\mathalpha}{lletters}{"F3} %% ^^f3
+        \DeclareMathSymbol{^^f4}{\mathalpha}{lletters}{"F4} %% ^^f4
+        \DeclareMathSymbol{^^f5}{\mathalpha}{lletters}{"F5} %% ^^f5
+        \DeclareMathSymbol{^^f6}{\mathalpha}{lletters}{"F6} %% ^^f6
+        \DeclareMathSymbol{^^f7}{\mathalpha}{lletters}{"F7} %% ^^f7
+        \DeclareMathSymbol{^^f8}{\mathalpha}{lletters}{"F8} %% ^^f8
+        \DeclareMathSymbol{^^f9}{\mathalpha}{lletters}{"F9} %% ^^f9
+        \DeclareMathSymbol{^^fa}{\mathalpha}{lletters}{"FA} %% ^^fa
+        \DeclareMathSymbol{^^fb}{\mathalpha}{lletters}{"FB} %% ^^fb
+        \DeclareMathSymbol{^^fc}{\mathalpha}{lletters}{"FC} %% ^^fc
+        \DeclareMathSymbol{^^fd}{\mathalpha}{lletters}{"FD} %% ^^fd
+        \DeclareMathSymbol{^^fe}{\mathalpha}{lletters}{"FE} %% ^^fe
+        \DeclareMathSymbol{^^ff}{\mathalpha}{lletters}{"FF} %% ^^ff
+
+        \DeclareMathSymbol{^^9c}{\mathalpha}{lletters}{"9C} %% ^^a8
+        \DeclareMathSymbol{^^bc}{\mathalpha}{lletters}{"BC} %% ^^b8
+    \fi
+
+    \DeclareMathAccent{\acute}{\mathalpha}{loperators}{"01}
+    \DeclareMathAccent{\grave}{\mathalpha}{loperators}{"00}
+    \DeclareMathAccent{\tilde}{\mathalpha}{loperators}{"03}
+    \DeclareMathAccent{\bar}  {\mathalpha}{loperators}{"09}
+    \DeclareMathAccent{\breve}{\mathalpha}{loperators}{"08}
+    \DeclareMathAccent{\check}{\mathalpha}{loperators}{"07}
+    \DeclareMathAccent{\hat}  {\mathalpha}{loperators}{"02}
+    \DeclareMathAccent{\dot}  {\mathalpha}{loperators}{"0A}
+    \DeclareMathAccent{\ddot} {\mathalpha}{loperators}{"04}
+
+    \SetMathAlphabet{\mathrm}{normal}{T2A}{\rmdefault}{m}{n}
+    \SetMathAlphabet{\mathrm}{bold}  {T2A}{\rmdefault}{b}{n}
+    \SetMathAlphabet{\mathit}{normal}{T2A}{\rmdefault}{m}{it}
+    \SetMathAlphabet{\mathit}{bold}  {T2A}{\rmdefault}{b}{it}
+    \SetMathAlphabet{\mathbf}{normal}{T2A}{\rmdefault}{b}{n}
+    \SetMathAlphabet{\mathbf}{bold}  {T2A}{\rmdefault}{b}{n}
+    \def\operator@font{\mathgroup\symloperators}
+
+
+\fi
+
+%% Declare some symbols from T1 fontencoding
+
+\if@glif
+
+    \DeclareTextCompositeCommand{\u}{OT1}{A}{{\fontencoding{T1}\selectfont\char"80}}
+    \DeclareTextCompositeCommand{\u}{T2A}{A}{{\fontencoding{T1}\selectfont\char"80}}
+
+    \DeclareTextCompositeCommand{\k}{OT1}{A}{{\fontencoding{T1}\selectfont\char"81}}
+    \DeclareTextCompositeCommand{\k}{T2A}{A}{{\fontencoding{T1}\selectfont\char"81}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{C}{{\fontencoding{T1}\selectfont\char"82}}
+    \DeclareTextCompositeCommand{\'}{T2A}{C}{{\fontencoding{T1}\selectfont\char"82}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{C}{{\fontencoding{T1}\selectfont\char"83}}
+    \DeclareTextCompositeCommand{\v}{T2A}{C}{{\fontencoding{T1}\selectfont\char"83}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{D}{{\fontencoding{T1}\selectfont\char"84}}
+    \DeclareTextCompositeCommand{\v}{T2A}{D}{{\fontencoding{T1}\selectfont\char"84}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{E}{{\fontencoding{T1}\selectfont\char"85}}
+    \DeclareTextCompositeCommand{\v}{T2A}{E}{{\fontencoding{T1}\selectfont\char"85}}
+
+    \DeclareTextCompositeCommand{\k}{OT1}{E}{{\fontencoding{T1}\selectfont\char"86}}
+    \DeclareTextCompositeCommand{\k}{T2A}{E}{{\fontencoding{T1}\selectfont\char"86}}
+
+    \DeclareTextCompositeCommand{\u}{OT1}{G}{{\fontencoding{T1}\selectfont\char"87}}
+    \DeclareTextCompositeCommand{\u}{T2A}{G}{{\fontencoding{T1}\selectfont\char"87}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{L}{{\fontencoding{T1}\selectfont\char"88}}
+    \DeclareTextCompositeCommand{\'}{T2A}{L}{{\fontencoding{T1}\selectfont\char"88}}
+
+    %% Number "89 -- ligature L'
+    %% Number "8A -- symbol \L
+
+    \DeclareTextCompositeCommand{\'}{OT1}{N}{{\fontencoding{T1}\selectfont\char"8B}}
+    \DeclareTextCompositeCommand{\'}{T2A}{N}{{\fontencoding{T1}\selectfont\char"8B}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{N}{{\fontencoding{T1}\selectfont\char"8C}}
+    \DeclareTextCompositeCommand{\v}{T2A}{N}{{\fontencoding{T1}\selectfont\char"8C}}
+
+    %% Number "8D -- not define
+
+    \DeclareTextCompositeCommand{\H}{OT1}{O}{{\fontencoding{T1}\selectfont\char"8E}}
+    \DeclareTextCompositeCommand{\H}{T2A}{O}{{\fontencoding{T1}\selectfont\char"8E}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{R}{{\fontencoding{T1}\selectfont\char"8F}}
+    \DeclareTextCompositeCommand{\'}{T2A}{R}{{\fontencoding{T1}\selectfont\char"8F}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{R}{{\fontencoding{T1}\selectfont\char"90}}
+    \DeclareTextCompositeCommand{\v}{T2A}{R}{{\fontencoding{T1}\selectfont\char"90}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{S}{{\fontencoding{T1}\selectfont\char"91}}
+    \DeclareTextCompositeCommand{\'}{T2A}{S}{{\fontencoding{T1}\selectfont\char"91}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{S}{{\fontencoding{T1}\selectfont\char"92}}
+    \DeclareTextCompositeCommand{\v}{T2A}{S}{{\fontencoding{T1}\selectfont\char"92}}
+
+    \DeclareTextCompositeCommand{\c}{OT1}{S}{{\fontencoding{T1}\selectfont\char"93}}
+    \DeclareTextCompositeCommand{\c}{T2A}{S}{{\fontencoding{T1}\selectfont\char"93}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{T}{{\fontencoding{T1}\selectfont\char"94}}
+    \DeclareTextCompositeCommand{\v}{T2A}{T}{{\fontencoding{T1}\selectfont\char"94}}
+
+    \DeclareTextCompositeCommand{\c}{OT1}{T}{{\fontencoding{T1}\selectfont\char"95}}
+    \DeclareTextCompositeCommand{\c}{T2A}{T}{{\fontencoding{T1}\selectfont\char"95}}
+
+    \DeclareTextCompositeCommand{\H}{OT1}{U}{{\fontencoding{T1}\selectfont\char"96}}
+    \DeclareTextCompositeCommand{\H}{T2A}{U}{{\fontencoding{T1}\selectfont\char"96}}
+
+    \DeclareTextCompositeCommand{\r}{OT1}{U}{{\fontencoding{T1}\selectfont\char"97}}
+    \DeclareTextCompositeCommand{\r}{T2A}{U}{{\fontencoding{T1}\selectfont\char"97}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{Y}{{\fontencoding{T1}\selectfont\char"98}}
+    \DeclareTextCompositeCommand{\"}{T2A}{Y}{{\fontencoding{T1}\selectfont\char"98}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{Z}{{\fontencoding{T1}\selectfont\char"99}}
+    \DeclareTextCompositeCommand{\'}{T2A}{Z}{{\fontencoding{T1}\selectfont\char"99}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{Z}{{\fontencoding{T1}\selectfont\char"9A}}
+    \DeclareTextCompositeCommand{\v}{T2A}{Z}{{\fontencoding{T1}\selectfont\char"9A}}
+
+    \DeclareTextCompositeCommand{\.}{OT1}{Z}{{\fontencoding{T1}\selectfont\char"9B}}
+    \DeclareTextCompositeCommand{\.}{T2A}{Z}{{\fontencoding{T1}\selectfont\char"9B}}
+
+    %% Number "9C -- ligature IJ
+
+    \DeclareTextCompositeCommand{\.}{OT1}{I}{{\fontencoding{T1}\selectfont\char"9D}}
+    \DeclareTextCompositeCommand{\.}{T2A}{I}{{\fontencoding{T1}\selectfont\char"9D}}
+
+    %% Number "9E -- symbol d with bar
+    %% Number "9D -- symbol \S
+
+    \DeclareTextCompositeCommand{\u}{OT1}{a}{{\fontencoding{T1}\selectfont\char"A0}}
+    \DeclareTextCompositeCommand{\u}{T2A}{a}{{\fontencoding{T1}\selectfont\char"A0}}
+
+    \DeclareTextCompositeCommand{\k}{OT1}{a}{{\fontencoding{T1}\selectfont\char"A1}}
+    \DeclareTextCompositeCommand{\k}{T2A}{a}{{\fontencoding{T1}\selectfont\char"A1}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{c}{{\fontencoding{T1}\selectfont\char"A2}}
+    \DeclareTextCompositeCommand{\'}{T2A}{c}{{\fontencoding{T1}\selectfont\char"A2}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{c}{{\fontencoding{T1}\selectfont\char"A3}}
+    \DeclareTextCompositeCommand{\v}{T2A}{c}{{\fontencoding{T1}\selectfont\char"A3}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{d}{{\fontencoding{T1}\selectfont\char"A4}}
+    \DeclareTextCompositeCommand{\v}{T2A}{d}{{\fontencoding{T1}\selectfont\char"A4}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{e}{{\fontencoding{T1}\selectfont\char"A5}}
+    \DeclareTextCompositeCommand{\v}{T2A}{e}{{\fontencoding{T1}\selectfont\char"A5}}
+
+    \DeclareTextCompositeCommand{\k}{OT1}{e}{{\fontencoding{T1}\selectfont\char"A6}}
+    \DeclareTextCompositeCommand{\k}{T2A}{e}{{\fontencoding{T1}\selectfont\char"A6}}
+
+    \DeclareTextCompositeCommand{\u}{OT1}{g}{{\fontencoding{T1}\selectfont\char"A7}}
+    \DeclareTextCompositeCommand{\u}{T2A}{g}{{\fontencoding{T1}\selectfont\char"A7}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{l}{{\fontencoding{T1}\selectfont\char"A8}}
+    \DeclareTextCompositeCommand{\'}{T2A}{l}{{\fontencoding{T1}\selectfont\char"A8}}
+
+    %% Number "89 -- ligature l'
+    %% Number "8A -- symbol \l
+
+    \DeclareTextCompositeCommand{\'}{OT1}{n}{{\fontencoding{T1}\selectfont\char"AB}}
+    \DeclareTextCompositeCommand{\'}{T2A}{n}{{\fontencoding{T1}\selectfont\char"AB}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{n}{{\fontencoding{T1}\selectfont\char"AC}}
+    \DeclareTextCompositeCommand{\v}{T2A}{n}{{\fontencoding{T1}\selectfont\char"AC}}
+
+    %% Number "AD -- not define
+
+    \DeclareTextCompositeCommand{\H}{OT1}{o}{{\fontencoding{T1}\selectfont\char"AE}}
+    \DeclareTextCompositeCommand{\H}{T2A}{o}{{\fontencoding{T1}\selectfont\char"AE}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{r}{{\fontencoding{T1}\selectfont\char"AF}}
+    \DeclareTextCompositeCommand{\'}{T2A}{r}{{\fontencoding{T1}\selectfont\char"AF}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{r}{{\fontencoding{T1}\selectfont\char"B0}}
+    \DeclareTextCompositeCommand{\v}{T2A}{r}{{\fontencoding{T1}\selectfont\char"B0}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{s}{{\fontencoding{T1}\selectfont\char"B1}}
+    \DeclareTextCompositeCommand{\'}{T2A}{s}{{\fontencoding{T1}\selectfont\char"B1}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{s}{{\fontencoding{T1}\selectfont\char"B2}}
+    \DeclareTextCompositeCommand{\v}{T2A}{s}{{\fontencoding{T1}\selectfont\char"B2}}
+
+    \DeclareTextCompositeCommand{\c}{OT1}{s}{{\fontencoding{T1}\selectfont\char"B3}}
+    \DeclareTextCompositeCommand{\c}{T2A}{s}{{\fontencoding{T1}\selectfont\char"B3}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{t}{{\fontencoding{T1}\selectfont\char"B4}}
+    \DeclareTextCompositeCommand{\v}{T2A}{t}{{\fontencoding{T1}\selectfont\char"B4}}
+
+    \DeclareTextCompositeCommand{\c}{OT1}{t}{{\fontencoding{T1}\selectfont\char"B5}}
+    \DeclareTextCompositeCommand{\c}{T2A}{t}{{\fontencoding{T1}\selectfont\char"B5}}
+
+    \DeclareTextCompositeCommand{\c}{OT1}{t}{{\fontencoding{T1}\selectfont\char"B5}}
+    \DeclareTextCompositeCommand{\c}{T2A}{t}{{\fontencoding{T1}\selectfont\char"B5}}
+
+    \DeclareTextCompositeCommand{\H}{OT1}{u}{{\fontencoding{T1}\selectfont\char"B6}}
+    \DeclareTextCompositeCommand{\H}{T2A}{u}{{\fontencoding{T1}\selectfont\char"B6}}
+
+    \DeclareTextCompositeCommand{\r}{OT1}{u}{{\fontencoding{T1}\selectfont\char"B7}}
+    \DeclareTextCompositeCommand{\r}{T2A}{u}{{\fontencoding{T1}\selectfont\char"B7}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{y}{{\fontencoding{T1}\selectfont\char"B8}}
+    \DeclareTextCompositeCommand{\"}{T2A}{y}{{\fontencoding{T1}\selectfont\char"B8}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{z}{{\fontencoding{T1}\selectfont\char"B9}}
+    \DeclareTextCompositeCommand{\'}{T2A}{z}{{\fontencoding{T1}\selectfont\char"B9}}
+
+    \DeclareTextCompositeCommand{\v}{OT1}{z}{{\fontencoding{T1}\selectfont\char"BA}}
+    \DeclareTextCompositeCommand{\v}{T2A}{z}{{\fontencoding{T1}\selectfont\char"BA}}
+
+    \DeclareTextCompositeCommand{\.}{OT1}{z}{{\fontencoding{T1}\selectfont\char"BB}}
+    \DeclareTextCompositeCommand{\.}{T2A}{z}{{\fontencoding{T1}\selectfont\char"BB}}
+
+    %% Number "BC -- ligature ij
+    %% Number "BD -- symbol !`
+    %% Number "BE -- symbol ?`
+    %% Number "BF -- symbol \textsterling
+
+    \DeclareTextCompositeCommand{\`}{OT1}{A}{{\fontencoding{T1}\selectfont\char"C0}}
+    \DeclareTextCompositeCommand{\`}{T2A}{A}{{\fontencoding{T1}\selectfont\char"C0}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{A}{{\fontencoding{T1}\selectfont\char"C1}}
+    \DeclareTextCompositeCommand{\'}{T2A}{A}{{\fontencoding{T1}\selectfont\char"C1}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{A}{{\fontencoding{T1}\selectfont\char"C2}}
+    \DeclareTextCompositeCommand{\^}{T2A}{A}{{\fontencoding{T1}\selectfont\char"C2}}
+
+    \DeclareTextCompositeCommand{\~}{OT1}{A}{{\fontencoding{T1}\selectfont\char"C3}}
+    \DeclareTextCompositeCommand{\~}{T2A}{A}{{\fontencoding{T1}\selectfont\char"C3}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{A}{{\fontencoding{T1}\selectfont\char"C4}}
+    \DeclareTextCompositeCommand{\"}{T2A}{A}{{\fontencoding{T1}\selectfont\char"C4}}
+
+    \DeclareTextCompositeCommand{\r}{OT1}{A}{{\fontencoding{T1}\selectfont\char"C5}}
+    \DeclareTextCompositeCommand{\r}{T2A}{A}{{\fontencoding{T1}\selectfont\char"C5}}
+
+    %% Number "C6 -- symbol \AE
+
+    \DeclareTextCompositeCommand{\c}{OT1}{C}{{\fontencoding{T1}\selectfont\char"C7}}
+    \DeclareTextCompositeCommand{\c}{T2A}{C}{{\fontencoding{T1}\selectfont\char"C7}}
+
+    \DeclareTextCompositeCommand{\`}{OT1}{E}{{\fontencoding{T1}\selectfont\char"C8}}
+    \DeclareTextCompositeCommand{\`}{T2A}{E}{{\fontencoding{T1}\selectfont\char"C8}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{E}{{\fontencoding{T1}\selectfont\char"C9}}
+    \DeclareTextCompositeCommand{\'}{T2A}{E}{{\fontencoding{T1}\selectfont\char"C9}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{E}{{\fontencoding{T1}\selectfont\char"CA}}
+    \DeclareTextCompositeCommand{\^}{T2A}{E}{{\fontencoding{T1}\selectfont\char"CA}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{E}{{\fontencoding{T1}\selectfont\char"CB}}
+    \DeclareTextCompositeCommand{\"}{T2A}{E}{{\fontencoding{T1}\selectfont\char"CB}}
+
+    \DeclareTextCompositeCommand{\`}{OT1}{I}{{\fontencoding{T1}\selectfont\char"CC}}
+    \DeclareTextCompositeCommand{\`}{T2A}{I}{{\fontencoding{T1}\selectfont\char"CC}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{I}{{\fontencoding{T1}\selectfont\char"CD}}
+    \DeclareTextCompositeCommand{\'}{T2A}{I}{{\fontencoding{T1}\selectfont\char"CD}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{I}{{\fontencoding{T1}\selectfont\char"CE}}
+    \DeclareTextCompositeCommand{\^}{T2A}{I}{{\fontencoding{T1}\selectfont\char"CE}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{I}{{\fontencoding{T1}\selectfont\char"CF}}
+    \DeclareTextCompositeCommand{\"}{T2A}{I}{{\fontencoding{T1}\selectfont\char"CF}}
+
+    %% Number "D0 -- symbol D withbar
+
+    \DeclareTextCompositeCommand{\~}{OT1}{N}{{\fontencoding{T1}\selectfont\char"D1}}
+    \DeclareTextCompositeCommand{\~}{T2A}{N}{{\fontencoding{T1}\selectfont\char"D1}}
+
+    \DeclareTextCompositeCommand{\`}{OT1}{O}{{\fontencoding{T1}\selectfont\char"D2}}
+    \DeclareTextCompositeCommand{\`}{T2A}{O}{{\fontencoding{T1}\selectfont\char"D2}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{O}{{\fontencoding{T1}\selectfont\char"D3}}
+    \DeclareTextCompositeCommand{\'}{T2A}{O}{{\fontencoding{T1}\selectfont\char"D3}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{O}{{\fontencoding{T1}\selectfont\char"D4}}
+    \DeclareTextCompositeCommand{\^}{T2A}{O}{{\fontencoding{T1}\selectfont\char"D4}}
+
+    \DeclareTextCompositeCommand{\~}{OT1}{O}{{\fontencoding{T1}\selectfont\char"D5}}
+    \DeclareTextCompositeCommand{\~}{T2A}{O}{{\fontencoding{T1}\selectfont\char"D5}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{O}{{\fontencoding{T1}\selectfont\char"D6}}
+    \DeclareTextCompositeCommand{\"}{T2A}{O}{{\fontencoding{T1}\selectfont\char"D6}}
+
+    %% Number "D7 -- symbol \OE
+    %% Number "D8 -- symbol \O
+
+    \DeclareTextCompositeCommand{\`}{OT1}{U}{{\fontencoding{T1}\selectfont\char"D9}}
+    \DeclareTextCompositeCommand{\`}{T2A}{U}{{\fontencoding{T1}\selectfont\char"D9}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{U}{{\fontencoding{T1}\selectfont\char"DA}}
+    \DeclareTextCompositeCommand{\'}{T2A}{U}{{\fontencoding{T1}\selectfont\char"DA}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{U}{{\fontencoding{T1}\selectfont\char"DB}}
+    \DeclareTextCompositeCommand{\^}{T2A}{U}{{\fontencoding{T1}\selectfont\char"DB}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{U}{{\fontencoding{T1}\selectfont\char"DC}}
+    \DeclareTextCompositeCommand{\"}{T2A}{U}{{\fontencoding{T1}\selectfont\char"DC}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{Y}{{\fontencoding{T1}\selectfont\char"DD}}
+    \DeclareTextCompositeCommand{\'}{T2A}{Y}{{\fontencoding{T1}\selectfont\char"DD}}
+
+    %% Number "DE -- symbol (?)
+    %% Number "DF -- symbol \SS (?)
+
+    \DeclareTextCompositeCommand{\`}{OT1}{a}{{\fontencoding{T1}\selectfont\char"E0}}
+    \DeclareTextCompositeCommand{\`}{T2A}{a}{{\fontencoding{T1}\selectfont\char"E0}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{a}{{\fontencoding{T1}\selectfont\char"E1}}
+    \DeclareTextCompositeCommand{\'}{T2A}{a}{{\fontencoding{T1}\selectfont\char"E1}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{a}{{\fontencoding{T1}\selectfont\char"E2}}
+    \DeclareTextCompositeCommand{\^}{T2A}{a}{{\fontencoding{T1}\selectfont\char"E2}}
+
+    \DeclareTextCompositeCommand{\~}{OT1}{a}{{\fontencoding{T1}\selectfont\char"E3}}
+    \DeclareTextCompositeCommand{\~}{T2A}{a}{{\fontencoding{T1}\selectfont\char"E3}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{a}{{\fontencoding{T1}\selectfont\char"E4}}
+    \DeclareTextCompositeCommand{\"}{T2A}{a}{{\fontencoding{T1}\selectfont\char"E4}}
+
+    \DeclareTextCompositeCommand{\r}{OT1}{a}{{\fontencoding{T1}\selectfont\char"E5}}
+    \DeclareTextCompositeCommand{\r}{T2A}{a}{{\fontencoding{T1}\selectfont\char"E5}}
+
+    %% Number "E6 -- symbol \ae
+
+    \DeclareTextCompositeCommand{\c}{OT1}{c}{{\fontencoding{T1}\selectfont\char"E7}}
+    \DeclareTextCompositeCommand{\c}{T2A}{c}{{\fontencoding{T1}\selectfont\char"E7}}
+
+    \DeclareTextCompositeCommand{\`}{OT1}{e}{{\fontencoding{T1}\selectfont\char"E8}}
+    \DeclareTextCompositeCommand{\`}{T2A}{e}{{\fontencoding{T1}\selectfont\char"E8}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{e}{{\fontencoding{T1}\selectfont\char"E9}}
+    \DeclareTextCompositeCommand{\'}{T2A}{e}{{\fontencoding{T1}\selectfont\char"E9}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{e}{{\fontencoding{T1}\selectfont\char"EA}}
+    \DeclareTextCompositeCommand{\^}{T2A}{e}{{\fontencoding{T1}\selectfont\char"EA}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{e}{{\fontencoding{T1}\selectfont\char"EB}}
+    \DeclareTextCompositeCommand{\"}{T2A}{e}{{\fontencoding{T1}\selectfont\char"EB}}
+
+    \DeclareTextCompositeCommand{\`}{OT1}{i}{{\fontencoding{T1}\selectfont\char"EC}}
+    \DeclareTextCompositeCommand{\`}{T2A}{i}{{\fontencoding{T1}\selectfont\char"EC}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{i}{{\fontencoding{T1}\selectfont\char"ED}}
+    \DeclareTextCompositeCommand{\'}{T2A}{i}{{\fontencoding{T1}\selectfont\char"ED}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{i}{{\fontencoding{T1}\selectfont\char"EE}}
+    \DeclareTextCompositeCommand{\^}{T2A}{i}{{\fontencoding{T1}\selectfont\char"EE}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{i}{{\fontencoding{T1}\selectfont\char"EF}}
+    \DeclareTextCompositeCommand{\"}{T2A}{i}{{\fontencoding{T1}\selectfont\char"EF}}
+
+    %% Number "F0 -- symbol \partion withbar
+
+    \DeclareTextCompositeCommand{\~}{OT1}{n}{{\fontencoding{T1}\selectfont\char"F1}}
+    \DeclareTextCompositeCommand{\~}{T2A}{n}{{\fontencoding{T1}\selectfont\char"F1}}
+
+    \DeclareTextCompositeCommand{\`}{OT1}{o}{{\fontencoding{T1}\selectfont\char"F2}}
+    \DeclareTextCompositeCommand{\`}{T2A}{o}{{\fontencoding{T1}\selectfont\char"F2}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{o}{{\fontencoding{T1}\selectfont\char"F3}}
+    \DeclareTextCompositeCommand{\'}{T2A}{o}{{\fontencoding{T1}\selectfont\char"F3}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{o}{{\fontencoding{T1}\selectfont\char"F4}}
+    \DeclareTextCompositeCommand{\^}{T2A}{o}{{\fontencoding{T1}\selectfont\char"F4}}
+
+    \DeclareTextCompositeCommand{\~}{OT1}{o}{{\fontencoding{T1}\selectfont\char"F5}}
+    \DeclareTextCompositeCommand{\~}{T2A}{o}{{\fontencoding{T1}\selectfont\char"F5}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{o}{{\fontencoding{T1}\selectfont\char"F6}}
+    \DeclareTextCompositeCommand{\"}{T2A}{o}{{\fontencoding{T1}\selectfont\char"F6}}
+
+    %% Number "F7 -- symbol \oe
+    %% Number "F8 -- symbol \o
+
+    \DeclareTextCompositeCommand{\`}{OT1}{u}{{\fontencoding{T1}\selectfont\char"F9}}
+    \DeclareTextCompositeCommand{\`}{T2A}{u}{{\fontencoding{T1}\selectfont\char"F9}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{u}{{\fontencoding{T1}\selectfont\char"FA}}
+    \DeclareTextCompositeCommand{\'}{T2A}{u}{{\fontencoding{T1}\selectfont\char"FA}}
+
+    \DeclareTextCompositeCommand{\^}{OT1}{u}{{\fontencoding{T1}\selectfont\char"FB}}
+    \DeclareTextCompositeCommand{\^}{T2A}{u}{{\fontencoding{T1}\selectfont\char"FB}}
+
+    \DeclareTextCompositeCommand{\"}{OT1}{u}{{\fontencoding{T1}\selectfont\char"FC}}
+    \DeclareTextCompositeCommand{\"}{T2A}{u}{{\fontencoding{T1}\selectfont\char"FC}}
+
+    \DeclareTextCompositeCommand{\'}{OT1}{y}{{\fontencoding{T1}\selectfont\char"FD}}
+    \DeclareTextCompositeCommand{\'}{T2A}{y}{{\fontencoding{T1}\selectfont\char"FD}}
+
+    %% Number "FE -- symbol (?)
+    %% Number "FF -- symbol \ss
+
+    \DeclareTextSymbolDefault{\textleftarrow}{TS1}
+    \DeclareTextSymbolDefault{\textrightarrow}{TS1}
+    \DeclareTextSymbolDefault{\textasteriskcentered}{TS1}
+    \DeclareTextSymbolDefault{\textlbrackdbl}{TS1}
+    \DeclareTextSymbolDefault{\textrbrackdbl}{TS1}
+    \DeclareTextSymbolDefault{\textuparrow}{TS1}
+    \DeclareTextSymbolDefault{\textdownarrow}{TS1}
+    \DeclareTextSymbolDefault{\textmusicalnote}{TS1}
+    \DeclareTextSymbolDefault{\textdagger}{TS1}
+    \DeclareTextSymbolDefault{\textdaggerdbl}{TS1}
+    \DeclareTextSymbolDefault{\textbardbl}{TS1}
+    \DeclareTextSymbolDefault{\textperthousand}{TS1}
+    \DeclareTextSymbolDefault{\textcelsius}{TS1}
+    \DeclareTextSymbolDefault{\textflorin}{TS1}
+    \DeclareTextSymbolDefault{\texttrademark}{TS1}
+    \DeclareTextSymbolDefault{\textnumero}{T2A}
+    \DeclareTextSymbolDefault{\textcent}{TS1}
+    \DeclareTextSymbolDefault{\textsterling}{T1}
+
+    \let\pounds\textsterling
+
+    \DeclareTextSymbolDefault{\textcurrency}{T2A}
+    \DeclareTextSymbolDefault{\textyen}{TS1}
+    \DeclareTextSymbolDefault{\textbrokenbar}{TS1}
+    \DeclareTextSymbolDefault{\textsection}{T2A}
+    \DeclareTextSymbolDefault{\textcopyright}{TS1}
+
+    \let\copyright\textcopyright
+
+    \DeclareTextSymbolDefault{\textlnot}{TS1}
+    \DeclareTextSymbolDefault{\textregistered}{TS1}
+    \DeclareTextSymbolDefault{\textdegree}{TS1}
+    \DeclareTextSymbolDefault{\textpm}{TS1}
+    \DeclareTextSymbolDefault{\textmu}{TS1}
+    \DeclareTextSymbolDefault{\textparagraph}{TS1}
+    \DeclareTextSymbolDefault{\texttimes}{TS1}
+    \DeclareTextSymbolDefault{\textdiv}{TS1}
+    \DeclareTextSymbolDefault{\textunderscore}{T2A}
+
+
+    \DeclareTextSymbolDefault{\textbullet}{TS1}
+    \let\@textbullet\textbullet
+    \def\textbullet{{\fontfamily{cmr}\selectfont\@textbullet}}
+
+
+    \let\S\textsection
+    \let\No\textnumero
+
+    \DeclareTextSymbolDefault{\SS}{T1}
+    \DeclareTextSymbolDefault{\ss}{T1}
+    \DeclareTextSymbolDefault{\OE}{T1}
+    \DeclareTextSymbolDefault{\oe}{T1}
+    \DeclareTextCommand{\AE}{T2A}{\char"8C\relax}
+    \DeclareTextCommand{\AE}{T1} {{\fontencoding{T2A}\selectfont\char"8C}}
+    \DeclareTextCommand{\AE}{OT1}{{\fontencoding{T2A}\selectfont\char"8C}}
+    \DeclareTextCommand{\AE}{TS1}{{\fontencoding{T2A}\selectfont\char"8C}}
+    \DeclareTextCommand{\ae}{T2A}{\char"AC\relax}
+    \DeclareTextCommand{\ae}{T1} {{\fontencoding{T2A}\selectfont\char"AC}}
+    \DeclareTextCommand{\ae}{OT1}{{\fontencoding{T2A}\selectfont\char"AC}}
+    \DeclareTextCommand{\ae}{TS1}{{\fontencoding{T2A}\selectfont\char"AC}}
+    \DeclareTextSymbolDefault{\o}{T1}
+    \DeclareTextSymbolDefault{\O}{T1}
+    \DeclareTextCommand{\AA}{T2A}{{\fontencoding{T1}\selectfont\char"C5}}
+    \DeclareTextCommand{\AA}{T1} {\char"C5\relax}
+    \DeclareTextCommand{\AA}{OT1}{{\fontencoding{T1}\selectfont\char"C5}}
+    \DeclareTextCommand{\AA}{TS1}{{\fontencoding{T1}\selectfont\char"C5}}
+    \DeclareTextCommand{\aa}{T2A}{{\fontencoding{T1}\selectfont\char"E5}}
+    \DeclareTextCommand{\aa}{T1} {\char"E5\relax}
+    \DeclareTextCommand{\aa}{OT1}{{\fontencoding{T1}\selectfont\char"E5}}
+    \DeclareTextCommand{\aa}{TS1}{{\fontencoding{T1}\selectfont\char"E5}}
+    \DeclareTextSymbolDefault{\L}{T1}
+    \DeclareTextSymbolDefault{\l}{T1}
+    \DeclareTextSymbolDefault{\DH}{T1}
+
+    \let\DJ\DH
+
+    \DeclareTextSymbolDefault{\dh}{T1}
+    \DeclareTextSymbolDefault{\dj}{T1}
+    \DeclareTextSymbolDefault{\TH}{T1}
+    \DeclareTextSymbolDefault{\i}{T2A}
+
+
+    \ifx\th\@undefined\let\@th@m\relax\else\let\@th@m\th\fi
+
+    \DeclareTextCommand{\@th@t}{OT1}{{\fontencoding{T1}\selectfont\char"FE}}
+    \DeclareTextCommand{\@th@t}{T1}{\char"FE\relax}
+    \DeclareTextCommand{\@th@t}{TS1}{{\fontencoding{T1}\selectfont\char"FE}}
+    \DeclareTextCommand{\@th@t}{T2A}{{\fontencoding{T1}\selectfont\char"FE}}
+    \def\th{\ifmmode\@th@m\else\@th@t\fi}
+\fi
+
+\endinput
+%%
+%% End of file `newliterat.sty'.
