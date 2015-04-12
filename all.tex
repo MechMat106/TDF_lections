@@ -1,23 +1,24 @@
-\documentclass[12pt]{article}
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage[dvips]{graphicx}
 \usepackage{pscyr}
-\usepackage[T1]{fontenc}
-\usepackage{amssymb, amsmath, textcomp, amsthm, multicol}
-%\usepackage{scalerel}
+%\usepackage{amssymb, amsmath, textcomp, amsthm, multicol}
+\usepackage{scalerel}
+\usepackage{dmvn}
+
 \textwidth=500pt
 \textheight=750pt
 \oddsidemargin=20pt
 \hoffset=-1.5cm
 \topmargin=-25mm
 
-\usepackage{dmvn}
-%\usepackage{xcolor}
-%\usepackage{hyperref}
-%\definecolor{linkcolor}{HTML}{000000}
-%\definecolor{urlcolor}{HTML}{000000}
-%\hypersetup{pdfstartview=FitH, linkcolor=linkcolor, urlcolor=urlcolor, colorlinks=true}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{linkcolor}{HTML}{000000}
+\definecolor{urlcolor}{HTML}{000000}
+\hypersetup{pdfstartview=FitH, linkcolor=linkcolor, urlcolor=urlcolor, colorlinks=true}
 
 %\newtheoremstyle{neosn}{0.5\topsep}{0.5\topsep}{\rm}{}{\sc}{.}{ }{{\bf \thmname{#1}}\thmnote{ {\mdseries#3}}}
 %\newtheorem{theorem}{Теорема}
@@ -33,7 +34,7 @@
 \newenvironment{definition}{\begin{df}}{\end{df}}
 %\newtheorem{example}{Пример}
 \newenvironment{example}{\begin{ex}}{\end{ex}}
-\renewcommand{\proofname}{Доказательство}
+%\renewcommand{\proofname}{Доказательство}
 \newcommand{\XXX}{x_1, \ldots, x_n}
 \newcommand{\SIG}{\sigma_1, \ldots, \sigma_n}
 
@@ -43,8 +44,8 @@
 \DeclareMathOperator*{\amper}{\&} % должно работать для старых дистрибутивов теха.
 
 %правильные переносы
-\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
-{\hbox{$\mathsurround=0pt #1$}}{}}
+%\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+%{\hbox{$\mathsurround=0pt #1$}}{}}
 
 %правильные больше-или-равно и меньше-или-равно
 \renewcommand{\geq}{\geqslant}

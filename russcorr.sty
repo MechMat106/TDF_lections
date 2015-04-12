@@ -18,23 +18,24 @@
 \newif\if@indentheadings
 \DeclareOption{indentheadings}{\@indentheadingstrue}
 \DeclareOption{noindentheadings}{\@indentheadingsfalse}
-\newif\if@textyо
-\DeclareOption{yo}{\@textyоtrue}
-\DeclareOption{noyo}{\@textyоfalse}
+\newif\if@textyo
+\DeclareOption{yo}{\@textyotrue}
+\DeclareOption{noyo}{\@textyofalse}
 \ExecuteOptions{shorttoc,noindentheadings,noyo}
 \ProcessOptions
 
 
-\message{^^J Correcting math definitions,}
-\newcommand*{\tg}{\mathop{\operator@font tg}\nolimits}
-\newcommand*{\ctg}{\mathop{\operator@font ctg}\nolimits}
-\newcommand*{\cosec}{\mathop{\operator@font cosec}\nolimits}
-\newcommand*{\arctg}{\mathop{\operator@font arctg}\nolimits}
-\newcommand*{\arcctg}{\mathop{\operator@font arcctg}\nolimits}
-\newcommand*{\sh}{\mathop{\operator@font sh}\nolimits}
-\newcommand*{\ch}{\mathop{\operator@font ch}\nolimits}
-\DeclareTextCommand{\th}{OT1}{\mathop{\operator@font th}\nolimits}
-\newcommand*{\cth}{\mathop{\operator@font cth}\nolimits}
+%%% It's in babel now.
+%\message{^^J Correcting math definitions,}
+%\newcommand*{\tg}{\mathop{\operator@font tg}\nolimits}
+%\newcommand*{\ctg}{\mathop{\operator@font ctg}\nolimits}
+%\newcommand*{\cosec}{\mathop{\operator@font cosec}\nolimits}
+%\newcommand*{\arctg}{\mathop{\operator@font arctg}\nolimits}
+%\newcommand*{\arcctg}{\mathop{\operator@font arcctg}\nolimits}
+%\newcommand*{\sh}{\mathop{\operator@font sh}\nolimits}
+%\newcommand*{\ch}{\mathop{\operator@font ch}\nolimits}
+%\DeclareTextCommand{\th}{OT1}{\mathop{\operator@font th}\nolimits}
+%\newcommand*{\cth}{\mathop{\operator@font cth}\nolimits}
 
 \DeclareSymbolFont{AMSa}{U}{msa}{m}{n} \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
 \DeclareMathSymbol{\varkappa}{\mathord}{AMSb}{"7B}
@@ -404,7 +405,7 @@
 \frenchspacing
 \righthyphenmin 2
 
-\if@textyо
+\if@textyo
    \message{the letter `yo',}
    \def\@textyе{е}
    \def\@textyЕ{Е}
