@@ -1,44 +1,54 @@
 \section{Булевы функции}
+
+
 \subsection{Определение булевой функции.}
 Обозначим за $E$ множество $\lbrace0,1\rbrace$.
 
 \begin{df}
-$f(\XXX)\in{E}$ --- функция алгебры логики {\bf (булева функция)}, где $x_{i}\in{E} ~ \forall i=1,\ldots,n$ --- это отображение $f\colon E^{n}\rightarrow{E}$. Его можно проиллюстрировать таблицей возможных значений $f$ на различных наборах переменных:\\
+	$f(\XXX)\in{E}$ --- функция алгебры логики {\bf (булева функция)},
+	где $x_{i}\in{E} ~ \forall i=1,\ldots,n$ --- это отображение $f\colon E^{n}\rightarrow{E}$.
+	Его можно проиллюстрировать таблицей возможных значений $f$ на различных наборах переменных:\\
 
-$$\begin{array}{|ccccc|c|}
-\hline
-x_1 & x_2 & \ldots & x_{n-1} & x_n & f(\XXX)  \\
-0 & 0 &\ldots & 0 & 1 & 0 ~ \textbf{или} ~ 1 \\
-0 & 0 &\ldots & 1 & 1 & 0 ~ \textbf{или} ~ 1 \\
-\ldots & \ldots & \ldots & \ldots & \ldots & \ldots\\
-1 & 1 &\ldots & 1 & 1 & 0 ~ \textbf{или} ~ 1 \\
-\hline
-\end{array}$$
+	$$
+	\begin{array}{|ccccc|c|}
+		\hline
+		x_1 & x_2 & \ldots & x_{n-1} & x_n & f(\XXX)  \\
+		0 & 0 &\ldots & 0 & 1 & 0 ~ \textbf{или} ~ 1 \\
+		0 & 0 &\ldots & 1 & 1 & 0 ~ \textbf{или} ~ 1 \\
+		\ldots & \ldots & \ldots & \ldots & \ldots & \ldots\\
+		1 & 1 &\ldots & 1 & 1 & 0 ~ \textbf{или} ~ 1 \\
+		\hline
+	\end{array}
+	$$
 \\
 \\\\
 \end{df}
 
-\begin{definition}
-$P_{2}$ --- множество всех булевых функций от произвольного конечного множества переменных. $P_2(n)$ --- множество всех булевых функций от $n$ переменных. 
-\end{definition}
-\begin{definition}
-$E^{n}=\{(\SIG)|~ \sigma_{i}\in E; ~ i=1,\ldots,n\}$ \\
-\end{definition}
+\begin{df}
+	$P_{2}$ --- множество всех булевых функций от произвольного конечного множества переменных.
+	$P_2(n)$ --- множество всех булевых функций от $n$ переменных. 
+\end{df}
+
+\begin{df}
+	$E^{n}=\{(\SIG)|~ \sigma_{i}\in E; ~ i=1,\ldots,n\}$ \\
+\end{df}
  
-\begin{statement}
- $|P_2(n)|=2^{2^{n}}$. \\
-\end{statement}
+\begin{stm}
+	 $|P_2(n)|=2^{2^{n}}$. \\
+\end{stm}
+
 \begin{proof}
-Очевидно.
+	Очевидно.
 \end{proof}
+
+
 \subsection{Существенные и фиктивные переменные.} 
-\begin{definition}
+\begin{df}
 	Пусть $f(\XXX)$ --- булева функция. 
 	Тогда $x_i$ называется \textbf{существенной} переменной для $f$, если:  $\exists{\sigma_1,\sigma_2, \ldots \sigma_{i-1}, \sigma_{i+1}, \ldots, \sigma_{n}}\in\{0,1\}$, такие, что: 
 
 $ f(\sigma_1,\sigma_2, \ldots ,\sigma_{i-1}, 0, \sigma_{i+1}, \ldots, \sigma_{n})\neq f(\sigma_1,\sigma_2, \ldots, \sigma_{i-1}, 1, \sigma_{i+1}, \ldots, \sigma_{n}).$
 	В противном случае переменная называется \textbf{фиктивной} (пример придумать не очень сложно).
-\end{definition}
 %\begin{enumerate}
 
 1. Пусть $x_i$ --- фиктивная переменная для $f$. Рассмотрим функцию $g(x_1,x_2,\ldots,x_{i-1},x_{i+1}, \ldots, x_{n}),\\
@@ -47,6 +57,7 @@ $ f(\sigma_1,\sigma_2, \ldots ,\sigma_{i-1}, 0, \sigma_{i+1}, \ldots, \sigma_{n}
 2. Пусть $f(\XXX)$ --- булева функция. Также, пусть имеется $y \neq \XXX $. Рассмотрим функцию $h(\XXX,y)$, $h(\SIG,\sigma)=f(\SIG)$. Тогда говорим, что \textbf{$h$ получена из $f$ добавлением фиктивной переменной  $y$.}
 
 %\end{enumerate}
+\end{df}
 \begin{definition}
 	Две булевы функции называются \textbf{равными}, если они могут быть получены друг из друга с помощью некоторого числа операций добавления или удаления фиктивных переменных. \\
 \end{definition}

@@ -5,3 +5,4 @@ photo/*
 *.out
 *.pdf
 *.dvi
+*.ps
