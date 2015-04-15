@@ -1,0 +1,699 @@
+\ProvidesPackage{dmvnbase}[2006/06/01 v1.36 DMVN Base LaTeX Package]
+\RequirePackage{amssymb,amsmath,mathrsfs}
+
+% ===============================================================
+% DMVN Local Coordinates
+% ===============================================================
+\newcommand{\dmvnwebsite}{\texttt{http:/\kern-.1em/dmvn.mexmat.net}}
+\newcommand{\dmvnwebsitemirror}{\texttt{http:/\kern-.1em/dmvn.mexmat.ru}}
+\newcommand{\dmvnmail}{\texttt{dmvn@mccme.ru}}
+
+%===========================
+% here is cp1251 encoding
+%===========================
+
+% right hyphen rules
+
+%\hyphenation{ес-ли}
+%\hyphenation{СССР МЦНМО РФФИ ГИБДД}
+
+% ===============================================================
+% Algebraic operators
+% ===============================================================
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\arsh}{arsh}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Card}{Card}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Coim}{Coim}
+\DeclareMathOperator{\Com}{Com}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\Corr}{corr}
+\DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Graph}{Graph}
+\DeclareMathOperator{\GCD}{\mathrm{НОД}}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\extr}{extr}
+\DeclareMathOperator{\epig}{epi}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\id}{id}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Law}{Law}
+\DeclareMathOperator{\LCM}{\mathrm{НОК}}
+\DeclareMathOperator{\Lin}{Lin}
+\DeclareMathOperator{\Ln}{Ln}
+\DeclareMathOperator{\mes}{mes}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Orb}{Orb}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Prj}{Pr}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\Quot}{Quot}
+\DeclareMathOperator{\Ran}{Ran}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}}
+\DeclareMathOperator{\Rea}{Re}
+\DeclareMathOperator*{\res}{res}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Si}{Si}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\vp}{v.p.}
+\DeclareMathOperator{\Var}{Var}
+
+% Tangens hyperbolici
+\renewcommand{\tanh}{\mathop{\mathrm{th}}}
+
+% ===============================================================
+% Matrices
+% ===============================================================
+\newcommand{\mat}[1]{\begin{matrix}#1\end{matrix}}                                      %   a
+\newcommand{\rbmat}[1]{\begin{pmatrix}#1\end{pmatrix}}                                  %  (a)
+\newcommand{\sbmat}[1]{\begin{bmatrix}#1\end{bmatrix}}                                  %  [a]
+\newcommand{\cbmat}[1]{\begin{Bmatrix}#1\end{Bmatrix}}                                  %  {a}
+\newcommand{\mbmat}[1]{\begin{vmatrix}#1\end{vmatrix}}                                  %  |a|
+\newcommand{\nbmat}[1]{\begin{Vmatrix}#1\end{Vmatrix}}                                  % ||a||
+\newcommand{\rcmat}[1]{\left.\mat{#1}\right\}}                                          %   a}
+\newcommand{\lcmat}[1]{\left\{\mat{#1}\right.}                                          %  {a
+
+% ===============================================================
+% Common usage environments
+% ===============================================================
+\newcommand{\tab}[2]{\begin{tabular}{#1}#2\end{tabular}}
+\newcommand{\ctab}[2]{\cent{\begin{tabular}{#1}#2\end{tabular}}}
+\newcommand{\case}[1]{\begin{cases}#1\end{cases}}
+\newcommand{\cent}[1]{\begin{center} #1 \end{center}}
+\newcommand{\eqn}[1]{\begin{equation}#1\end{equation}}
+\newcommand{\equ}[1]{\begin{equation*}#1\end{equation*}}
+\newcommand{\mln}[1]{\begin{multline}#1\end{multline}}
+\newcommand{\mla}[2]{{\renewcommand{\theequation}{$#1$}\begin{multline}#2\end{multline}}}
+\newcommand{\ml}[1]{\begin{multline*}#1\end{multline*}}
+\newcommand{\eqa}[2]{\begin{equation}\renewcommand{\theequation}{$#1$}#2\end{equation}}
+
+\newcommand{\bcase}[1]{\left\{\begin{aligned}#1\end{aligned}\right.}                   % big equation system
+\newcommand{\eqb}[1]{\eqn{\left\{\begin{aligned}#1\end{aligned}\right.}}
+
+% binary relation wrapper
+\newcommand*{\bw}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
+
+% Picture right side insertion
+% These commands are obsolete, you should not use them
+% You should not use them in the new documents
+\newcommand{\rightfloatingbox}[1]{\vbox to 0pt {\hbox to \textwidth{\hfil{#1}}\vss}}
+\newcommand{\rightpicture}[1]{\rightfloatingbox{\epsfbox{#1}}}
+
+% Advanced Pictures Engine -----------------------------------------------------------------------------------------
+% Declare a box for picture measuring
+\newbox\dmvnpicbox
+% Dimension measuring the space between the picture and the text
+\newdimen\dmvnpicborder\dmvnpicborder=1pc
+
+\def\dmvnpicmbox#1{\epsfbox{#1}}
+
+% This command provides text hanging on the right side
+\def\dmvnpicrh#1#2{\setbox\dmvnpicbox\hbox{\kern\dmvnpicborder\dmvnpicmbox{#1}}%
+\hangindent=-\wd\dmvnpicbox%
+\hangafter=#2}%
+
+% And this - on the left side
+\def\dmvnpiclh#1#2{\setbox\dmvnpicbox\hbox{\dmvnpicmbox{#1}\hskip\dmvnpicborder}
+\hangindent=\wd\dmvnpicbox
+\hangafter=#2}
+
+% Internal command
+\def\dmvnpic#1#2{\hbox{\vbox{\footnotesize\normalfont\halign{\hfil##\hfil\cr\dmvnpicmbox{#1}\cr\noalign{\medskip}Рис.~#2\cr}}}}
+
+\def\dmvnpicr#1#2{\vadjust{\vbox to 0pt{\kern\dmvnpicborder\hfill\dmvnpic{#1}{#2}\vss}}}
+\def\dmvnpicra#1#2#3{\vadjust{\vbox to 0pt{\kern\dmvnpicborder\kern#3\hfill\dmvnpic{#1}{#2}\vss}}}
+\def\dmvnpicl#1#2{\vadjust{\vbox to 0pt{\kern\dmvnpicborder\dmvnpic{#1}{#2}\hfill\vss}}}
+\def\dmvnpicla#1#2#3{\vadjust{\vbox to 0pt{\kern\dmvnpicborder\kern#3\dmvnpic{#1}{#2}\hfill\vss}}}
+% E.O.F. Advanced Pictures Engine ----------------------------------------------------------------------------------
+
+% number with circle as superscript
+\newcommand{\pt}[1]{$\mathbf{#1}^\circ$}
+
+% environment with variable \itemsep parameter
+
+\newenvironment{nums}[1]
+{\begin{enumerate}
+\setlength\itemsep{#1pt}}
+{\end{enumerate}}
+
+\newenvironment{items}[1]
+{\begin{itemize}
+\setlength\itemsep{#1pt}}
+{\end{itemize}}
+
+\newenvironment{points}[1]
+{\begin{nums}{#1}
+\renewcommand{\theenumi}{\pt{\arabic{enumi}}}
+\renewcommand{\labelenumi}{\theenumi}}
+{\end{nums}}
+
+
+% ===============================================================
+% Font: Bold Small Letters
+% ===============================================================
+\newcommand{\db}{\mathbf{d}}                                          % d bold
+\newcommand{\ib}{\mathbf{i}}                                          % i bold
+\newcommand{\jb}{\mathbf{j}}                                          % j bold
+\newcommand{\kb}{\mathbf{k}}                                          % k bold
+\newcommand{\nb}{\mathbf{n}}                                          % n bold
+\newcommand{\rb}{\mathbf{r}}                                          % r bold
+
+% ===============================================================
+% Font: Bold Letters
+% ===============================================================
+\newcommand{\Ab}{\mathbf{A}}
+\newcommand{\Bb}{\mathbf{B}}
+\newcommand{\Cb}{\mathbf{C}}
+\newcommand{\Db}{\mathbf{D}}
+\newcommand{\Eb}{\mathbf{E}}
+\newcommand{\Fb}{\mathbf{F}}
+\newcommand{\Gb}{\mathbf{G}}
+\newcommand{\Hb}{\mathbf{H}}
+\newcommand{\Ib}{\mathbf{I}}
+\newcommand{\Jb}{\mathbf{J}}
+\newcommand{\Kb}{\mathbf{K}}
+\newcommand{\Lb}{\mathbf{L}}
+\newcommand{\Mb}{\mathbf{M}}
+\newcommand{\Nb}{\mathbf{N}}
+\newcommand{\Ob}{\mathbf{O}}
+\newcommand{\Pb}{\mathbf{P}}
+\newcommand{\Qb}{\mathbf{Q}}
+\newcommand{\Rb}{\mathbf{R}}
+\newcommand{\Sb}{\mathbf{S}}
+\newcommand{\Tb}{\mathbf{T}}
+\newcommand{\Ub}{\mathbf{U}}
+\newcommand{\Vb}{\mathbf{V}}
+\newcommand{\Wb}{\mathbf{W}}
+\newcommand{\Xb}{\mathbf{X}}
+\newcommand{\Yb}{\mathbf{Y}}
+\newcommand{\Zb}{\mathbf{Z}}
+
+% ===============================================================
+% Font: Calligraphic Letters
+% ===============================================================
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Bc}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dc}{\mathcal{D}}
+\newcommand{\Ec}{\mathcal{E}}
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Gc}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Ic}{\mathcal{I}}
+\newcommand{\Jc}{\mathcal{J}}
+\newcommand{\Kc}{\mathcal{K}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Mc}{\mathcal{M}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Qc}{\mathcal{Q}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Tc}{\mathcal{T}}
+\newcommand{\Uc}{\mathcal{U}}
+\newcommand{\Vc}{\mathcal{V}}
+\newcommand{\Wc}{\mathcal{W}}
+\newcommand{\Xc}{\mathcal{X}}
+\newcommand{\Yc}{\mathcal{Y}}
+\newcommand{\Zc}{\mathcal{Z}}
+
+% ===============================================================
+% Font: Script Letters
+% ===============================================================
+\newcommand{\As}{\mathscr{A}}
+\newcommand{\Bs}{\mathscr{B}}
+\newcommand{\Cs}{\mathscr{C}}
+\newcommand{\Ds}{\mathscr{D}}
+\newcommand{\Es}{\mathscr{E}}
+\newcommand{\Fs}{\mathscr{F}}
+\newcommand{\Gs}{\mathscr{G}}
+\newcommand{\Hs}{\mathscr{H}}
+\newcommand{\Is}{\mathscr{I}}
+\newcommand{\Js}{\mathscr{J}}
+\newcommand{\Ks}{\mathscr{K}}
+\newcommand{\Ls}{\mathscr{L}}
+\newcommand{\Ms}{\mathscr{M}}
+\newcommand{\Ns}{\mathscr{N}}
+\newcommand{\Os}{\mathscr{O}}
+\newcommand{\Ps}{\mathscr{P}}
+\newcommand{\Qs}{\mathscr{Q}}
+\newcommand{\Rs}{\mathscr{R}}
+\newcommand{\Ss}{\mathscr{S}}
+\newcommand{\Ts}{\mathscr{T}}
+\newcommand{\Us}{\mathscr{U}}
+\newcommand{\Vs}{\mathscr{V}}
+\newcommand{\Ws}{\mathscr{W}}
+\newcommand{\Xs}{\mathscr{X}}
+\newcommand{\Ys}{\mathscr{Y}}
+\newcommand{\Zs}{\mathscr{Z}}
+
+% ===============================================================
+% Font: Sans Letters
+% ===============================================================
+\newcommand{\Af}{\mathsf{A}}
+\newcommand{\Bf}{\mathsf{B}}
+\newcommand{\Cf}{\mathsf{C}}
+\newcommand{\Df}{\mathsf{D}}
+\newcommand{\Ef}{\mathsf{E}}
+\newcommand{\Ff}{\mathsf{F}}
+\newcommand{\Gf}{\mathsf{G}}
+\newcommand{\Hf}{\mathsf{H}}
+\newcommand{\If}{\mathsf{I}}
+\newcommand{\Jf}{\mathsf{J}}
+\newcommand{\Kf}{\mathsf{K}}
+\newcommand{\Lf}{\mathsf{L}}
+\newcommand{\Mf}{\mathsf{M}}
+\newcommand{\Nf}{\mathsf{N}}
+\newcommand{\Of}{\mathsf{O}}
+\newcommand{\Pf}{\mathsf{P}}
+\newcommand{\Qf}{\mathsf{Q}}
+\newcommand{\Rf}{\mathsf{R}}
+\newcommand{\Sf}{\mathsf{S}}
+\newcommand{\Tf}{\mathsf{T}}
+\newcommand{\Uf}{\mathsf{U}}
+\newcommand{\Vf}{\mathsf{V}}
+\newcommand{\Wf}{\mathsf{W}}
+\newcommand{\Xf}{\mathsf{X}}
+\newcommand{\Yf}{\mathsf{Y}}
+\newcommand{\Zf}{\mathsf{Z}}
+
+% ===============================================================
+% Font: Gothic Letters
+% ===============================================================
+\newcommand{\Ag}{\mathfrak{A}}
+\newcommand{\Bg}{\mathfrak{B}}
+\newcommand{\Cg}{\mathfrak{C}}
+\newcommand{\Dg}{\mathfrak{D}}
+\newcommand{\Eg}{\mathfrak{E}}
+\newcommand{\Fg}{\mathfrak{F}}
+\newcommand{\Gg}{\mathfrak{G}}
+\newcommand{\Hg}{\mathfrak{H}}
+\newcommand{\Ig}{\mathfrak{I}}
+\newcommand{\Jg}{\mathfrak{J}}
+\newcommand{\Kg}{\mathfrak{K}}
+\newcommand{\Lg}{\mathfrak{L}}
+\newcommand{\Mg}{\mathfrak{M}}
+\newcommand{\Ng}{\mathfrak{N}}
+\newcommand{\Og}{\mathfrak{O}}
+\newcommand{\Pg}{\mathfrak{P}}
+\newcommand{\Qg}{\mathfrak{Q}}
+\newcommand{\Rg}{\mathfrak{R}}
+\newcommand{\Sg}{\mathfrak{S}}
+\newcommand{\Tg}{\mathfrak{T}}
+\newcommand{\Ug}{\mathfrak{U}}
+\newcommand{\Vg}{\mathfrak{V}}
+\newcommand{\Wg}{\mathfrak{W}}
+\newcommand{\Xg}{\mathfrak{X}}
+\newcommand{\Yg}{\mathfrak{Y}}
+\newcommand{\Zg}{\mathfrak{Z}}
+
+% ===============================================================
+% Letters: Special Math
+% ===============================================================
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\Cbb}{\mathbb{C}}
+\newcommand{\Ebb}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Hbb}{\mathbb{H}}
+\newcommand{\Ibb}{\mathbb{I}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Lbb}{\mathbb{L}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Sbb}{\mathbb{S}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% ===============================================================
+% Groups and Function Classes
+% ===============================================================
+\newcommand{\LR}{\mathbf{L_R}}                                                          % LR class
+\newcommand{\LRp}{\mathbf{L_R^p}}                                                       % LR-p class
+\newcommand{\SegC}{\mathbf{SegC}}                                                       % Seg-continuous n-th derivative
+\newcommand{\LocR}{\mathbf{LocR}}                                                       % Riemann local-integrated
+\newcommand{\RP}{\mathbb{R}\mathrm{P}}                                                  % Real projective space RP
+\newcommand{\CP}{\mathbb{C}\mathrm{P}}                                                  % Complex projective space RP
+\newcommand{\AC}{\mathbf{AC}}                                                           % Absolute-continious
+\newcommand{\VB}{\mathbf{VB}}                                                           % Variation bounded
+
+\newcommand{\GA}{\mathbf{GA}}
+\newcommand{\GL}{\mathbf{GL}}
+\newcommand{\PGL}{\mathbf{PGL}}
+\newcommand{\PSL}{\mathbf{PSL}}
+\newcommand{\SO}{\mathbf{SO}}
+\newcommand{\Sp}{\mathbf{Sp}}
+\newcommand{\SU}{\mathbf{SU}}
+\newcommand{\SL}{\mathbf{SL}}
+\newcommand{\UT}{\mathbf{UT}}
+
+\newcommand{\ggt}{\mathfrak{g}}
+\newcommand{\hgt}{\mathfrak{h}}
+\newcommand{\slg}{\mathfrak{sl}}
+\newcommand{\glg}{\mathfrak{gl}}
+\newcommand{\sog}{\mathfrak{so}}
+\newcommand{\spg}{\mathfrak{sp}}
+
+% ===============================================================
+% Reductions: Greek Letters
+% ===============================================================
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\Be}{\mathrm{B}}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ka}{\varkappa}
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\si}{\sigma}
+\newcommand{\Sig}{\Sigma}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+\newcommand{\ph}{\varphi}
+\newcommand{\Ph}{\Phi}
+\newcommand{\rh}{\rho}
+\newcommand{\ta}{\theta}
+\newcommand{\Ta}{\Theta}
+\newcommand{\ze}{\zeta}
+
+\newcommand{\nab}{\nabla}
+
+% ===============================================================
+% Braces
+% ===============================================================
+\newcommand{\nn}[1]{\|#1\|}                                                             % norm, normal size
+\newcommand{\nc}[1]{\{#1\}}                                                             % calligraphic, normal size
+
+\newcommand{\hr}[1]{\left(#1\right)}                                                    % round, aligned
+\newcommand{\hm}[1]{\left|#1\right|}                                                    % modulo, aligned
+\newcommand{\hn}[1]{\left\|#1\right\|}                                                  % norm, aligned
+\newcommand{\ha}[1]{\left\langle#1\right\rangle}                                        % angle, aligned
+\newcommand{\hce}[1]{\left\lceil#1\right\rceil}                                         % ceil, aligned
+\newcommand{\hfl}[1]{\left\lfloor#1\right\rfloor}                                       % floor, aligned
+\newcommand{\hs}[1]{\left[#1\right]}                                                    % square, aligned
+\newcommand{\hc}[1]{\left\{#1\right\}}                                                  % calligraphic, aligned
+\newcommand{\hrs}[1]{\left(#1\right]}                                                   % round/sqaure, aligned
+\newcommand{\hsr}[1]{\left[#1\right)}                                                   % square/round, aligned
+% ---------------------------------------------------------------
+\newcommand{\br}[1]{\bigl(#1\bigr)}                                                     % round, big
+\newcommand{\bm}[1]{\bigl|#1\bigr|}                                                     % modulo, big
+\newcommand{\bn}[1]{\bigl\|#1\bigr\|}                                                   % norm, big
+\newcommand{\ba}[1]{\bigl\langle#1\bigr\rangle}                                         % angle, big
+\newcommand{\bce}[1]{\bigl\lceil#1\bigr\rceil}                                          % ceil, big
+\newcommand{\bfl}[1]{\bigl\lfloor#1\bigr\rfloor}                                        % floor, big
+\newcommand{\bs}[1]{\bigl[#1\bigr]}                                                     % square, big
+\newcommand{\bc}[1]{\bigl\{#1\bigr\}}                                                   % calligraphic, big
+\newcommand{\brs}[1]{\bigl(#1\bigr]}                                                    % round/square, big
+\newcommand{\bsr}[1]{\bigl[#1\bigr)}                                                    % square/round, big
+% ---------------------------------------------------------------
+\newcommand{\Br}[1]{\Bigl(#1\Bigr)}                                                     % round, Big
+\newcommand{\Bm}[1]{\Bigl|#1\Bigr|}                                                     % modulo, Big
+\newcommand{\Bn}[1]{\Bigl\|#1\Bigr\|}                                                   % norm, Big
+\newcommand{\Ba}[1]{\Bigl\langle#1\Bigr\rangle}                                         % angle, Big
+\newcommand{\Bce}[1]{\Bigl\lceil#1\Bigr\rceil}                                          % ceil, Big
+\newcommand{\Bfl}[1]{\Bigl\lfloor#1\Bigr\rfloor}                                        % floor, Big
+\newcommand{\BS}[1]{\Bigl[#1\Bigr]}                                                     % square, Big
+\newcommand{\BC}[1]{\Bigl\{#1\Bigr\}}                                                   % calligraphic, Big
+\newcommand{\Brs}[1]{\Bigl(#1\Bigr]}                                                    % round/square, Big
+\newcommand{\Bsr}[1]{\Bigl[#1\Bigr)}                                                    % square/round, Big
+% ---------------------------------------------------------------
+\newcommand{\bbr}[1]{\biggl(#1\biggr)}                                                  % round, bigg
+\newcommand{\bbm}[1]{\biggl|#1\biggr|}                                                  % modulo, bigg
+\newcommand{\bbn}[1]{\biggl\|#1\biggr\|}                                                % norm, bigg
+\newcommand{\bba}[1]{\biggl\langle#1\biggr\rangle}                                      % angle, bigg
+\newcommand{\bbce}[1]{\biggl\lceil#1\biggr\rceil}                                       % ceil, bigg
+\newcommand{\bbfl}[1]{\biggl\lfloor#1\biggr\rfloor}                                     % floor, bigg
+\newcommand{\bbs}[1]{\biggl[#1\biggr]}                                                  % square, bigg
+\newcommand{\bbc}[1]{\biggl\{#1\biggr\}}                                                % calligraphic, bigg
+\newcommand{\bbrs}[1]{\biggl(#1\biggr]}                                                 % round/square, bigg
+\newcommand{\bbsr}[1]{\biggl[#1\biggr)}                                                 % square/round, bigg
+% ---------------------------------------------------------------
+\newcommand{\bbbr}[1]{\Biggl(#1\Biggr)}                                                 % round, Bigg
+\newcommand{\bbbm}[1]{\Biggl|#1\Biggr|}                                                 % modulo, Bigg
+\newcommand{\bbbn}[1]{\Biggl\|#1\Biggr\|}                                               % norm, Bigg
+\newcommand{\bbba}[1]{\Biggl\langle#1\Biggr\rangle}                                     % angle, Bigg
+\newcommand{\bbbce}[1]{\Biggl\lceil#1\Biggr\rceil}                                      % ceil, Bigg
+
+\newcommand{\bbbfl}[1]{\Biggl\lfloor#1\Biggr\rfloor}                                    % floor, Bigg
+\newcommand{\bbbs}[1]{\Biggl[#1\Biggr]}                                                 % square, Bigg
+\newcommand{\bbbc}[1]{\Biggl\{#1\Biggr\}}                                               % calligraphic, Bigg
+\newcommand{\bbbrs}[1]{\Biggl(#1\Biggr]}                                                % round/square, Bigg
+\newcommand{\bbbsr}[1]{\Biggl[#1\Biggr)}                                                % square/round, Bigg
+% ---------------------------------------------------------------
+\newcommand{\lcomm}{\bigl\{}                                                            % left comment
+\newcommand{\rcomm}{\bigr\}}                                                            % right comment
+
+% ===============================================================
+% Dotted sequences
+% ===============================================================
+\newcommand{\etc}{,\ldots}                                                              % et cetera
+\newcommand{\sco}{,\ldots,}                                                             % sequenced
+\newcommand{\spl}{\bw+\ldots\bw+}                                                       % sequenced plus
+\newcommand{\sd}{\bw\cdot\ldots\bw\cdot}                                                % sequenced dot
+\newcommand{\st}{\bw\times\ldots\bw\times}                                              % sequenced times
+\newcommand{\sop}{\bw\oplus\ldots\bw\oplus}                                             % sequenced oplus
+\newcommand{\sot}{\bw\otimes\ldots\bw\otimes}                                           % sequenced otimes
+\newcommand{\sw}{\bw\wedge\ldots\bw\wedge}                                              % sequenced wedge
+\newcommand{\sv}{\bw\vee\ldots\bw\vee}                                                  % sequenced vee
+\newcommand{\sle}{\bw\le\ldots\bw\le}                                                   % sequenced le
+\newcommand{\sge}{\bw\ge\ldots\bw\ge}                                                   % sequenced ge
+\newcommand{\sles}{\bw<\ldots\bw<}                                                      % sequenced less
+\newcommand{\sgre}{\bw>\ldots\bw>}                                                      % sequenced greater
+\newcommand{\sa}{\bw\&\ldots\bw\&}                                                      % sequenced conjunction
+
+% ===============================================================
+% Common usage sums, limits, integrals, products
+% ===============================================================
+\newcommand{\suml}[2]{\sum\limits_{{#1}}^{{#2}}}                                        % limited sum
+\newcommand{\sums}[1]{\sum\limits_{{#1}}}                                               % sum over set
+%\newcommand{\sumlstr}[2]{{\sum\limits_{{#1}}^{{#2}}}'}                                  % limited sum with strike
+\newcommand{\sumsstr}[1]{{\sum\limits_{{#1}}}'}                                         % sum with strike over set
+\newcommand{\sumstr}{{\sum}'}                                                           % sum with strike (simple)
+\newcommand{\sumkui}{\sum\limits_{k=1}^{\infty}}                                        % sums to 'infty'
+\newcommand{\sumnui}{\sum\limits_{n=1}^{\infty}}
+\newcommand{\sumiui}{\sum\limits_{i=1}^{\infty}}
+\newcommand{\sumkzi}{\sum\limits_{k=0}^{\infty}}
+\newcommand{\sumnzi}{\sum\limits_{n=0}^{\infty}}
+\newcommand{\sumizi}{\sum\limits_{i=0}^{\infty}}
+\newcommand{\sumkun}{\sum\limits_{k=1}^{n}}                                             % sums to 'n'
+\newcommand{\sumiun}{\sum\limits_{i=1}^{n}}
+\newcommand{\sumkzn}{\sum\limits_{k=0}^{n}}
+\newcommand{\sumizn}{\sum\limits_{i=0}^{n}}
+\newcommand{\sumium}{\sum\limits_{i=1}^{m}}
+\newcommand{\sumkum}{\sum\limits_{k=1}^{m}}                                             % sums to 'm'
+\newcommand{\sumkzm}{\sum\limits_{k=0}^{m}}
+\newcommand{\sumizm}{\sum\limits_{i=0}^{m}}
+\newcommand{\sumun}{\sum\limits_{1}^{n}}                                                % sums without variable
+\newcommand{\sumzn}{\sum\limits_{0}^{n}}
+\newcommand{\sumui}{\sum\limits_{1}^{\infty}}
+\newcommand{\sumzi}{\sum\limits_{0}^{\infty}}
+\newcommand{\sumi}{\sum\limits_{i}}                                                     % sums over 'i'
+\newcommand{\sumn}{\sum\limits_{n}}                                                     % sums over 'i'
+
+\newcommand{\oplusl}[2]{\bigoplus\limits_{{#1}}^{{#2}}}                                 % limited direct sum
+\newcommand{\otimesl}[2]{\bigotimes\limits_{{#1}}^{{#2}}}                               % limited cross product
+\newcommand{\opluss}[1]{\bigoplus\limits_{{#1}}^{}}                                     % direct sum over set
+\newcommand{\otimess}[1]{\bigotimes\limits_{{#1}}^{}}                                   % cross product over set
+\newcommand{\prodl}[2]{\prod\limits_{{#1}}^{{#2}}}                                      % limited product
+\newcommand{\prods}[1]{\prod\limits_{{#1}}}                                             % half-limited product
+\newcommand{\prodstr}{{\prod}'}                                                         % product with strike
+\newcommand{\prodsstr}[1]{{\prod\limits_{{#1}}}'}                                       % half-limited product with strike
+\newcommand{\resl}[1]{\res\limits_{{#1}}}                                               % limited residue
+\newcommand{\liml}[1]{\lim\limits_{{#1}}}                                               % limited limit
+\newcommand{\infl}[1]{\inf\limits_{{#1}}}                                               % limited inf
+\newcommand{\supl}[1]{\sup\limits_{{#1}}}                                               % limited sup
+\newcommand{\minl}[1]{\min\limits_{{#1}}}                                               % limited min
+\newcommand{\maxl}[1]{\max\limits_{{#1}}}                                               % limited max
+\newcommand{\uliml}[1]{\varlimsup\limits_{#1}}                                          % upper limit
+\newcommand{\lliml}[1]{\varliminf\limits_{#1}}                                          % lower limit
+\newcommand{\ampl}[2]{\mathop{\raisebox{-3.5pt}{\LARGE\&}}\limits_{{#1}}^{{#2}}}        % big AND
+\newcommand{\amps}[1]{\mathop{\raisebox{-3.5pt}{\LARGE\&}}\limits_{{#1}}}               % big AND with one limit
+\newcommand{\Varl}[1]{\mathop{\Var}\limits_{{#1}}}                                      % Variation
+
+% Disjunctive limited union
+\newcommand{\cupsql}[2]{\bigsqcup\limits_{{#1}}^{{#2}}}                                 % disjunctive two-limited union
+\newcommand{\cupsqs}[1]{\bigsqcup\limits_{{#1}}}                                        % disjunctive one-limited union
+
+% Limited unions
+\newcommand{\cupl}[2]{\bigcup\limits_{{#1}}^{{#2}}}                                     % limited union
+\newcommand{\cups}[1]{\bigcup\limits_{{#1}}}                                            % union over set
+
+\newcommand{\cupkui}{\bigcup\limits_{k=1}^{\infty}}                                     % unions to 'infty'
+\newcommand{\cupnui}{\bigcup\limits_{n=1}^{\infty}}
+\newcommand{\cupiui}{\bigcup\limits_{i=1}^{\infty}}
+\newcommand{\cupkzi}{\bigcup\limits_{k=0}^{\infty}}
+\newcommand{\cupnzi}{\bigcup\limits_{n=0}^{\infty}}
+\newcommand{\cupizi}{\bigcup\limits_{i=0}^{\infty}}
+\newcommand{\cupkun}{\bigcup\limits_{k=1}^{n}}                                          % unions to 'n'
+\newcommand{\cupiun}{\bigcup\limits_{i=1}^{n}}
+\newcommand{\cupkzn}{\bigcup\limits_{k=0}^{n}}                                          % unions to 'n'
+\newcommand{\cupizn}{\bigcup\limits_{i=0}^{n}}
+
+\newcommand{\cupun}{\bigcup\limits_{1}^{n}}                                             % unions w/o variable
+\newcommand{\cupzn}{\bigcup\limits_{0}^{n}}
+\newcommand{\cupui}{\bigcup\limits_{1}^{\infty}}
+\newcommand{\cupzi}{\bigcup\limits_{0}^{\infty}}
+
+\newcommand{\cupi}{\bigcup\limits_{i}}                                                  % union over 'i'
+\newcommand{\cupn}{\bigcup\limits_{n}}                                                  % union over 'n'
+
+% Limited intersections
+\newcommand{\capl}[2]{\bigcap\limits_{{#1}}^{{#2}}}                                     % limited anion
+\newcommand{\caps}[1]{\bigcap\limits_{{#1}}}                                            % anion over set
+
+\newcommand{\capkui}{\bigcap\limits_{k=1}^{\infty}}                                     % anions to 'infty'
+\newcommand{\capnui}{\bigcap\limits_{n=1}^{\infty}}
+\newcommand{\capiui}{\bigcap\limits_{i=1}^{\infty}}
+\newcommand{\capkzi}{\bigcap\limits_{k=0}^{\infty}}
+\newcommand{\capnzi}{\bigcap\limits_{n=0}^{\infty}}
+\newcommand{\capizi}{\bigcap\limits_{i=0}^{\infty}}
+\newcommand{\capkun}{\bigcap\limits_{k=1}^{n}}                                          % anions to 'n'
+\newcommand{\capiun}{\bigcap\limits_{i=1}^{n}}
+\newcommand{\capkzn}{\bigcap\limits_{k=0}^{n}}                                          % anions to 'n'
+\newcommand{\capizn}{\bigcap\limits_{i=0}^{n}}
+
+\newcommand{\capun}{\bigcap\limits_{1}^{n}}                                             % anions w/o variable
+\newcommand{\capzn}{\bigcap\limits_{0}^{n}}
+\newcommand{\capui}{\bigcap\limits_{1}^{\infty}}
+\newcommand{\capzi}{\bigcap\limits_{0}^{\infty}}
+
+\newcommand{\capi}{\bigcap\limits_{i}}                                                  % anion over 'i'
+\newcommand{\capn}{\bigcap\limits_{n}}                                                  % anion over 'n'
+
+% Integrals
+\newcommand{\intl}[2]{\int\limits_{{#1}}^{{#2}}}                                        % limited integral
+\newcommand{\ints}[1]{\int\limits_{{#1}}}                                               % integral over set
+\newcommand{\iints}[1]{\iint\limits_{{#1}}}                                             % iintegral over set
+\newcommand{\iiints}[1]{\iiint\limits_{{#1}}}                                           % iiintegral over set
+\newcommand{\idotsints}[1]{\idotsint\limits_{{#1}}}                                     % idotsintegral over set
+\newcommand{\oints}[1]{\oint\limits_{{#1}}}                                             % ointegral over set
+
+% ===============================================================
+% Reductions
+% ===============================================================
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\newcommand{\nge}{\ngeqslant}
+\newcommand{\nle}{\nleqslant}
+\newcommand{\exi}{\,\exists\,}
+\newcommand{\exu}{\,\exists\,!\;}
+\newcommand{\fa}{\,\forall\,}
+\newcommand{\es}{\varnothing}
+\newcommand{\bes}{\infty}                                                               % rus-infinity
+\newcommand{\pd}{\partial}
+\newcommand{\subs}{\subset}
+\newcommand{\sups}{\supset}
+\newcommand{\subseq}{\subseteq}
+\newcommand{\supseq}{\supseteq}
+\newcommand{\wo}{\smallsetminus}
+\newcommand{\ol}{\overline}
+\newcommand{\os}{\overset}
+\newcommand{\us}{\underset}
+\newcommand{\ul}{\underline}
+\newcommand{\wh}{\widehat}
+\newcommand{\wt}{\widetilde}
+\newcommand{\ub}{\underbrace}
+\newcommand{\ob}{\overbrace}
+\newcommand{\cln}{\colon}
+\newcommand{\wg}{\wedge}
+\newcommand{\ulim}{\varlimsup}
+\newcommand{\llim}{\varliminf}
+\newcommand{\tri}{\triangle}
+\newcommand{\swo}{\mathbin{\triangle}}
+\newcommand{\lhdp}{\leftthreetimes}                                                     % half-direct product (left)
+\newcommand{\rhdp}{\rightthreetimes}                                                    % half-direct product (right)
+\newcommand{\nl}{\lhd}                                                                  % normal left
+\newcommand{\nr}{\rhd}                                                                  % normal right
+\newcommand{\divs}{\,\bigl\rvert\,}                                                     % divides
+\newcommand{\ndivs}{\!\nmid\!}                                                          % not divides
+\newcommand{\vl}{\;\rvert\;}                                                            % vertical line with skips
+\newcommand{\bvl}{\;\big\rvert\;}                                                       % vertical line with skips
+\newcommand{\phm}{\phantom{-}}                                                          % phantom minus for alignment
+\newcommand{\fact}[2]{\genfrac{}{}{0pt}{}{#1}{}\!\!\bigl/\!\!\genfrac{}{}{0pt}{}{}{#2}} % factor
+\newcommand{\evu}[3]{\mskip2mu\vrule height #3 width .4pt depth #2\mskip2mu\lower#2\hbox{{\scriptsize$#1$}}}
+\newcommand{\ev}[2]{\evu{#1}{#2}{.65pc}}
+\newcommand{\evn}[1]{\ev{#1}{10pt}}
+\newcommand{\usd}[1]{\ol{\mathrm{S}}_{{#1}}}                                            % upper Darboux sum
+\newcommand{\lsd}[1]{\ul{\mathrm{S}}_{{#1}}}                                            % lower Darboux sum
+\newcommand{\pf}[2]{\frac{\pd #1}{\pd #2}}                                              % partial derivative fraction
+\newcommand{\dv}{\smash{\mskip3mu\lower1pt\hbox{\vdots}\mskip3mu}}                      % multiple of (rus)
+
+% Arrows
+\renewcommand{\to}{\rightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\nra}{\nrightarrow}
+\newcommand{\longra}{\longrightarrow}
+\newcommand{\rra}{\rightrightarrows}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\Lra}{\Leftrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\ot}{\leftarrow}
+\newcommand{\ar}{\leftarrow}
+\newcommand{\lar}{\leftarrow}
+\newcommand{\Lar}{\Leftarrow}
+\newcommand{\nla}{\nleftarrow}
+\newcommand{\longla}{\longleftarrow}
+\newcommand{\lla}{\leftleftarrows}
+\newcommand{\xla}{\xleftarrow}
+\newcommand{\up}{\uparrow}
+\newcommand{\inj}{\hookrightarrow}                                                      % injection
+\newcommand{\map}[1]{\stackrel{#1}{\longrightarrow}}                                    % mapping
+\newcommand{\corr}[1]{\stackrel{#1}{\longmapsto}}                                       % corresponds
+
+% Convergence symbols, etc
+\newcommand{\convu}[1]{\stackrel{#1}{\rightrightarrows}}                                % conv.uniform
+\newcommand{\convs}{\stackrel{\mbox{\scriptsize\rm s}}{\longrightarrow}}                % conv.strongly
+\newcommand{\convw}{\stackrel{\mbox{\scriptsize\rm w}}{\longrightarrow}}                % conv.weak
+\newcommand{\convws}{\stackrel{*\mbox{\scriptsize\rm w}}{\longrightarrow}}              % conv.weak star
+\newcommand{\convas}{\stackrel{\mbox{\tiny\rm п.н.}}{\longrightarrow}}                  % conv.alm.surely.
+\newcommand{\convasu}{\stackrel{\mbox{\tiny\rm п.н.}}{\nearrow}}                        % conv.alm.surely.up
+\newcommand{\convasl}{\stackrel{\mbox{\tiny\rm п.н.}}{\searrow}}                        % conv.alm.surely.down
+\newcommand{\convp}{\stackrel{\Pf}{\longrightarrow}}                                    % conv.probability
+\newcommand{\convd}{\stackrel{\Ds}{\longrightarrow}}                                    % conv.distribution
+\newcommand{\convae}{\stackrel{\mbox{\tiny\rm п.в.}}{\longrightarrow}}                  % conv.alm.everywhere
+\newcommand{\convaeu}{\stackrel{\mbox{\tiny\rm п.в.}}{\nearrow}}                        % conv.alm.everywhere.up
+\newcommand{\convael}{\stackrel{\mbox{\tiny\rm п.в.}}{\searrow}}                        % conv.alm.everywhere.down
+\newcommand{\eqas}{\stackrel{\mbox{\tiny\rm п.н.}}{=}}                                  % eq.alm.surely
+\newcommand{\eqdef}{\stackrel{\mbox{\tiny\rm def}}{=}}                                  % eq.by.def
+\newcommand{\eqae}{\stackrel{\mbox{\tiny\rm п.в.}}{=}}                                  % eq.alm.everywhere
+\newcommand{\eqvl}[2]{\stackrel{\mbox{\tiny\rm #1}}{\ol{\ol{\hbox to #2pt{}}}}}         % eq.variable.length
+
+% Obsolete commands
+%\newcommand{\eval}[1]{\rule[-8pt]{.4pt}{15pt}_{\,{#1}}}                                % evaluation
+%\newcommand{\evalm}[3]{\rule[#2]{.4pt}{#3}_{{#1}}}                                     % manual evaluation
+
+\endinput

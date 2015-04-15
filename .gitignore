@@ -2,6 +2,7 @@
 *.synctex.gz
 *.log
 photo/*
-all.out
-all.pdf
-all.dvi
+*.out
+*.pdf
+*.dvi
+*.ps
