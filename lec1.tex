@@ -116,7 +116,7 @@
 	$$
 
 	\item
-	От трех переменных (функция "медиана"):
+	От трёх переменных (функция "медиана"):
 	$$
 	\begin{array}{rrr|c}
 		x~~ & y~~ & z~~ & f(x,y,z)\\
@@ -160,9 +160,9 @@ $ --- некоторое множество булевых функций,
 	обозначающих $f_1, \ldots, f_n$ и вспомогательных символов <<$($>>, <<$)$>>, <<$,$>>,
 	определяемое индуктивным образом: 
 
-	\textbf{База индукции:} символ любой переменной --- правильная формула над $\Phi$.
+	\textit{База индукции:} символ любой переменной --- правильная формула над $\Phi$.
 
-	\textbf{Индуктивное предположение:} пусть $F_1, F_2, \ldots, F_{n_i}$ --- некоторые формулы над $\Phi$,
+	\textit{Индуктивное предположение:} пусть $F_1, F_2, \ldots, F_{n_i}$ --- некоторые формулы над $\Phi$,
 	тогда $f_i(F_1, F_2, \ldots, F_{n_i})$ --- тоже формула над $\Phi$.
 \end{df}
 
@@ -179,56 +179,60 @@ $ --- некоторое множество булевых функций,
 	Значения формулы на наборе значений переменных,
 	входящих в формулу, определяется индуктивным образом.
 	
-	\textbf{База индукции:} если $f$ --- тривиальная, то все очевидно.
+	\textit{База индукции:} если $f$ --- тривиальная, то все очевидно.
 
-	\textbf{Индуктивное предположение:} пусть $F_1,F_2, \ldots, F_n$ --- формулы,
+	\textit{Индуктивное предположение:} пусть $F_1,F_2, \ldots, F_n$ --- формулы,
 	для которых данное понятие уже определено.
-	%TODO:change to align
-	\begin{gather*}
-		f_i(F_1, F_2, \ldots, {F_{n_i}});\\
-		\XXX \text{--- все переменные, содержащиеся в $F$};\\
-		\Omega=(\SIG) \text{--- набор значений $\XXX$}; \\
-		\Omega_j \text{--- поднабор значений из $\Omega$ для переменных, содержащихся в формуле $F_j$;} \\
-		b_j \text{--- значение функции $F_j$ на наборе $\Omega_j$}. 
-	\end{gather*} \\
-Тогда значение $F$ на наборе $\Omega$ равно $f_i(b_1, \ldots, {b_n}_i)$ \\
-Пусть $F$ --- формула над $\Phi$, содержащая символы переменных $x_1, \ldots, x_n$. Тогда $F$ реализует функцию $f(\XXX)$, т.ч для любого набора $(\sigma_1, \ldots, \sigma_n)$ значений $x_1,...,x_n$ значение $f(\sigma_1, \ldots, \sigma_n)$ равно значению формулы $F$ на $\sigma_1, \ldots, \sigma_n$. \\
-$f$ получается из $\Phi$ с помощью операции суперпозиции, если F реализуется некоторой нетривиальной формулой над $\Phi$.
+	\begin{align*}
+		F &= f_i(F_1, F_2, \ldots, {F_{n_i}});\\
+		\XXX &\,\text{--- все переменные, содержащиеся в $F$};\\
+		\Omega &= (\SIG) \text{--- набор значений $\XXX$}; \\
+		\Omega_j &\,\text{--- поднабор значений из $\Omega$ для переменных, содержащихся в формуле $F_j$;} \\
+		b_j &\,\text{--- значение функции $F_j$ на наборе $\Omega_j$}. 
+	\end{align*}
+
+	Тогда значение $F$ на наборе $\Omega$ равно $f_i(b_1, \ldots, {b_n}_i)$.
+
+	Пусть $F$ --- формула над $\Phi$, содержащая символы переменных $x_1, \ldots, x_n$.
+	Тогда $F$ реализует функцию $f(\XXX)$, \sth для любого набора
+	$(\SIG)$ значений $\XXX$ значение $f(\SIG)$ равно значению формулы $F$ на $\SIG$.
+	$f$ получается из $\Phi$ с помощью операции суперпозиции,
+	если $F$ реализуется некоторой нетривиальной формулой над $\Phi$.
 \end{df}
 
-\begin{definition}
-Две формулы $F_1$ и $F_2$ называются {\bf эквивалентными}, если они реализуют одинаковые функции.
-\end{definition}
+\begin{df}
+	Две формулы $F_1$ и $F_2$ называются {\bf эквивалентными},
+	если они реализуют одинаковые функции.
+\end{df}
 
-Пусть $\ast \in \{\vee, \&, \oplus, \sim \}$ --- некоторая операция.
+Пусть $\ast \in \{\vee, \&, \oplus, \sim \}$ --- некоторая операция. Тогда $\ast$ имеет следующие
 
-\begin{enumerate}
-	\item 
-		$x \ast y = y \ast x$ (коммутативность)
-	\item 
-		$x \ast (y \ast z) = (x \ast y) \ast z$ (ассоциативность)
-	\item 
-		$x (y \vee z) = xy \vee xz$
-
-		$x (y \oplus z) = xy \oplus xz$
-
-		$x \vee (y  \&  z) = (x \vee y) \& (x \vee z)$
-
-		$x \vee (y  \sim  z) = (x \vee y) \sim (x \vee z)$ (дистрибутивность)
-	\item
-		$x \vee xy = x$ (поглощение)
-	\item 
-		$\overline{\overline{x}} = x$ (двойное отрицание)
-	\item 
-		$\overline{x \vee y} = \overline{x} \& \overline{y}$
-
-		$\overline{x \& y} = \overline{x} \vee \overline{y}$ (закон де Моргана)
-	\item 
-		$x\overline{x} = 0$, \smallskip $x \vee \overline{x} = 1$, \smallskip $x \oplus \overline{x} = 1$, \smallskip $x \sim \overline{x} = 0$
-
-		$xx = x$, \smallskip $x \vee x = x$, \smallskip $x \oplus x = 0$, \smallskip $x \sim x = 1$
-
-		$x \& 1 = x$, \smallskip $x \vee 1 = 1$, \smallskip $x \oplus 1 = \overline{x}$, \smallskip $x \sim 1 = x$
-
-		$x \& 0 = 0$, \smallskip $x \vee 0 = x$, \smallskip $x \oplus 0 = x$, \smallskip $x \sim 0 = \overline{x}$
-\end{enumerate}
+\begin{props}
+	\prpy{коммутативность} 
+		$x \ast y = y \ast x$
+	\prpy{ассоциативность}
+		$x \ast (y \ast z) = (x \ast y) \ast z$
+	\prpy{дистрибутивность}
+		\begin{align*}
+			x (y \vee z) &= xy \vee xz \\
+			x (y \oplus z) &= xy \oplus xz \\
+			x \vee (y  \&  z) &= (x \vee y) \& (x \vee z) \\
+			x \vee (y  \sim  z) &= (x \vee y) \sim (x \vee z) \\
+		\end{align*}
+	\prpy{поглощение}
+		$x \vee xy = x$
+	\prpy{двойное отрицание} 
+		$\overline{\overline{x}} = x$
+	\prpy{закон де Моргана}
+		\begin{align*}
+			\overline{x \vee y} &= \overline{x} \& \overline{y} \\
+			\overline{x \& y} &= \overline{x} \vee \overline{y} \\ 
+		\end{align*}
+	\prpy{}
+		\begin{align*} 
+			x\overline{x} &= 0, & x \vee \overline{x} &= 1, & x \oplus \overline{x} &= 1, & x \sim \overline{x} &= 0 \\
+			xx &= x, & x \vee x &= x, & x \oplus x &= 0, & x \sim x &= 1 \\
+			x \& 1 &= x, & x \vee 1 &= 1, & x \oplus 1 &= \overline{x}, & x \sim 1 &= x \\
+			x \& 0 &= 0, & x \vee 0 &= x, & x \oplus 0 &= x, & x \sim 0 &= \overline{x}
+		\end{align*}
+\end{props}

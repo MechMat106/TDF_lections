@@ -1,10 +1,11 @@
 % ===============================================================
 % DMVN Style Package
 % ===============================================================
-\ProvidesPackage{dmvn}[2006/06/01 v1.36 DMVN LaTeX Package]
+\ProvidesPackage{dmvn}[2015/04/19 v1.37 DMVN LaTeX Package]
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{amssymb,amsmath,mathrsfs}
 \RequirePackage{epsf}
+\RequirePackage{xparse}
 
 %\RequirePackage{russlh}
 %\RequirePackage{mathlh}
@@ -117,6 +118,11 @@
 \newenvironment{solution}{\par\vskip\theoremskip\textbf{Решение.}}{$\blacksquare$ \par\vskip\theoremskip}
 \newenvironment{proof}{\par $\square\quad$}{$\blacksquare$ \par\vskip\theoremskip}
 \newenvironment{answer}{\textbf{Ответ:}}{\par\vskip\theoremskip}
+
+\newcommand{\prpy}[1]{\item{\ifx&#1&\else(\textit{#1})\fi}}
+\newenvironment{props}
+{\par\vskip\theoremskip\textbf{Свойства:}\begingroup\begin{enumerate}}
+{\end{enumerate}\endgroup\par\vskip\theoremskip}
 
 % ===============================================================
 % Because we needn't to reference far theorems, unlike S.A.T.

@@ -1,8 +1,9 @@
 % Некоторые полезные дополнительные команды. Может использоваться
-% вместе с russlh или russcorr (но не с babel!!)
+% вместе с russlh или russcorr (но не с babel!!) или
+% вместе с babel (но не с russlh или russcorr!!!) // последние предназначены для одно байтовых кодировок.
 % Использует пакет xspace.
 
-\ProvidesPackage{russadd}[2015/04/15] % пожалуйста, изменяйте дату при добавлениях
+\ProvidesPackage{russadd}[2015/04/19] % пожалуйста, изменяйте дату при добавлениях
 \RequirePackage{xspace}
 
 % ------------------ команды типа \ie (т.е.) --------------------
@@ -16,6 +17,9 @@
 %     ..., \ie ...
 %
 
+% т. ч. -- трёх буквенная для избежания конфликта со стабилизатором (dmvnbase.sty)
+\newcommand*{\sth}{т.\,ч.\xspace}
+\newcommand*{\Sth}{Т.\,ч.\xspace}
 \newcommand*{\ie}{т.\,е.\xspace}
 \newcommand*{\Ie}{Т.\,е.\xspace}
 \newcommand*{\bt}{т.\,к.\xspace}
