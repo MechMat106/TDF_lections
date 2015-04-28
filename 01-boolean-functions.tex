@@ -1,0 +1,652 @@
+\section{Булевы функции}
+
+
+\subsection{Определение булевой функции.}
+Обозначим за $E$ множество $\lbrace 0, 1 \rbrace$.
+
+\begin{df}
+	$f(\XXX) \in {E}$ --- функция алгебры логики {\bf (булева функция)},
+	где $x_{i} \in {E} ~ \forall i = 1, \ldots, n$ --- это отображение $f \colon E^{n} \rightarrow {E}$.
+	Его можно проиллюстрировать таблицей возможных значений $f$ на различных наборах переменных:\\
+
+	$$
+	\begin{array}{|ccccc|c|}
+		\hline
+		x_1 & x_2 & \ldots & x_{n-1} & x_n & f(\XXX)  \\
+		0 & 0 &\ldots & 0 & 1 & 0 ~ \textbf{или} ~ 1 \\
+		0 & 0 &\ldots & 1 & 1 & 0 ~ \textbf{или} ~ 1 \\
+		\ldots & \ldots & \ldots & \ldots & \ldots & \ldots\\
+		1 & 1 &\ldots & 1 & 1 & 0 ~ \textbf{или} ~ 1 \\
+		\hline
+	\end{array}
+	$$
+\\
+\\\\
+\end{df}
+
+\begin{df}
+	$P_{2}$ --- множество всех булевых функций от произвольного конечного множества переменных.
+	$P_2(n)$ --- множество всех булевых функций от $n$ переменных. 
+\end{df}
+
+\begin{df}
+	$E^{n} = \{ (\SIG) |~ \sigma_{i} \in E; ~ i = 1, \ldots, n \}$ \\
+\end{df}
+ 
+\begin{stm}
+	 $|P_2(n)| = 2^{2^{n}}$. \\
+\end{stm}
+
+\begin{proof}
+	Очевидно.
+\end{proof}
+
+
+\subsection{Существенные и фиктивные переменные.} 
+\begin{df}
+	Пусть $f(\XXX)$ --- булева функция. 
+	Тогда $x_i$ называется \textbf{существенной} переменной для $f$,
+	если $\exists {\sigma_1, \sigma_2, \ldots \sigma_{i-1}, \sigma_{i+1}, \ldots, \sigma_{n}} \in \{ 0,1 \}:$
+	$$
+		f( \sigma_1, \sigma_2, \ldots, \sigma_{i-1}, 0, \sigma_{i+1}, \ldots, \sigma_{n})
+		\neq f(\sigma_1, \sigma_2, \ldots, \sigma_{i-1}, 1, \sigma_{i+1}, \ldots, \sigma_{n}).
+	$$
+	В противном случае переменная называется \textbf{фиктивной}
+	(пример придумать не очень сложно).
+\end{df}
+
+\begin{df}
+	Пусть $x_i$ --- фиктивная переменная для $f$.
+	Рассмотрим функцию
+	\begin{gather*}
+		\begin{split}
+			g(x_1, x_2, \ldots, x_{i-1}, x_{i+1}, \ldots, x_{n})\colon &
+			g(\sigma_1, \sigma_2, \ldots, \sigma_{i-1}, \sigma_{i+1}, \ldots, \sigma_{n}) = \\
+			= f(\sigma_1, \sigma_2, \ldots, \sigma_{i-1}, 0, \sigma_{i+1}, \ldots, \sigma_{n})
+			&= f(\sigma_1, \sigma_2, \ldots, \sigma_{i-1}, 1, \sigma_{i+1}, \ldots, \sigma_{n}).
+		\end{split}
+	\end{gather*}
+	Тогда говорят, что \textbf{$g$ получена из $f$ удалением фиктивной переменной $x_i$}.
+\end{df}
+
+\begin{df}
+	Пусть $f(\XXX)$ --- булева функция.
+	Также, пусть имеется $y \neq \XXX $.
+	Рассмотрим функцию $h(\XXX, y)$, $h(\SIG, \sigma) = f(\SIG)$.
+	Тогда говорим, что \textbf{$h$ получена из $f$ добавлением фиктивной переменной  $y$.}
+\end{df}
+
+\begin{df}
+	Две булевы функции называются \textbf{равными},
+	если они могут быть получены друг из друга с помощью
+	некоторого числа операций добавления или удаления фиктивных переменных. \\
+\end{df}
+
+
+\subsection{Элементарные функции} 
+\begin{enumerate}
+	\item От одной переменной:
+	$$
+	\begin{array}{|c|c|c|c|c|}
+		\hline
+		x & 0 & x & \bar{x} & 1 \\
+		\hline
+		0 & 0 & 0 & 1 & 1 \\
+		\hline
+		1 & 0 & 1 & 0 & 1 \\
+		\hline
+	\end{array}
+	$$
+
+	\item От двух переменных:
+	$$
+	\begin{array}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		 x & y & xy & x\vee y & x\oplus y & x\sim y & x\rightarrow y & x|y & x\downarrow y\\
+		\hline
+		 0 & 0 & 0 & 0 & 0 & 1 &  1 & 1 & 1 \\
+		\hline
+		 0 & 1 & 0 & 1 & 1 & 0 &  1 & 1 & 0 \\
+		\hline
+		 1 & 0 & 0 & 1 & 1 & 0 &  0 & 1 & 0  \\
+		\hline
+		 1 & 1 & 1 & 1 & 0 & 1 &  1 & 0 & 0 \\
+		\hline
+	\end{array}
+	$$
+
+	\item
+	От трёх переменных (функция "медиана"):
+	$$
+	\begin{array}{rrr|c}
+		x~~ & y~~ & z~~ & f(x,y,z)\\
+		\hline
+		\begin{array}{r} % Вложенная таблица для каждого столбца
+			0\\ 0\\ 0\\ 0\\ 1\\ 1\\ 1\\ 1\\
+		\end{array}
+		&
+		\begin{array}{r}
+			0\\ 0\\ 1\\ 1\\ 0\\ 0\\ 1\\ 1\\
+		\end{array}
+		&
+		\begin{array}{r}
+			0\\ 1\\ 0\\ 1\\ 0\\ 1\\ 0\\ 1\\
+		\end{array}
+		&
+		\begin{array}{r}
+			0\\ 0\\ 0\\ 1\\ 0\\ 1\\ 1\\ 1\\
+		\end{array}
+	\end{array}
+	$$
+\end{enumerate}	
+
+
+\subsection{Формула над системой булевых функций.}
+$
+	\Phi =
+	\{
+		f_{1}(x_{1}, x_{2}, \ldots, x_{n_1});
+		f_{2}(x_{1}, x_{2}, \ldots, x_{n_2});
+		\ldots;
+		f_{n}(x_{1}, x_{2}, \ldots, x_{n_n})
+	\} \subseteq P_2
+$ --- некоторое множество булевых функций,
+	таких что каждой булевой функции $f_{i}(x_{1}, x_{2}, \ldots, x_{n_i})$
+	сопоставляем функциональный символ $f_{i}$.
+
+\begin{df}
+	\textbf{Формулой над $\Phi$} называется строка символов,
+	состоящая из любых символов-переменных,
+	обозначающих $f_1, \ldots, f_n$ и вспомогательных символов <<$($>>, <<$)$>>, <<$,$>>,
+	определяемое индуктивным образом: 
+
+	\textit{База индукции:} символ любой переменной --- правильная формула над $\Phi$.
+
+	\textit{Индуктивное предположение:} пусть $F_1, F_2, \ldots, F_{n_i}$ --- некоторые формулы над $\Phi$,
+	тогда $f_i(F_1, F_2, \ldots, F_{n_i})$ --- тоже формула над $\Phi$.
+\end{df}
+
+\begin{ex}
+	$((\overline{x \vee y}) \& (z \rightarrow y))$ --- формула над $\{ x \vee y; x \& y, x \rightarrow y, \overline{x} \}$
+\end{ex}
+Конъюнкция имеет приоритет над дизъюнкцией. \\
+
+%\newpage 
+%зачем тут newpage? Не зачем, наверное.
+%TODO:понять зачем newpage.
+
+\begin{df}
+	Значения формулы на наборе значений переменных,
+	входящих в формулу, определяется индуктивным образом.
+	
+	\textit{База индукции:} если $f$ --- тривиальная, то все очевидно.
+
+	\textit{Индуктивное предположение:} пусть $F_1,F_2, \ldots, F_n$ --- формулы,
+	для которых данное понятие уже определено.
+	\begin{align*}
+		F &= f_i(F_1, F_2, \ldots, {F_{n_i}});\\
+		\XXX &\,\text{--- все переменные, содержащиеся в $F$};\\
+		\Omega &= (\SIG) \text{--- набор значений $\XXX$}; \\
+		\Omega_j &\,\text{--- поднабор значений из $\Omega$ для переменных, содержащихся в формуле $F_j$;} \\
+		b_j &\,\text{--- значение функции $F_j$ на наборе $\Omega_j$}. 
+	\end{align*}
+
+	Тогда значение $F$ на наборе $\Omega$ равно $f_i(b_1, \ldots, {b_n}_i)$.
+
+	Пусть $F$ --- формула над $\Phi$, содержащая символы переменных $x_1, \ldots, x_n$.
+	Тогда $F$ реализует функцию $f(\XXX)$, \sth для любого набора
+	$(\SIG)$ значений $\XXX$ значение $f(\SIG)$ равно значению формулы $F$ на $\SIG$.
+	$f$ получается из $\Phi$ с помощью операции суперпозиции,
+	если $F$ реализуется некоторой нетривиальной формулой над $\Phi$.
+\end{df}
+
+\begin{df}
+	Две формулы $F_1$ и $F_2$ называются {\bf эквивалентными},
+	если они реализуют одинаковые функции.
+\end{df}
+
+Пусть $\ast \in \{\vee, \&, \oplus, \sim \}$ --- некоторая операция. Тогда $\ast$ имеет следующие
+
+\begin{props}
+	\prpy{коммутативность} 
+		$x \ast y = y \ast x$
+	\prpy{ассоциативность}
+		$x \ast (y \ast z) = (x \ast y) \ast z$
+	\prpy{дистрибутивность}
+		\begin{align*}
+			x (y \vee z) &= xy \vee xz \\
+			x (y \oplus z) &= xy \oplus xz \\
+			x \vee (y  \&  z) &= (x \vee y) \& (x \vee z) \\
+			x \vee (y  \sim  z) &= (x \vee y) \sim (x \vee z) \\
+		\end{align*}
+	\prpy{поглощение}
+		$x \vee xy = x$
+	\prpy{двойное отрицание} 
+		$\overline{\overline{x}} = x$
+	\prpy{закон де Моргана}
+		\begin{align*}
+			\overline{x \vee y} &= \overline{x} \& \overline{y} \\
+			\overline{x \& y} &= \overline{x} \vee \overline{y} \\ 
+		\end{align*}
+	\prpy{}
+		\begin{align*} 
+			x\overline{x} &= 0, & x \vee \overline{x} &= 1, & x \oplus \overline{x} &= 1, & x \sim \overline{x} &= 0 \\
+			xx &= x, & x \vee x &= x, & x \oplus x &= 0, & x \sim x &= 1 \\
+			x \& 1 &= x, & x \vee 1 &= 1, & x \oplus 1 &= \overline{x}, & x \sim 1 &= x \\
+			x \& 0 &= 0, & x \vee 0 &= x, & x \oplus 0 &= x, & x \sim 0 &= \overline{x}
+		\end{align*}
+\end{props}
+
+%\section{Замыкания.}
+
+\subsection{Замыкания.}
+
+Возьмём множество $F \subseteq P_2$.
+
+\begin{df}
+	Замыкание $[F]$ множества $F$ --- это множество всех булевых функций, получаемых из булевых функций множества $F$ с помощью операций суперпозиции, удаления и добавления фиктивных переменных.
+\end{df}
+
+\begin{df}
+	$F$ --- замкнуто, если $[F] = F$.
+\end{df}
+
+\begin{enumerate}
+	\item
+	$[\{x \oplus y\}] = \{0,\, x,\, x_1 \oplus \ldots \oplus x_t (t \ge 2)\}$
+	\item
+	$P_2$ --- замкнуто.	
+\end{enumerate}
+
+\begin{df}
+	$P_2(n)$ --- все булевы функции, существенно зависящие от не более, чем $n$ переменных.
+\end{df}
+
+\begin{enumerate}
+	\item
+	$P_2(1)$ --- замкнуто.
+	\item
+	$P_2(2)$ --- не замкнуто. $\left( xy \in P_2(2),\, xyz \not\in P_2(2) \right)$
+\end{enumerate}
+
+\textbf{Свойства замыкания:}
+\begin{enumerate}
+	\item $F \subseteq [F].$
+	\item $F_1 \subseteq F_2 \Longrightarrow [F_1] \subseteq [F_2]$
+	\item $[[F]] = [F]$
+	\begin{proof}
+		1) $[F] \subseteq [[F]]$ (по 1, 2)
+
+		2)$[[F]] \subseteq [F]$.
+
+		$f(\XXX) \in [[F]] \Rightarrow \exists$ формула $\Phi$, реализующая $f$. Пусть $f_1, \ldots, f_s$ --- все функциональные символы, содержащиеся в $\Phi$. $f_1, \ldots, f_s \in [F] \Rightarrow $ каждая функция $f_i$ реализуется некоторой формулой $\Phi_i$ над $F$ : $\Phi = f_i(F_1, \ldots, F_{n_i})$.
+
+		$\Phi_i(F_1, \ldots, F_{n_i})$ --- формула, полученная из $\Phi$ заменой $x_i \longmapsto F_i$. $\Phi_i(F_1, \ldots, F_n).$
+
+		$\Phi_i(F_1, \ldots, F_n).$
+
+		Так получим: 
+
+		$\Phi'$ --- формулу над $F$, реализующую функцию $F \Rightarrow f \in [F] \Rightarrow [[F]] \subseteq [F]$.
+	\end{proof}
+	\item  $[F_1] \cap [F_2]$ --- замкнуто.
+	\begin{proof}
+		Возьмём $f \in [[F_1] \cap [F_2]]$: $f$ реализуется формулой $\Phi$ над $[F_1] \cap [F_2]$. Пусть $f_1, \ldots f_s$ --- все функциональные символы из $\Phi$. $\forall \: i \: f_i$ реализуется и формулой $\Phi_1$ над $F_1$ и формулой $\Phi_2$ над $F_2 \Rightarrow f \in  [F_1] \cap [F_2]$.
+	\end{proof}
+	\item  $[F_1] \cup [F_2]$ не обязательно замкнуто.
+\end{enumerate}
+
+\subsection{СДНФ и СКНФ.}
+Пусть $F$ --- замкнутое множество, и $F_1 \subseteq F$.
+
+\begin{df}
+	$F_1$ называется полным в $F$, если $[F_1] = F$.
+\end{df}
+
+\begin{df}
+	$F_1$ называется полным, если $[F_1] = P_2$.
+\end{df}
+
+\begin{example}
+	$P_2$ --- полное множество.
+\end{example}
+
+\begin{statement}
+	$f(\XXX)$ --- булева функция. \\Тогда: $f(\XXX) = (\overline{x_1} \: \& \: f(0, x_2, \ldots, x_n)) \vee (x_1 \: \& \: f(1, x_2, \ldots , x_n))$
+\end{statement}
+\begin{proof}
+	Пусть $\sigma = (\SIG) $ --- набор значений переменных $\XXX$.
+\begin{enumerate}
+\item $\sigma_1 = 0$. 
+
+$\overline{\sigma_1} \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee \sigma_1 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) =\\ = 1 \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee 0 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) =\\ = f(0, \sigma_2, \ldots, \sigma_n) = f(\SIG) $
+
+\item $\sigma_1 = 1$.
+
+$0 \: \& \: f(0, \sigma_2, \ldots, \sigma_n) \vee 1 \: \& \: f(1, \sigma_2, \ldots, \sigma_n) =\\ = f(1, \sigma_2, \ldots, \sigma_n) = f(\SIG) $
+\end{enumerate}
+\end{proof}
+
+$
+f(\XXX) = (\overline{x_1} \: \& \: f(0, x_2, \ldots, x_n)) \vee (x_1 \: \& \: f(1, x_2, \ldots , x_n)) = $
+
+$= \overline{x_1} \: \& \: (\overline{x_2} \: \& \: f(0, 0, \ldots, x_n)) \vee (x_2 \: \& \: f(0, 1, \ldots , x_n)) \vee $
+
+$ \vee (x_1 \: \& \: (\overline{x_2} \: \& \: f(1, 0, \ldots, x_n)) \vee (x_1 \: \& \: f(1, 1, \ldots , x_n))) =$
+
+$
+= \overline{x_1}\overline{x_2}f(0, 0, \ldots, x_n) \vee \overline{x_1} x_2 f(0, 1, \ldots, x_n) \vee x_1 \overline{x_2}f(1, 0, \ldots, x_n) \vee x_1 x_2 f(1, 1, \ldots, x_n)
+$
+
+\begin{df}
+	$x_\sigma = \begin{cases} x \text{, если }\sigma = 1 \\ \overline{x} \text{, если }\sigma = 0 \end{cases}$
+\end{df}
+
+
+Итак, $f(\XXX)$ можно переписать в виде $\bigvee \limits_{\sigma_1, \sigma_2 \in E} f(\sigma_1, \sigma_2, x_3, \ldots, x_n)$.
+
+Мы также можем аналогично разложить $f$ по $k$ переменным:
+
+$f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_k) \in E^k} f(\sigma_1, \ldots, \sigma_k, \ldots, x_n)$
+
+При $k = n$ получаем:  $f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_n) \in E^n} x_1^{\sigma_1}\ldots x_n^{\sigma_n}f(\SIG) =\\ = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $
+
+\begin{df} Форма представления функции в виде\\ $f(\XXX)= \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $ называется\\ \textit{ Совершенной дизъюнктивной нормальной формой (СДНФ).}
+\end{df}
+\begin{df}
+Пусть $f(\XXX) \ne 1$ --- булева функция.\\
+$\overline{x} \ne 0 \Rightarrow \overline{f(\XXX)} = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ \overline{f}(\SIG) = 1}} \overline{x_1^{\sigma_1}\ldots x_n^{\sigma_n}} =\\ = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} \overline{x_1^{\sigma_1}} \vee \ldots \vee  \overline{x_n^{\sigma_n}} = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} x_1^{\overline{\sigma_1}} \vee \ldots \vee  x_n^{\overline{\sigma_n}}$ --- это так называемая \\ \textit{ Совершенная конъюктивная нормальная форма (СКНФ).}
+\end{df}
+
+
+
+
+\begin{statement}
+$	\{x\&y, x \vee y, \bar{x} \}$ --- полное множество.
+\end{statement}
+\begin{proof}
+    Если $f \ne 0$, то СДНФ --- формула над $\{x\&y, x \vee y, \bar{x} \}$
+    Если $f = 0$, то $f = \overline{x} \& x \Rightarrow $ любая функция реализуется формулой над $\{x\&y, x \vee y, \bar{x} \}$.
+\end{proof}
+
+\begin{lemma}[О сводимости полных множеств]
+	$F, F' \subseteq P_2$, $F$ --- полное множество, и любая функция из $F$ может быть реализована формулой над $F' \Rightarrow F'$ --- полное множество.
+\end{lemma}
+\begin{proof}
+	$\forall$ функция из $F$ может быть реализована формулой над $F' \Rightarrow F \subseteq [F'] \Rightarrow [F] \subseteq [[F']] = [F'].$
+
+	$F$ --- полное $\Rightarrow [F] = P_2, [F] \subseteq [F'] \Rightarrow P_2 \subseteq [F'] \Rightarrow F'$ --- полное.
+\end{proof}
+
+%\newpage
+%зачем??? Может, тут предполагается доделать что-то? Артём, пиши, в общем.
+%убрал пока что и вставил заголовок по смыслу. Юра.
+\subsection{Примеры полных множеств функций.}
+
+\begin{statement}
+$	\{x\&y,\, \bar{x} \}$ --- полное множество. 
+\end{statement}
+\begin{proof}
+			$\{x\vee y,\, x \& y,\, \bar{x} \}$ --- полное множество. Учитывая, что $x \vee y = \overline{\bar{x}\&\bar{y} } $ , то по лемме о сводимости получаем нужное. \end{proof}	
+\begin{statement}
+	$\{x \vee y,\, \bar{x} \}$ --- полное множество.  
+\end{statement}
+\begin{proof}
+	$	\{x\&y,\, \bar{x} \}$ --- \text{полное множество.}  Учитывая, что: $x \& y =  \overline{\bar{x}\vee\bar{y} }$, то по лемме о сводимости получаем нужное.
+\end{proof}
+\begin{statement} 
+$\{x \oplus y,\, x \& y,\, 1\}$ --- полное множество.
+\end{statement}
+\begin{proof}
+	$\bar{x}=x \oplus 1. $ Получаем нужное по лемме о сводимости и утверждению 2.
+\end{proof}	
+\begin{statement}
+	$\{x | y\}$ --- полное множество. 
+\end{statement}
+\begin{proof}
+	$x|y=\bar{x} \vee \bar{y}=\overline{x \& y};$ \\
+	$\bar{x}=x | x; \\
+	x \& y=\overline{x|y}=(x|y)|(x|y); \\
+	\{x \& y,\, \bar{x}\}$ --- полное по лемме о сводимости, значит $\{x|y\}$ --- полное.   
+\end{proof}
+\begin{corollary}
+	Из любого полного множества можно выделить конечное полное подмножество.
+\end{corollary}
+\begin{proof}
+	$F\subseteq P_2$ --- полное множество. $\Rightarrow$ существует формула Ф над $F$, реализующая ${x|y}$. Пусть $\{f_1, \ldots, f_s\}$ --- множество всех символов функций, содержащихся в Ф.Ф --- формула над $\{f_1, \ldots, f_s\}$ $\Rightarrow  ~ x|y$ содержится в замыкании. $\{x|y\}$ --- полное. $\Rightarrow$ по лемме о сводимости $\{f_1, \ldots, f_s\} \subseteq F$ --- полное.
+\end{proof}  
+
+%\section{Замкнутые классы булевых функций.}
+\subsection{Функции, сохраняющие ноль и единицу.}
+\begin{df}
+	$f$ сохраняет 0, если $f(0,\ldots, 0)=0$.
+	$T_0$ --- множество всех функций, сохраняющих ноль. Например, $0,\,x,\,x \& y,\, x \vee y,\, x \oplus y$.
+\end{df}
+\begin{df}
+	Селекторная функция --- функция, тождественна равная переменной. 
+\end{df}
+\begin{lemma}
+	$T_0 $ --- замкнуто. 
+\end{lemma}
+\begin{proof}
+	Тождественная функция содержится в $T_0$. Значит, надо проверить, что если $f(x_1,\ldots, x_n),g_1, \ldots, g_n \in T_0, \text{, то~} f(g_1, \ldots, g_n) \in T_0.$ \\
+	Можем полагать, что $g_1, \ldots, g_n$ зависят от одних и тех же переменных: $x_1, \ldots, x_n$ (иначе можно добавить переменные в качестве фиктивных). Тогда:\\
+	$f(g_1(x_1, \ldots, x_n),\ldots, g_n(x_1, \ldots, x_n))=h(x_1, \ldots, x_n) \\
+	h(0, \ldots, 0)=f(g_1(0,\ldots,0),\ldots,g_n(0, \ldots, 0))=f(0,\ldots,0)=0. \Rightarrow h \in T_0. 
+$
+\end{proof}
+\begin{df}
+	$f$ сохраняет 1, если $f(1,\ldots, 1)=1$.
+	Обозначим за $T_1$ множество всех функций, сохраняющих единицу. Например, $1,\,x,\,xy\rightarrow y, \,x \vee y$.
+\end{df}
+\begin{lemma}
+	$T_1 $ --- замкнуто. 
+\end{lemma}
+\begin{proof}
+	Аналогично предыдущей лемме. 
+\end{proof}
+\subsection{Монотонные функции.}	
+Определим правило сравнения на наборах из нулей и единиц.\\
+$\sigma'=\{\sigma_1',\ldots,\sigma_n'\}, \,\sigma''= \{\sigma_1'',\ldots,\sigma_n''\} \in \{0,1\}^n.$ \\
+Будем говорить, что $\sigma'\leq\sigma'',\, \text{если} ~ \forall i \in \{1,\ldots,n\} ~ \sigma_i ' \leq\sigma_i '' .$ \\
+Заметим, что существуют несравнимые наборы, например: $(101)$ и $(010)$. 
+\begin{df}
+$f$ --- монотонная, если для любых $\sigma' \text{ и } \sigma'' ~ \text{таких, что} ~ \sigma'\leq \sigma'' $ выполняется, что $f(\sigma')\leqslant f(\sigma'').$
+\end{df}
+\begin{lemma}
+	$M$ является замкнутым классом. 
+\end{lemma}
+\begin{proof}
+	%Воткнуть в обозначения лекций я так и не смог, потому частично взял с Лупанова. 
+Тождественная функция содержится в $M$. Значит, осталось проверить, что если
+$f(x_1, \ldots,x_n), \,g_1, \ldots, g_n \in M$, то $h=f(g_1,\ldots,g_n) \in M $. Можно считать, что  $g_1,\ldots g_n$  --- функции от одного и того же количества переменных, в противном случае недостающие переменные можно добавить в качестве несущественных.  Выберем произвольные различные наборы $ 
+\sigma'=\{\sigma_1',\ldots,\sigma_n'\}, \,\sigma''= \{\sigma_1'',\ldots,\sigma_n''\}$, такие что $ \sigma' \leq \sigma''.\\
+$Рассмотрим $ h(\sigma')=f(g_1(\sigma'),g_2(\sigma'), \ldots, g_n\sigma')) ~\text{и}~ h(\sigma'')=f(g_1(\sigma''),\ldots,g_n(\sigma'')). \\
+g_i(\sigma')<g_i(\sigma''), $ так как $ g_i$ --- монотонная. $ f(g_1(\sigma'),g_2(\sigma'), \ldots, g_n(\sigma')) \leq f(g_1(\sigma''),g_2(\sigma''), \ldots, g_n(\sigma''))$, так как f --- монотонная, то $h$ --- тоже монотонная. 
+\end{proof}
+\begin{lemma}[О немонотонных функциях]
+	$f(x_1,\ldots, x_n)\notin M. $ Тогда $\bar{x} \in [\{f;0;1\}].$
+\end{lemma}	
+\begin{proof}
+	$f \notin M \Rightarrow \exists \,\sigma',\sigma'': \sigma' \leq \sigma'',\,$ $f(\sigma')=1,\, f(\sigma'')=0.$
+%,\, \text{где }  \sigma',  \sigma'' \text{ ---разные}. $\\ кажется, это лишнее?
+Без ограничения общности будем считать, что $\sigma' ~\text{и} ~ \sigma''$ устроены следующим образом: \\$ 
+	\sigma'=(0,\ldots,0,\ldots,0,1,\ldots,1) \\
+	\sigma''=(\underbrace{1,\ldots,1}_k,\underbrace{0,\ldots,0}_s,\underbrace{1,\ldots,1}_{n-k-s}) \\
+	g(x)=f(\underbrace{x, \ldots, x}_k, \underbrace{0, \ldots, 0}_s,\underbrace{1,\ldots,1}_{n-k-s}) =\bar{x},$ так как $g(0)=1 ~ \text{и} ~ g(1)=0$.
+\end{proof}
+\subsection{Самодвойственные функции.}
+\begin{df} Двойственной функцией к $f(\XXX)$ называется функция $f^*(x_1,\ldots,x_n)=\overline{f(\bar{x}_1,\ldots,\bar{x}_n)}.$ \end{df}
+\begin{example} $(x\&y)^*=x \vee y$ \end{example}
+
+\noindent Легко заметить, что $(f^*)^*=f.$
+\begin{df}
+Самодвойственная функция --- функция, двойственная самой себе; множество всех таких функций обозначается $S$.
+\end{df}
+\begin{statement} 1) $\bar{x},x\oplus y \oplus z, m(x,y,z) \in S$; 2) $0,1,x\oplus y, x\rightarrow y, x \& y, x \vee y \notin S $ 
+\end{statement}
+\begin{proof}
+	В этом несложно убедиться явной проверкой. 
+\end{proof}	
+\begin{lemma}
+	$S$ является замкнутым классом.
+\end{lemma}
+\begin{proof}
+	Тождественная функция содержится в ${S}$. Значит, осталось проверить, что если $f(x_1, \ldots,x_k), g_1, \ldots, g_k \in S$, то $h=f(g_1(\XXX),\ldots,g_k(\XXX)) \in S $. \\
+	$h^*(x_1,\ldots,x_n)=\overline{f(g_1(\bar{x}_1,\ldots,\bar{x}_n)),\ldots,g_k(\bar{x}_1,\ldots,\bar{x}_n)}=\overline{f(\overline{\overline{g_1(\bar{x}_1,\ldots,\bar{x}_n)}},\ldots,\overline{\overline{g_k(\bar{x}_1,\ldots,\bar{x}_n)}}} = \\\overline{f(\overline{g^*_{1}({x_1},\ldots,{x_n})},\ldots,\overline{g^*_k({x_1},\ldots,{x_n})}} $. \\
+	Так как $g_1=g^*_1,\ldots,g_k=g^*_k$, то \\$h=\overline{f(\overline{g_{1}({x_1},\ldots,{x_n})},\ldots,\overline{g_k({x_1},\ldots,{x_n})}}=f^*(g_1(x_1,\ldots, x_n),\ldots,g_k(x_1,\ldots,x_n)).\\ $
+	$f^*=f$, значит 
+	$\,h^*(x_1,\ldots,x_n)=f^*(x_1,\ldots,x_n)=f(x_1,\ldots,x_n)=$\\$=h(x_1,\ldots,x_n) \Rightarrow h \in S.$
+\end{proof}
+
+\begin{lemma} [О несамодвойственной функции] Пусть $f(\XXX)\not\in S$, тогда $0,\,1 \in [\{f, \bar{x}\}]$
+\end{lemma}
+\begin{proof} 
+    Пусть $f(\XXX)\not\in S$, тогда  $f^*(\XXX) = \overline{f(\bar{x}_1,\ldots,\bar{x}_n)} \neq f(\XXX) \Rightarrow \exists \sigma = (\sigma_1,\ldots,\sigma_n),$ т.ч. $\overline{f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n)} \neq f(\sigma_1,\ldots,\sigma_n) \Rightarrow f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n) = f(\sigma_1,\ldots,\sigma_n) = C.$\\
+    Будем считать, что $(\SIG) = (\underbrace{0,\ldots,0}_k,\underbrace{1,\ldots,1}_{n-k})$.\\
+    Пусть $g(x) = f(\underbrace{x,\ldots,x}_k,\underbrace{ \bar{x},\ldots,\bar{x}}_{n-k}).$\\
+    $g(0) = f(\underbrace{0,\ldots,0}_k,\underbrace{ 1,\ldots,1}_{n-k}) = f(\SIG),\\
+    g(1)= f(\underbrace{1,\ldots,1}_k,\underbrace{ 0,\ldots,0}_{n-k}) = f(\bar{\sigma}_1,\ldots,\bar{\sigma}_n)$,\\ значит, 
+    $g(0) = g(1) = C, $ причём $g$ задаётся формулой над $\{f,\,\bar{x}\} \Rightarrow g \in S$.\\
+    Получаем $C \in  [\{f, \bar{x}\}] \Rightarrow \bar{C} \in [\{f, \bar{x}\}] \Rightarrow 0,\,1 \in [\{f, \bar{x}\}].$
+\end{proof}
+
+\subsection{Линейные функции.}
+\begin{df}
+Булева функция называется линейной, если степень её полинома Жегалкина не превосходит $1$.
+\end{df}
+Здесь под степенью полинома Жегалкина понимается максимальная длина слагаемого в нём или, говоря алгебраическим языком, его степень как многочлена над $\mathbb{Z}_2$. Например, степень полинома $xyz \oplus x \oplus 1$ равна $3$. 
+\begin{df}
+$L$ --- класс всех линейных булевых функций.
+\end{df}
+\begin{proposition}
+1) $0,\, 1,\, x,\, \bar{x},\, x\oplus y,\, x \sim y \in L$, 2) $x \to y,\, x \vee y,\, x\& y \not\in L.$
+\end{proposition}
+\begin{proof}
+Первая часть утверждения очевидна, кроме утверждения про функцию $x \sim y$. Чтобы доказать оставшееся, представим следующие функции в виде полиномов:\\
+$x \sim y = x \oplus y \oplus 1 ~ (\deg = 1),\\
+x \to y = \bar{x} \vee xy = xy \oplus x \oplus 1 ~ (\deg = 2),\\
+x \vee y = xy \oplus x \oplus y ~ (\deg = 2)$.
+%дописать про последнюю функцию x\& y !!!
+\end{proof}
+\begin{lemma}
+$L$ является замкнутым классом.
+\end{lemma}
+\begin{proof}
+$x \in L$. Достаточно доказать, что $f(x_1, \ldots, x_k),\, g_1(\XXX),\, \ldots,\,\\ g_k(\XXX) \in L \Rightarrow h(\XXX) = f(g_1(\XXX),\ldots,g_k(\XXX)) \in L $.\\
+Проверим это напрямую:\\
+$f\in L \Rightarrow f(x_1,\ldots,x_k) = c_1x_1 \oplus \ldots \oplus c_kx_k \oplus c; ~ c_i,c 
+\in\{0,1\}.$\\
+$g_1, \ldots, g_k \in L \Rightarrow g_i(\XXX) = d_{i1}x_1 \oplus \ldots \oplus d_{in}x_n \oplus d_i; ~ d_{ij},d_i \in \{0,1\}. $\\
+$h(\XXX) = c_1\big(d_{11}x_1 \oplus \ldots \oplus d_{1n}x_n \oplus d_1 \big) \oplus \ldots \oplus c_k\big(d_{k1}x_1 \oplus \ldots \oplus d_{kn}x_n \oplus d_k \big) \oplus c = \\ = (c_1d_{11} \oplus c_kd_{k1})x_1 \oplus \ldots \oplus (c_1d_{1n} \oplus \ldots \oplus c_kd_{kn})x_n \oplus (c_1d_1 \oplus \ldots c_kd_k \oplus c).$ Видно, что это линейная функция.
+\end{proof}
+\begin{lemma}[О нелинейной функции] Пусть $f(\XXX)\not\in L$. Тогда $x\& y \in [\{f, \bar{x}, 0, 1\}].$
+\end{lemma}
+\begin{proof} Пусть $f\not\in L$, тогда степень её полинома Жегалкина равна $k \geq 2$. Выберем нелинейное слагаемое наименьшей степени $l\geq 2$ в этом полиноме. Без ограничения общности можно считать, что это слагаемое $x_1...x_l$. Запишем $f$ в виде $f(x_1,\ldots,x_n) = f_{\deg > l} \oplus x_1...x_l \oplus f_{\deg \leq 1}$, где $f_{\deg > l}$ --- сумма всех слагаемых степени больше $l$, а $f_{\deg \leq 1}$ --- сумма всех слагаемых степени не больше $1$.
+
+Рассмотрим функцию $g(x,y) = f(x, \overbrace{y,...,y}^{l-1}, 0,...,0)$. Ясно, что при подстановке аргументов $(x, y,...,y, 0,...,0)$ в полином Жегалкина для $f$ занулятся все слагаемые, входящие в $f_{\deg > l}$. 
+Далее, $g(x,y) = x\underbrace{y...y}_{l-1} \oplus \ldots = xy \oplus c_1x \oplus c_2y \oplus c$. 
+
+Теперь рассмотрим функцию $g'(x,y) = g(x\oplus c_2, y\oplus c_1) = xy \oplus c_1c_2 \oplus c = xy \oplus d$. Значит, $xy = g'(x,y) \oplus d = g(x\oplus c_2, y\oplus c_1) \oplus d = f(x \oplus c_2, \underbrace{y\oplus c_1,\ldots,y\oplus c_1}_{l-1},0,\ldots,0)\oplus d$. 
+
+Так как %$x\oplus d = \left\{ \begin{gathered} x,\,d=0\hfill \\ \bar{x},\,d=1,\hfill \\ \end{gathered} \right.$ то 
+$x\oplus d = x$ при $d=0$ и $x\oplus d = \bar{x}$ при $d=1$, то $xy \in [\{f, \bar{x}, 0, 1\}].$
+\end{proof}
+
+\subsection{Критерий Поста.}
+\begin{theorem}[Критерий полноты] Пусть $\mathcal{F} \subseteq P_2$, тогда \\ $\mathcal{F}$ является полной в $P_2$ $\Longleftrightarrow$ $\mathcal{F}$ не содержится ни в одном из классов $ T_0,\, T_1,\,M,\,L,\,S.$
+\end{theorem}
+\begin{proof}
+~\\
+1. $(\Rightarrow)$. Пусть $X$ --- один из классов $ T_0,\, T_1,\,M,\,L,\,S$. Они замкнуты, то есть $[X] = X$.
+Предположим, $\mathcal{F} \subseteq X $, тогда $[\mathcal{F}] \subseteq [X] = X \neq P_2 $. Противоречие. Значит, $\mathcal{F}$ не содержится ни в одном из классов $ T_0,\, T_1,\,M,\,L,\,S.$
+~\\
+2. $(\Leftarrow)$. Пусть $\mathcal{F}$ не содержится ни в одном из классов $ T_0,\, T_1,\,M,\,L,\,S$. Тогда существуют функции $f_X \in \mathcal{F} \setminus X$, где $X \in \{T_0,\, T_1,\,M,\,L,\,S\}$. Получим из этих функций константы, отрицание и дизъюнкцию. \\
+$f_{T_0} \not\in T_0 \Rightarrow f_{T_0} (0,\ldots,0) = 1 $, аналогично $f_{T_1} \not\in T_1 \Rightarrow f_{T_1} (1,\ldots,1) = 0 $. Положим $\varphi (x) = f_{T_0}(x,\ldots,x)$. Ясно, что $\varphi (0) = 1$. Если $\varphi(1) = 1$, то это константа $1$,  а функция $\psi (x) = f_{T_1}(\varphi (x),\ldots,\varphi(x))$ --- константа $0$. Если же $\varphi(1) = 1$, то $\varphi (x) = \bar{x}$, и по лемме о несамодвойственной функции при помощи отрицания можно получить обе константы. По лемме о немонотонной функции, из $f_M$, имея константы, можно получить отрицание. По лемме о нелинейной функции при помощи констант и отрицания можно получить конъюнкцию. Таким образом, мы выделили в $F$ полную подсистему, а значит, $[\mathcal{F}] = P_2$. 
+\end{proof}
+\begin{corollary}
+Из любого полного множества функций можно выделить полное подмножество из $\leq 5$ функций.
+\end{corollary}
+\begin{proof}
+Достаточно взять функции $f_{T_0},\,f_{T_1},\,f_M,\,f_S,\,f_L$, которые содержатся (по теореме 1) в этом полном множестве.
+\end{proof}
+\begin{corollary} 
+Из любого полного множества функций $\mathcal{F}$ можно выделить полное подмножество из $\leq 4$ функций.
+\end{corollary}
+\begin{proof}
+1) Пусть $f_{T_0}(1,\ldots,1) = 0$, тогда $f_{T_0} \not \in M$ и $\{f_{T_0},\, f_{T_1},\, f_S,\,f_L \}$ --- полное подмножество в $\mathcal{F}$.\\
+2) Пусть $f_{T_0}(1,\ldots,1) = 1$, тогда $f_{T_0} \not \in S$ и $\{f_{T_0},\, f_{T_1},\, f_M,\,f_L \}$ --- полное подмножество в $\mathcal{F}$.
+\end{proof}
+~\\
+\textit{Замечание.} Для 3 функций утверждение уже будет неверным. В качестве полной системы из 4 функций можно рассмотреть  $\{xy,\, x\oplus y\oplus z, \, 0,\, 1 \}$. Наглядно изобразить принадлежность этих функций разным замкнутым классам можно следующей таблицей:
+$$
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+    &      T_0       &       T_1      &      M      &      S      &      L \\
+\hline
+xy  &      \in       &       \in      &      \in    &   \not\in   &    \not\in \\
+\hline 
+x\oplus y\oplus z & \in &    \in      &     \not\in &   \in       &    \in \\
+\hline
+0   &      \in       &     \not\in    &      \in    &   \not\in   &    \in \\
+\hline
+1   &      \not\in   &     \in        &      \in    &   \not\in   &    \in \\
+\hline
+\end{array}
+$$
+При этом, если удалить любую из этих четырёх функций, то получившаяся система уже будет неполной ввиду принадлежности одному из классов $ T_0,\, T_1,\,M,\,L,\,S.$
+
+\subsection{Предполные классы}
+
+\begin{df}
+	Пусть $F \subseteq P_2$. Тогда $F$ -- предполный, если: 
+	\begin{enumerate}
+		\item $F \ne P_2$
+		\item $[F] = F$
+		\item $\forall f \notin F: [F \cup {f}] = P_2$
+	\end{enumerate}
+\end{df}
+
+В клетке таблице снизу стоит функция $\in$ строке и $\not \in $ столбцу $\Rightarrow$ ни один из классов не содержится в другом.
+
+$$\begin{array}{|c|c|c|c|c|c|}
+\hline
+ & T_0 & T_1 & L & S & M  \\
+\hline
+T_0 &  & 0 & xy & xy & x \oplus y \\
+\hline
+T_1 & 1 & &  xy & xy &  x ~ y \\
+\hline
+L & \overline{x} & \overline{x} &  & x \oplus y & \overline{x}\\
+\hline
+S & \overline{x} & \overline{x} & m(x, y, z) &  & \overline{x} \\
+\hline
+M & 1 & 0 & xy & xy &  \\
+\hline
+\end{array}$$
+\\
+\\\\
+
+\begin{theorem}
+	$T_0, T_1, S, M, L$ -- множество всех предполных классов.
+\end{theorem}
+
+\begin{proof}
+	Пусть есть $A = [A]$ -- предполный. Возьмём класс $M$.
+
+	Пусть $A \subset M \Rightarrow \exists f \in M \setminus A : [A \cup {f}] \subseteq [M] = M$.
+
+	Аналогичные рассуждения можно провести и для остальных классов.
+\end{proof}
+
+\subsection{Принцип двойственности}
+{\bf Формулировка.}
+
+Пусть формула $\Phi$ над $F$ задаёт функцию $f$. Формула $\Phi'$, получающаяся из $\Phi$ путём замены $f_i \rightarrow f_i^{*}$ будет реализовывать $f^{*}$.
+
+$\left( \text{Напомним, что функция } f^{*}(\XXX) = \overline{f(\overline{x_1}, \ldots, \overline{x_n})} \right)$
+
+{\bf Идея: }
+
+
+$ \overline{f_0(  \overline{\overline{f_{i_1}(\ldots)}}, \ldots, \overline{\overline{ f_{i_k}(\ldots)}} )} $ -- возникаю двойные отрицания, которые исчезают, кроме {\em верхних} и {\em нижних}, что как раз даёт функцию $f^{*}$.
