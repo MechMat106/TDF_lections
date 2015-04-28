@@ -243,13 +243,13 @@ $ --- некоторое множество булевых функций,
 
 Возьмём множество $F \subseteq P_2$.
 
-\begin{definition}
+\begin{df}
 	Замыкание $[F]$ множества $F$ --- это множество всех булевых функций, получаемых из булевых функций множества $F$ с помощью операций суперпозиции, удаления и добавления фиктивных переменных.
-\end{definition}
+\end{df}
 
-\begin{definition}
+\begin{df}
 	$F$ --- замкнуто, если $[F] = F$.
-\end{definition}
+\end{df}
 
 \begin{enumerate}
 	\item
@@ -258,9 +258,9 @@ $ --- некоторое множество булевых функций,
 	$P_2$ --- замкнуто.	
 \end{enumerate}
 
-\begin{definition}
+\begin{df}
 	$P_2(n)$ --- все булевы функции, существенно зависящие от не более, чем $n$ переменных.
-\end{definition}
+\end{df}
 
 \begin{enumerate}
 	\item
@@ -299,13 +299,13 @@ $ --- некоторое множество булевых функций,
 \subsection{СДНФ и СКНФ.}
 Пусть $F$ --- замкнутое множество, и $F_1 \subseteq F$.
 
-\begin{definition}
+\begin{df}
 	$F_1$ называется полным в $F$, если $[F_1] = F$.
-\end{definition}
+\end{df}
 
-\begin{definition}
+\begin{df}
 	$F_1$ называется полным, если $[F_1] = P_2$.
-\end{definition}
+\end{df}
 
 \begin{example}
 	$P_2$ --- полное множество.
@@ -338,9 +338,9 @@ $
 = \overline{x_1}\overline{x_2}f(0, 0, \ldots, x_n) \vee \overline{x_1} x_2 f(0, 1, \ldots, x_n) \vee x_1 \overline{x_2}f(1, 0, \ldots, x_n) \vee x_1 x_2 f(1, 1, \ldots, x_n)
 $
 
-\begin{definition}
+\begin{df}
 	$x_\sigma = \begin{cases} x \text{, если }\sigma = 1 \\ \overline{x} \text{, если }\sigma = 0 \end{cases}$
-\end{definition}
+\end{df}
 
 
 Итак, $f(\XXX)$ можно переписать в виде $\bigvee \limits_{\sigma_1, \sigma_2 \in E} f(\sigma_1, \sigma_2, x_3, \ldots, x_n)$.
@@ -351,12 +351,12 @@ $f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_k) \in E^k} f(\sigma_1, \ld
 
 При $k = n$ получаем:  $f(\XXX) = \bigvee \limits_{(\sigma_1,\ldots, \sigma_n) \in E^n} x_1^{\sigma_1}\ldots x_n^{\sigma_n}f(\SIG) =\\ = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $
 
-\begin{definition} Форма представления функции в виде\\ $f(\XXX)= \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $ называется\\ \textit{ Совершенной дизъюнктивной нормальной формой (СДНФ).}
-\end{definition}
-\begin{definition}
+\begin{df} Форма представления функции в виде\\ $f(\XXX)= \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 1}} x_1^{\sigma_1}\ldots x_n^{\sigma_n} $ называется\\ \textit{ Совершенной дизъюнктивной нормальной формой (СДНФ).}
+\end{df}
+\begin{df}
 Пусть $f(\XXX) \ne 1$ --- булева функция.\\
 $\overline{x} \ne 0 \Rightarrow \overline{f(\XXX)} = \bigvee \limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ \overline{f}(\SIG) = 1}} \overline{x_1^{\sigma_1}\ldots x_n^{\sigma_n}} =\\ = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} \overline{x_1^{\sigma_1}} \vee \ldots \vee  \overline{x_n^{\sigma_n}} = \amper\limits_{\substack{(\sigma_1,\ldots, \sigma_n) \in E^n \\ f(\SIG) = 0}} x_1^{\overline{\sigma_1}} \vee \ldots \vee  x_n^{\overline{\sigma_n}}$ --- это так называемая \\ \textit{ Совершенная конъюктивная нормальная форма (СКНФ).}
-\end{definition}
+\end{df}
 
 
 
@@ -418,13 +418,13 @@ $\{x \oplus y,\, x \& y,\, 1\}$ --- полное множество.
 
 %\section{Замкнутые классы булевых функций.}
 \subsection{Функции, сохраняющие ноль и единицу.}
-\begin{definition}
+\begin{df}
 	$f$ сохраняет 0, если $f(0,\ldots, 0)=0$.
 	$T_0$ --- множество всех функций, сохраняющих ноль. Например, $0,\,x,\,x \& y,\, x \vee y,\, x \oplus y$.
-\end{definition}
-\begin{definition}
+\end{df}
+\begin{df}
 	Селекторная функция --- функция, тождественна равная переменной. 
-\end{definition}
+\end{df}
 \begin{lemma}
 	$T_0 $ --- замкнуто. 
 \end{lemma}
@@ -435,10 +435,10 @@ $\{x \oplus y,\, x \& y,\, 1\}$ --- полное множество.
 	h(0, \ldots, 0)=f(g_1(0,\ldots,0),\ldots,g_n(0, \ldots, 0))=f(0,\ldots,0)=0. \Rightarrow h \in T_0. 
 $
 \end{proof}
-\begin{definition}
+\begin{df}
 	$f$ сохраняет 1, если $f(1,\ldots, 1)=1$.
 	Обозначим за $T_1$ множество всех функций, сохраняющих единицу. Например, $1,\,x,\,xy\rightarrow y, \,x \vee y$.
-\end{definition}
+\end{df}
 \begin{lemma}
 	$T_1 $ --- замкнуто. 
 \end{lemma}
@@ -450,9 +450,9 @@ $
 $\sigma'=\{\sigma_1',\ldots,\sigma_n'\}, \,\sigma''= \{\sigma_1'',\ldots,\sigma_n''\} \in \{0,1\}^n.$ \\
 Будем говорить, что $\sigma'\leq\sigma'',\, \text{если} ~ \forall i \in \{1,\ldots,n\} ~ \sigma_i ' \leq\sigma_i '' .$ \\
 Заметим, что существуют несравнимые наборы, например: $(101)$ и $(010)$. 
-\begin{definition}
+\begin{df}
 $f$ --- монотонная, если для любых $\sigma' \text{ и } \sigma'' ~ \text{таких, что} ~ \sigma'\leq \sigma'' $ выполняется, что $f(\sigma')\leqslant f(\sigma'').$
-\end{definition}
+\end{df}
 \begin{lemma}
 	$M$ является замкнутым классом. 
 \end{lemma}
@@ -476,13 +476,13 @@ g_i(\sigma')<g_i(\sigma''), $ так как $ g_i$ --- монотонная. $ f
 	g(x)=f(\underbrace{x, \ldots, x}_k, \underbrace{0, \ldots, 0}_s,\underbrace{1,\ldots,1}_{n-k-s}) =\bar{x},$ так как $g(0)=1 ~ \text{и} ~ g(1)=0$.
 \end{proof}
 \subsection{Самодвойственные функции.}
-\begin{definition} Двойственной функцией к $f(\XXX)$ называется функция $f^*(x_1,\ldots,x_n)=\overline{f(\bar{x}_1,\ldots,\bar{x}_n)}.$ \end{definition}
+\begin{df} Двойственной функцией к $f(\XXX)$ называется функция $f^*(x_1,\ldots,x_n)=\overline{f(\bar{x}_1,\ldots,\bar{x}_n)}.$ \end{df}
 \begin{example} $(x\&y)^*=x \vee y$ \end{example}
 
 \noindent Легко заметить, что $(f^*)^*=f.$
-\begin{definition}
+\begin{df}
 Самодвойственная функция --- функция, двойственная самой себе; множество всех таких функций обозначается $S$.
-\end{definition}
+\end{df}
 \begin{statement} 1) $\bar{x},x\oplus y \oplus z, m(x,y,z) \in S$; 2) $0,1,x\oplus y, x\rightarrow y, x \& y, x \vee y \notin S $ 
 \end{statement}
 \begin{proof}
@@ -512,13 +512,13 @@ g_i(\sigma')<g_i(\sigma''), $ так как $ g_i$ --- монотонная. $ f
 \end{proof}
 
 \subsection{Линейные функции.}
-\begin{definition}
+\begin{df}
 Булева функция называется линейной, если степень её полинома Жегалкина не превосходит $1$.
-\end{definition}
+\end{df}
 Здесь под степенью полинома Жегалкина понимается максимальная длина слагаемого в нём или, говоря алгебраическим языком, его степень как многочлена над $\mathbb{Z}_2$. Например, степень полинома $xyz \oplus x \oplus 1$ равна $3$. 
-\begin{definition}
+\begin{df}
 $L$ --- класс всех линейных булевых функций.
-\end{definition}
+\end{df}
 \begin{proposition}
 1) $0,\, 1,\, x,\, \bar{x},\, x\oplus y,\, x \sim y \in L$, 2) $x \to y,\, x \vee y,\, x\& y \not\in L.$
 \end{proposition}
@@ -598,14 +598,14 @@ $$
 
 \subsection{Предполные классы}
 
-\begin{definition}
+\begin{df}
 	Пусть $F \subseteq P_2$. Тогда $F$ -- предполный, если: 
 	\begin{enumerate}
 		\item $F \ne P_2$
 		\item $[F] = F$
 		\item $\forall f \notin F: [F \cup {f}] = P_2$
 	\end{enumerate}
-\end{definition}
+\end{df}
 
 В клетке таблице снизу стоит функция $\in$ строке и $\not \in $ столбцу $\Rightarrow$ ни один из классов не содержится в другом.
 
